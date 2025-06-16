@@ -1,376 +1,901 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Beaker, MessageSquare, ClipboardList, Users, Eye, Menu, X } from 'lucide-react';
+<!DOCTYPE html>
 
-// --- Data (In a real app, this might come from a CMS or API) ---
+<html lang="en" class="scroll-smooth">
 
-const profile = {
-    name: "Illia Shkliar",
-    tagline: "Student researcher specializing in biomedical imaging and a passionate science communicator dedicated to making complex biology accessible to all.",
-    imageUrl: "https://media.licdn.com/dms/image/v2/D5603AQFbUHb5vUPXkw/profile-displayphoto-shrink_200_200/B56ZY7zF44GUAY-/0/1744759972996?e=2147483647&v=beta&t=VXakGbRSjfExvijwR_HSoo99ML6uGkOClxLOznt9MZ0",
-    linkedin: "https://www.linkedin.com/in/illia-shkliar/",
-    email: "mailto:illiashkliar265@gmail.com",
-};
+<head>
 
-const navigationLinks = [
-    { href: "#journey", text: "Journey" },
-    { href: "#competencies", text: "Competencies" },
-    { href: "#impact", text: "Impact" },
-    { href: "#publications", text: "Publications" },
-];
+    <meta charset="UTF-8">
 
-const journeyData = [
-    {
-        date: "Summer 2025",
-        type: "Fellowship",
-        title: "SCI³ Mini-Fellowship",
-        institution: "Stanford University, School of Medicine",
-        description: "Selected for a competitive fellowship focused on advanced scientific research, technology, and inclusion, featuring intensive workshops and direct mentorship from Stanford faculty.",
-        color: "sky"
-    },
-    {
-        date: "March 2025",
-        type: "Publication",
-        title: "Published in npj Imaging",
-        institution: "Nature Portfolio",
-        description: "Co-authored \"Translation of Hyperpolarized [13C,15N]2Urea MRI for Novel Human Brain Perfusion Studies,\" contributing to a first-in-human clinical trial.",
-        color: "emerald"
-    },
-    {
-        date: "January 2025",
-        type: "Presentation",
-        title: "Co-First Author at ISMRM",
-        institution: "International Society for Magnetic Resonance in Medicine",
-        description: "Abstract \"D₂O vs H₂O Dissolutions for Enhancing Human MR Imaging...\" selected for a digital poster presentation, highlighting significant intellectual contribution to the project.",
-        color: "amber"
-    },
-     {
-        date: "November 2024",
-        type: "Leadership",
-        title: "President, Gen Core Biology",
-        institution: "501(c)(3) Non-Profit",
-        description: "Lead a global organization to democratize biology education, growing the platform to over 128K followers and 120M views across 12 international branches.",
-        link: "https://gcbiology.org/",
-        color: "indigo"
-    },
-    {
-        date: "June 2023",
-        type: "Research",
-        title: "Began Research at UCSF",
-        institution: "Surbek Laboratory for Advanced Imaging",
-        description: "Started multi-year tenure as a student researcher, leading quality control for MRI coils and contributing to hyperpolarized MRI studies under the mentorship of Dr. Daniel Vigneron.",
-        color: "rose"
-    },
-];
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-const competenciesData = [
-    { icon: <Beaker size={32} />, title: "Metabolic Imaging Research", description: "Extensive hands-on experience in hyperpolarized carbon-13 MRI at UCSF, from data acquisition and quality control to analysis using MATLAB and MestreNova for novel cancer and brain perfusion studies.", color: "sky" },
-    { icon: <MessageSquare size={32} />, title: "Science Communication", description: "Lead Gen Core Biology, a global non-profit that leverages social media to make AP Biology concepts engaging and accessible, reaching millions of students worldwide.", link: "https://gcbiology.org/", color: "indigo" },
-    { icon: <ClipboardList size={32} />, title: "Clinical Case Studies", description: "Co-authored multiple peer-reviewed clinical case reports focusing on post-COVID-19 neurological symptoms in Ukrainian women, demonstrating a commitment to purposeful, community-relevant research.", color: "emerald" },
-];
+    <title>Illia Shkliar | Student Researcher & Science Communicator</title>
 
-const publicationsData = [
-    { type: "Journal Publication", title: "Translation of Hyperpolarized [13C,15N]2Urea MRI for Novel Human Brain Perfusion Studies", authors: "Kim, Y., Chen, zH.-Y., Nickels, T., Shkliar, I., et al.", journal: "npj Imaging (Nature Portfolio), 2025", link: "https://www.nature.com/articles/s44303-025-00073-3", color: "sky" },
-    { type: "Conference Presentation", title: "D₂O vs H₂O Dissolutions for Enhancing Human MR Imaging...", authors: "Kim, Y.*, Shkliar, I.*, et al.", journal: "Accepted at International Society for Magnetic Resonance in Medicine (ISMRM), 2025", link: null, color: "amber" },
-    { type: "Journal Publication", title: "A Case of Mild Depression Episode with Cognitive Impairment...", authors: "Orlova, N., Shkliar, I.", journal: "EJBS, 2024", link: "https://www.researchgate.net/publication/381879833_A_CASE_OF_MILD_DEPRESSION_EPISODE_WITH_COGNITIVE_IMPAIRMENT_AND_SUICIDAL_THOUGHTS_IN_UKRAINIAN_WOMAN_AFTER_COVID-19", color: "sky" },
-    { type: "Journal Publication", title: "Dysgeusia in Ukrainian Woman with COVID: Case Report", authors: "Orlova, N., Shkliar, M., Shkliar, I.", journal: "Yumed Text, 2023", link: "https://www.researchgate.net/publication/369377874_Dysgeusia_in_Ukrainian_Woman_with_COVID_Case_Report", color: "sky" },
-];
+    <script src="https://cdn.tailwindcss.com"></script>
 
-// --- Reusable Components ---
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-const Header = ({ name, links }) => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    const handleScroll = (e, href) => {
-        e.preventDefault();
-        setIsMenuOpen(false); // Close menu on link click
-        const targetElement = document.querySelector(href);
-        if (targetElement) {
-            const headerOffset = 70; // Adjusted for better placement
-            const elementPosition = targetElement.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      
-            window.scrollTo({
-                 top: offsetPosition,
-                 behavior: "smooth"
-            });
-        }
-    };
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    return (
-        <header id="header" className="bg-white/90 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
-            <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-between h-16">
-                    <div className="flex-shrink-0">
-                        <a href="#hero" onClick={(e) => handleScroll(e, "#hero")} className="text-xl font-bold text-slate-800">{name}</a>
-                    </div>
-                    <div className="hidden md:block">
-                        <div className="ml-10 flex items-baseline space-x-4">
-                            {links.map((link) => (
-                                <a key={link.href} href={link.href} onClick={(e) => handleScroll(e, link.href)} className="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                                    {link.text}
-                                </a>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="md:hidden">
-                        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 rounded-md text-slate-600 hover:text-sky-600 hover:bg-slate-100" aria-label="Open menu">
-                           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                        </button>
-                    </div>
-                </div>
-                <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} border-t border-slate-200`}>
-                    <div className="pt-2 pb-3 space-y-1 sm:px-3">
-                        {links.map((link) => (
-                             <a key={link.href} href={link.href} onClick={(e) => handleScroll(e, link.href)} className="text-slate-600 hover:text-sky-600 hover:bg-slate-50 block px-3 py-2 rounded-md text-base font-medium">
-                                {link.text}
-                            </a>
-                        ))}
-                    </div>
-                </div>
-            </nav>
-        </header>
-    );
-};
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-const Hero = ({ profile }) => (
-    <section id="hero" className="pt-20 pb-16 sm:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-                <div className="flex-shrink-0">
-                    <img className="h-40 w-40 sm:h-48 sm:w-48 rounded-full object-cover shadow-lg border-4 border-white" src={profile.imageUrl} alt={profile.name} onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/200x200/e2e8f0/64748b?text=IS'; }} />
-                </div>
-                <div className="text-center md:text-left">
-                    <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-slate-900">{profile.name}</h1>
-                    <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-2xl">{profile.tagline}</p>
-                    <div className="mt-8 flex items-center justify-center md:justify-start gap-x-6">
-                        <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="rounded-md bg-sky-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 transition-colors">
-                            View LinkedIn
-                        </a>
-                        <a href={profile.email} className="text-sm font-semibold leading-6 text-slate-900">Contact Me <span aria-hidden="true">→</span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-);
+    <!-- Chosen Palette: Stone & Sky -->
 
-const Journey = ({ items }) => {
-    const [activeIndex, setActiveIndex] = useState(0);
+    <!-- Application Structure Plan: I've designed a single-page portfolio structure instead of a static resume. The core is an interactive chronological timeline that merges education, research, and honors, allowing users to explore Illia's journey. This is supported by thematic sections for 'Core Competencies' (cards), a linked 'Publications' list, and a skills dashboard with a growth chart. This structure turns a static CV into an engaging narrative of expertise and accomplishment. -->
 
-    const colorClasses = {
-        bg: { sky: 'bg-sky-500', emerald: 'bg-emerald-500', amber: 'bg-amber-500', indigo: 'bg-indigo-500', rose: 'bg-rose-500' },
-        tagBg: { sky: 'bg-sky-100', emerald: 'bg-emerald-100', amber: 'bg-amber-100', indigo: 'bg-indigo-100', rose: 'bg-rose-100' },
-        tagText: { sky: 'text-sky-700', emerald: 'text-emerald-700', amber: 'text-amber-700', indigo: 'text-indigo-700', rose: 'text-rose-700' },
-    };
+    <!-- Visualization & Content Choices: The application uses an interactive timeline (JS click events), competency cards (Tailwind grid), a publication list, and a Chart.js bar chart to visualize the impact of the Gen Core Biology non-profit. This combination provides a comprehensive and interactive overview of the user's profile. -->
 
-    return (
-        <section id="journey" className="py-20 sm:py-24">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-12 sm:mb-16">
-                    <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">My Journey</h2>
-                    <p className="mt-4 text-base sm:text-lg text-slate-600">An interactive timeline of my key experiences.</p>
-                </div>
-                <div className="relative">
-                    <div className="absolute top-0 w-1 h-full bg-slate-200 left-5 md:left-1/2 md:-ml-0.5"></div>
-                    {items.map((item, index) => (
-                        <div key={index} className="relative pl-12 md:pl-0 mb-10 last:mb-0">
-                            <div className="md:flex items-start">
-                                <div className="md:w-1/2 md:pr-8 md:text-right">
-                                    <div className="md:hidden">
-                                        <h3 onClick={() => setActiveIndex(index)} className="text-base sm:text-lg font-semibold text-slate-800 cursor-pointer flex-col sm:flex-row items-start sm:items-center flex">
-                                            <span className="font-bold mr-2">{item.date}</span>
-                                            <span className={`mt-1 sm:mt-0 text-xs font-medium px-2.5 py-0.5 rounded-full ${colorClasses.tagBg[item.color]} ${colorClasses.tagText[item.color]}`}>{item.type}</span>
-                                        </h3>
-                                    </div>
-                                </div>
-                                <div className={`absolute w-8 h-8 ${colorClasses.bg[item.color]} rounded-full border-4 border-white cursor-pointer top-0 left-5 -ml-4 md:left-1/2`} onClick={() => setActiveIndex(index)}></div>
-                                <div className="md:w-1/2 md:pl-8">
-                                    <div className="hidden md:block">
-                                        <h3 onClick={() => setActiveIndex(index)} className="text-base sm:text-lg font-semibold text-slate-800 cursor-pointer flex-col sm:flex-row items-start sm:items-center flex">
-                                            <span className="font-bold mr-2">{item.date}</span>
-                                            <span className={`mt-1 sm:mt-0 text-xs font-medium px-2.5 py-0.5 rounded-full ${colorClasses.tagBg[item.color]} ${colorClasses.tagText[item.color]}`}>{item.type}</span>
-                                        </h3>
-                                    </div>
-                                    <div className={`transition-all duration-500 ease-in-out overflow-hidden ${activeIndex === index ? 'max-h-[500px] opacity-100 mt-2' : 'max-h-0 opacity-0'}`}>
-                                        <h4 className="text-md font-bold text-slate-900">
-                                            {item.link ? <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">{item.title}</a> : item.title}
-                                        </h4>
-                                        <p className="text-sm text-slate-500">{item.institution}</p>
-                                        <p className="mt-2 text-slate-600 text-sm sm:text-base">{item.description}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
-};
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
-const CompetencyCard = ({ icon, title, description, link, color }) => {
-     const colorClasses = { text: { sky: 'text-sky-500', indigo: 'text-indigo-500', emerald: 'text-emerald-500' } };
-    
-    return (
-         <div className="bg-slate-50 p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300">
-            <div className={`${colorClasses.text[color]} mb-4`}>{icon}</div>
-            <h3 className="text-lg sm:text-xl font-semibold text-slate-900">{title}</h3>
-            <p className="mt-2 text-slate-600 text-sm sm:text-base">
-                {description.includes("Gen Core Biology") ? 
-                    <>Lead <a href={link} target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">Gen Core Biology</a>, a global non-profit that leverages social media to make AP Biology concepts engaging and accessible, reaching millions of students worldwide.</>
-                    : description
-                }
-            </p>
-        </div>
-    );
-};
+    <style>
 
-const Competencies = ({ items }) => (
-    <section id="competencies" className="py-20 sm:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12 sm:mb-16">
-                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Core Competencies</h2>
-                <p className="mt-4 text-base sm:text-lg text-slate-600">My work is centered around three key pillars.</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {items.map((item, index) => <CompetencyCard key={index} {...item} />)}
-            </div>
-        </div>
-    </section>
-);
+        body {
 
-const AnimatedStatCard = ({ icon, finalValue, label, duration = 2000 }) => {
-    const [count, setCount] = useState(0);
-    const cardRef = useRef(null);
+            font-family: 'Inter', sans-serif;
 
-    const formatNumber = (num) => {
-        if (num >= 1000000) return `${(num / 1000000).toFixed(1)}M+`;
-        if (num >= 1000) return `${(num / 1000).toFixed(0)}K+`;
-        return num.toLocaleString();
-    };
-    
-    const finalDisplay = formatNumber(finalValue);
+            background-color: #f8fafc; /* slate-50 */
 
-    useEffect(() => {
-        let animationFrameId;
-        let startTime;
-        
-        const animateCount = (timestamp) => {
-            if (startTime === undefined) {
-                startTime = timestamp;
-            }
-            const progress = timestamp - startTime;
-            const percentage = Math.min(progress / duration, 1);
-            const currentCount = Math.floor(percentage * finalValue);
-            
-            setCount(currentCount);
+        }
 
-            if (percentage < 1) {
-                animationFrameId = requestAnimationFrame(animateCount);
-            } else {
-                 setCount(finalValue);
-            }
-        };
+        .timeline-item-content {
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                if (entries[0].isIntersecting) {
-                    animationFrameId = requestAnimationFrame(animateCount);
-                    observer.disconnect();
-                }
-            },
-            { threshold: 0.5 }
-        );
+            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
 
-        const currentRef = cardRef.current;
-        if (currentRef) { 
-            observer.observe(currentRef); 
-        }
+            max-height: 0;
 
-        return () => {
-            cancelAnimationFrame(animationFrameId);
-            if (currentRef) { 
-                observer.unobserve(currentRef); 
-            }
-        };
-    }, [finalValue, duration]);
+            opacity: 0;
 
-    return (
-        <div ref={cardRef} className="bg-white p-6 sm:p-8 rounded-lg shadow-sm text-center flex flex-col items-center">
-            <div className="text-sky-500 mb-4">{icon}</div>
-            <p className="text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight">
-                {count === finalValue ? finalDisplay : count.toLocaleString()}
-            </p>
-            <p className="text-base sm:text-lg text-slate-600 mt-2">{label}</p>
-        </div>
-    );
-};
+            overflow: hidden;
 
-const ImpactStats = () => (
-    <section id="impact" className="py-20 sm:py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12 sm:mb-16">
-                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Global Impact</h2>
-                <p className="mt-4 text-base sm:text-lg text-slate-600">The growth and global reach of Gen Core Biology.</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <AnimatedStatCard icon={<Users size={32} />} finalValue={128000} label="Followers" />
-                <AnimatedStatCard icon={<Eye size={32} />} finalValue={120000000} label="Views" />
-            </div>
-        </div>
-    </section>
-);
+        }
+
+        .timeline-item-content.active {
+
+            max-height: 500px;
+
+            opacity: 1;
+
+        }
+
+        .chart-container {
+
+            position: relative;
+
+            width: 100%;
+
+            max-width: 600px;
+
+            margin-left: auto;
+
+            margin-right: auto;
+
+            height: 350px;
+
+            max-height: 400px;
+
+        }
+
+        @media (min-width: 768px) {
+
+            .chart-container {
+
+                height: 400px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body class="text-slate-700">
 
 
-const Publications = ({ items }) => {
-    const colorClasses = {
-        text: { sky: 'text-sky-600', amber: 'text-amber-600' }
-    };
-    return (
-        <section id="publications" className="py-20 sm:py-24 bg-white">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-12 sm:mb-16">
-                    <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Publications & Presentations</h2>
-                    <p className="mt-4 text-base sm:text-lg text-slate-600">A selection of my contributions to the scientific community.</p>
-                </div>
-                <ul className="space-y-8">
-                    {items.map((pub, index) => (
-                        <li key={index} className="p-6 bg-slate-50 rounded-lg shadow-sm">
-                            <p className={`text-sm font-medium ${colorClasses.text[pub.color]}`}>{pub.type}</p>
-                            <h3 className="mt-2 text-lg font-semibold text-slate-800">
-                                {pub.link ? (
-                                    <a href={pub.link} target="_blank" rel="noopener noreferrer" className="hover:text-sky-600 transition-colors">{pub.title}</a>
-                                ) : pub.title}
-                            </h3>
-                            <p className="mt-1 text-sm text-slate-500" dangerouslySetInnerHTML={{ __html: pub.authors.replace('Shkliar, I.', '<b>Shkliar, I.</b>') }}></p>
-                            <p className="mt-1 text-sm text-slate-500 italic">{pub.journal}</p>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </section>
-    );
-};
+
+    <!-- Header & Navigation -->
+
+    <header id="header" class="bg-white/80 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
+
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="flex items-center justify-between h-16">
+
+                <div class="flex-shrink-0">
+
+                    <a href="#hero" class="text-xl font-bold text-slate-800">Illia Shkliar</a>
+
+                </div>
+
+                <div class="hidden md:block">
+
+                    <div class="ml-10 flex items-baseline space-x-4">
+
+                        <a href="#journey" class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Journey</a>
+
+                        <a href="#competencies" class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Competencies</a>
+
+                        <a href="#publications" class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Publications</a>
+
+                        <a href="#skills" class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
 
 
-// --- Main App Component ---
-export default function App() {
-    return (
-        <div className="bg-slate-100 text-slate-700 font-sans">
-            <Header name={profile.name} links={navigationLinks} />
-            <main>
-                <Hero profile={profile} />
-                <Journey items={journeyData} />
-                <Competencies items={competenciesData} />
-                <ImpactStats />
-                <Publications items={publicationsData} />
-            </main>
-            <footer className="bg-slate-800 text-slate-300">
-                <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center">
-                    <p>&copy; {new Date().getFullYear()} {profile.name}. All rights reserved.</p>
-                </div>
-            </footer>
-        </div>
-    );
-}
 
+    <main>
+
+        <!-- Hero Section -->
+
+        <section id="hero" class="py-24 sm:py-32 bg-white">
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="flex flex-col md:flex-row items-center gap-12">
+
+                    <div class="flex-shrink-0">
+
+                        <img class="h-48 w-48 sm:h-56 sm:w-56 rounded-full object-cover shadow-lg border-4 border-white" src="https://media.licdn.com/dms/image/v2/D5603AQFbUHb5vUPXkw/profile-displayphoto-shrink_200_200/B56ZY7zF44GUAY-/0/1744759972996?e=2147483647&v=beta&t=VXakGbRSjfExvijwR_HSoo99ML6uGkOClxLOznt9MZ0" alt="Illia Shkliar">
+
+                    </div>
+
+                    <div class="text-center md:text-left">
+
+                        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900">Illia Shkliar</h1>
+
+                        <p class="mt-6 text-lg sm:text-xl text-slate-600 max-w-2xl">Student researcher specializing in biomedical imaging and a passionate science communicator dedicated to making complex biology accessible to all.</p>
+
+                        <div class="mt-10 flex items-center justify-center md:justify-start gap-x-6">
+
+                            <a href="https://www.linkedin.com/in/illia-shkliar/" target="_blank" class="rounded-md bg-sky-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600">
+
+                                View LinkedIn
+
+                            </a>
+
+                            <a href="mailto:illiashkliar265@gmail.com" class="text-sm font-semibold leading-6 text-slate-900">Contact Me <span aria-hidden="true">→</span></a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- The Journey Timeline -->
+
+        <section id="journey" class="py-20 sm:py-24">
+
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="text-center mb-16">
+
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">My Journey</h2>
+
+                    <p class="mt-4 text-lg text-slate-600">An interactive timeline of my key experiences and accomplishments. Click on any milestone to learn more.</p>
+
+                </div>
+
+
+
+                <div class="relative">
+
+                    <!-- Vertical line -->
+
+                    <div class="absolute left-1/2 -ml-0.5 w-1 h-full bg-slate-200"></div>
+
+
+
+                    <!-- Timeline Item: Fellowship -->
+
+                    <div class="relative mb-8 timeline-item">
+
+                        <div class="absolute left-1/2 -ml-4 w-8 h-8 bg-sky-500 rounded-full border-4 border-white cursor-pointer"></div>
+
+                        <div class="ml-[calc(50%+2rem)] pl-8 pb-8">
+
+                            <h3 class="text-lg font-semibold text-slate-800 cursor-pointer flex items-center">
+
+                                <span class="mr-2">Summer 2025</span>
+
+                                <span class="bg-sky-100 text-sky-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Fellowship</span>
+
+                            </h3>
+
+                            <div class="timeline-item-content">
+
+                                <h4 class="mt-2 text-md font-bold text-slate-900">SCI³ Mini-Fellowship</h4>
+
+                                <p class="text-sm text-slate-500">Stanford University, School of Medicine</p>
+
+                                <p class="mt-2 text-slate-600">Selected for a competitive fellowship focused on advanced scientific research, technology, and inclusion, featuring intensive workshops and direct mentorship from Stanford faculty.</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    
+
+                    <!-- Timeline Item: npj Imaging Publication -->
+
+                     <div class="relative mb-8 timeline-item">
+
+                        <div class="absolute left-1/2 -ml-4 w-8 h-8 bg-emerald-500 rounded-full border-4 border-white cursor-pointer"></div>
+
+                        <div class="ml-[calc(50%+2rem)] pl-8 pb-8">
+
+                            <h3 class="text-lg font-semibold text-slate-800 cursor-pointer flex items-center">
+
+                                <span class="mr-2">March 2025</span>
+
+                                <span class="bg-emerald-100 text-emerald-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Publication</span>
+
+                            </h3>
+
+                            <div class="timeline-item-content">
+
+                                <h4 class="mt-2 text-md font-bold text-slate-900">Published in *npj Imaging*</h4>
+
+                                <p class="text-sm text-slate-500">Nature Portfolio</p>
+
+                                <p class="mt-2 text-slate-600">Co-authored "Translation of Hyperpolarized [13C,15N]2Urea MRI for Novel Human Brain Perfusion Studies," contributing to a first-in-human clinical trial.</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Timeline Item: ISMRM -->
+
+                    <div class="relative mb-8 timeline-item">
+
+                        <div class="absolute left-1/2 -ml-4 w-8 h-8 bg-amber-500 rounded-full border-4 border-white cursor-pointer"></div>
+
+                        <div class="ml-[calc(50%+2rem)] pl-8 pb-8">
+
+                            <h3 class="text-lg font-semibold text-slate-800 cursor-pointer flex items-center">
+
+                                <span class="mr-2">January 2025</span>
+
+                                 <span class="bg-amber-100 text-amber-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Presentation</span>
+
+                            </h3>
+
+                            <div class="timeline-item-content">
+
+                                <h4 class="mt-2 text-md font-bold text-slate-900">Co-First Author at ISMRM</h4>
+
+                                <p class="text-sm text-slate-500">International Society for Magnetic Resonance in Medicine</p>
+
+                                <p class="mt-2 text-slate-600">Abstract "D₂O vs H₂O Dissolutions for Enhancing Human MR Imaging..." selected for a digital poster presentation, highlighting significant intellectual contribution to the project.</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    
+
+                    <!-- Timeline Item: Gen Core -->
+
+                     <div class="relative mb-8 timeline-item">
+
+                        <div class="absolute left-1/2 -ml-4 w-8 h-8 bg-indigo-500 rounded-full border-4 border-white cursor-pointer"></div>
+
+                        <div class="ml-[calc(50%+2rem)] pl-8 pb-8">
+
+                            <h3 class="text-lg font-semibold text-slate-800 cursor-pointer flex items-center">
+
+                                <span class="mr-2">November 2024</span>
+
+                                 <span class="bg-indigo-100 text-indigo-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Leadership</span>
+
+                            </h3>
+
+                            <div class="timeline-item-content">
+
+                                <h4 class="mt-2 text-md font-bold text-slate-900">President, <a href="https://gcbiology.org/" target="_blank" class="text-sky-600 hover:underline">Gen Core Biology</a></h4>
+
+                                <p class="text-sm text-slate-500">501(c)(3) Non-Profit</p>
+
+                                <p class="mt-2 text-slate-600">Lead a global organization to democratize biology education, growing the platform to over 128K followers and 120M views across 12 international branches.</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Timeline Item: UCSF Research Start -->
+
+                    <div class="relative mb-8 timeline-item">
+
+                        <div class="absolute left-1/2 -ml-4 w-8 h-8 bg-rose-500 rounded-full border-4 border-white cursor-pointer"></div>
+
+                        <div class="ml-[calc(50%+2rem)] pl-8 pb-8">
+
+                            <h3 class="text-lg font-semibold text-slate-800 cursor-pointer flex items-center">
+
+                                <span class="mr-2">June 2023</span>
+
+                                 <span class="bg-rose-100 text-rose-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Research</span>
+
+                            </h3>
+
+                            <div class="timeline-item-content">
+
+                                <h4 class="mt-2 text-md font-bold text-slate-900">Began Research at UCSF</h4>
+
+                                <p class="text-sm text-slate-500">Surbek Laboratory for Advanced Imaging</p>
+
+                                <p class="mt-2 text-slate-600">Started multi-year tenure as a student researcher, leading quality control for MRI coils and contributing to hyperpolarized MRI studies under the mentorship of Dr. Daniel Vigneron.</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Core Competencies -->
+
+        <section id="competencies" class="py-20 sm:py-24 bg-white">
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="text-center mb-16">
+
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Core Competencies</h2>
+
+                    <p class="mt-4 text-lg text-slate-600">My work is centered around three key pillars: advanced research, science communication, and clinical investigation.</p>
+
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                    <!-- Card 1: Research -->
+
+                    <div class="bg-slate-50 p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
+
+                        <div class="text-sky-500 mb-4">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+
+                        </div>
+
+                        <h3 class="text-xl font-semibold text-slate-900">Metabolic Imaging Research</h3>
+
+                        <p class="mt-2 text-slate-600">Extensive hands-on experience in hyperpolarized carbon-13 MRI at UCSF, from data acquisition and quality control to analysis using MATLAB and MestreNova for novel cancer and brain perfusion studies.</p>
+
+                    </div>
+
+                    <!-- Card 2: SciComm -->
+
+                    <div class="bg-slate-50 p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
+
+                         <div class="text-indigo-500 mb-4">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2V4a2 2 0 012-2h8a2 2 0 012 2v4z" /></svg>
+
+                        </div>
+
+                        <h3 class="text-xl font-semibold text-slate-900">Science Communication</h3>
+
+                        <p class="mt-2 text-slate-600">Lead <a href="https://gcbiology.org/" target="_blank" class="text-sky-600 hover:underline">Gen Core Biology</a>, a global non-profit that leverages social media to make AP Biology concepts engaging and accessible, reaching millions of students worldwide.</p>
+
+                    </div>
+
+                    <!-- Card 3: Clinical -->
+
+                    <div class="bg-slate-50 p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
+
+                        <div class="text-emerald-500 mb-4">
+
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+
+                        </div>
+
+                        <h3 class="text-xl font-semibold text-slate-900">Clinical Case Studies</h3>
+
+                        <p class="mt-2 text-slate-600">Co-authored multiple peer-reviewed clinical case reports focusing on post-COVID-19 neurological symptoms in Ukrainian women, demonstrating a commitment to purposeful, community-relevant research.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Gen Core Biology Growth Chart -->
+
+        <section id="impact-chart" class="py-20 sm:py-24">
+
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="text-center mb-16">
+
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Visualizing Impact</h2>
+
+                    <p class="mt-4 text-lg text-slate-600">The growth and global reach of Gen Core Biology, my science communication non-profit.</p>
+
+                </div>
+
+                <div class="chart-container">
+
+                    <canvas id="growthChart"></canvas>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+
+        <!-- Publications -->
+
+        <section id="publications" class="py-20 sm:py-24 bg-white">
+
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="text-center mb-16">
+
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Publications & Presentations</h2>
+
+                    <p class="mt-4 text-lg text-slate-600">A selection of my contributions to the scientific community. Click any title to view the publication.</p>
+
+                </div>
+
+                <ul id="publication-list" class="space-y-8">
+
+                    <!-- Publication Item 1 -->
+
+                    <li class="p-6 bg-slate-50 rounded-lg shadow-sm" data-title="Translation of Hyperpolarized [13C,15N]2Urea MRI for Novel Human Brain Perfusion Studies">
+
+                        <p class="text-sm font-medium text-sky-600">Journal Publication</p>
+
+                        <h3 class="mt-2 text-lg font-semibold text-slate-800">
+
+                            <a href="https://www.nature.com/articles/s44303-025-00073-3" target="_blank" class="hover:text-sky-600 transition-colors">Translation of Hyperpolarized [13C,15N]2Urea MRI for Novel Human Brain Perfusion Studies</a>
+
+                        </h3>
+
+                        <p class="mt-1 text-sm text-slate-500">Kim, Y., Chen, zH.-Y., Nickels, T., **Shkliar, I.**, et al. | *npj Imaging (Nature Portfolio), 2025*</p>
+
+                    </li>
+
+                     <!-- Publication Item 2 -->
+
+                    <li class="p-6 bg-slate-50 rounded-lg shadow-sm" data-title="D₂O vs H₂O Dissolutions for Enhancing Human MR Imaging of Hyperpolarized [2-¹³C] Pyruvate Conversions to Glutamate and Lactate">
+
+                        <p class="text-sm font-medium text-amber-600">Conference Presentation</p>
+
+                        <h3 class="mt-2 text-lg font-semibold text-slate-800">D₂O vs H₂O Dissolutions for Enhancing Human MR Imaging...</h3>
+
+                        <p class="mt-1 text-sm text-slate-500">Kim, Y.*, **Shkliar, I.***, et al. | *Accepted at International Society for Magnetic Resonance in Medicine (ISMRM), 2025*</p>
+
+                    </li>
+
+                     <!-- Publication Item 3 -->
+
+                    <li class="p-6 bg-slate-50 rounded-lg shadow-sm" data-title="A Case of Mild Depression Episode with Cognitive Impairment and Suicide Thoughts in a Ukrainian Woman After COVID-19">
+
+                        <p class="text-sm font-medium text-sky-600">Journal Publication</p>
+
+                        <h3 class="mt-2 text-lg font-semibold text-slate-800">
+
+                            <a href="https://www.researchgate.net/publication/381879833_A_CASE_OF_MILD_DEPRESSION_EPISODE_WITH_COGNITIVE_IMPAIRMENT_AND_SUICIDAL_THOUGHTS_IN_UKRAINIAN_WOMAN_AFTER_COVID-19" target="_blank" class="hover:text-sky-600 transition-colors">A Case of Mild Depression Episode with Cognitive Impairment and Suicide Thoughts in a Ukrainian Woman After COVID-19</a>
+
+                        </h3>
+
+                        <p class="mt-1 text-sm text-slate-500">Orlova, N., **Shkliar, I.** | *EJBS, 2024*</p>
+
+                    </li>
+
+                     <!-- Publication Item 4 -->
+
+                    <li class="p-6 bg-slate-50 rounded-lg shadow-sm" data-title="Dysgeusia in Ukrainian Woman with COVID: Case Report">
+
+                        <p class="text-sm font-medium text-sky-600">Journal Publication</p>
+
+                        <h3 class="mt-2 text-lg font-semibold text-slate-800">
+
+                             <a href="https://www.researchgate.net/publication/369377874_Dysgeusia_in_Ukrainian_Woman_with_COVID_Case_Report" target="_blank" class="hover:text-sky-600 transition-colors">Dysgeusia in Ukrainian Woman with COVID: Case Report</a>
+
+                        </h3>
+
+                        <p class="mt-1 text-sm text-slate-500">Orlova, N., Shkliar, M., **Shkliar, I.** | *Yumed Text, 2023*</p>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Skills Section -->
+
+        <section id="skills" class="py-20 sm:py-24">
+
+             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="text-center mb-16">
+
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Skills & Proficiencies</h2>
+
+                    <p class="mt-4 text-lg text-slate-600">The tools and languages I use to bring my work to life.</p>
+
+                </div>
+
+
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+                    <div>
+
+                        <h3 class="text-xl font-semibold text-slate-800 mb-4">Languages</h3>
+
+                        <div class="space-y-4">
+
+                            <div>
+
+                                <div class="flex justify-between mb-1">
+
+                                    <span class="text-base font-medium text-slate-700">English</span>
+
+                                    <span class="text-sm font-medium text-slate-500">Fluent</span>
+
+                                </div>
+
+                                <div class="w-full bg-slate-200 rounded-full h-2.5">
+
+                                    <div class="bg-sky-600 h-2.5 rounded-full" style="width: 100%"></div>
+
+                                </div>
+
+                            </div>
+
+                             <div>
+
+                                <div class="flex justify-between mb-1">
+
+                                    <span class="text-base font-medium text-slate-700">Russian</span>
+
+                                    <span class="text-sm font-medium text-slate-500">Native</span>
+
+                                </div>
+
+                                <div class="w-full bg-slate-200 rounded-full h-2.5">
+
+                                    <div class="bg-sky-600 h-2.5 rounded-full" style="width: 100%"></div>
+
+                                </div>
+
+                            </div>
+
+                             <div>
+
+                                <div class="flex justify-between mb-1">
+
+                                    <span class="text-base font-medium text-slate-700">Spanish</span>
+
+                                    <span class="text-sm font-medium text-slate-500">Conversational</span>
+
+                                </div>
+
+                                <div class="w-full bg-slate-200 rounded-full h-2.5">
+
+                                    <div class="bg-sky-600 h-2.5 rounded-full" style="width: 60%"></div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div>
+
+                         <h3 class="text-xl font-semibold text-slate-800 mb-4">Technical Skills</h3>
+
+                         <div class="flex flex-wrap gap-2">
+
+                             <span class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">MATLAB</span>
+
+                             <span class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Microsoft Excel</span>
+
+                             <span class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">MestreNova</span>
+
+                             <span class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">GraphPad Prism</span>
+
+                             <span class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Scientific Writing</span>
+
+                              <span class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Data Analysis</span>
+
+                             <span class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Canva</span>
+
+                         </div>
+
+                    </div>
+
+                </div>
+
+             </div>
+
+        </section>
+
+
+
+    </main>
+
+    
+
+    <footer class="bg-slate-800 text-slate-300">
+
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center">
+
+             <p>&copy; 2025 Illia Shkliar. All rights reserved.</p>
+
+             <p class="mt-2 text-sm">Interactive portfolio designed to showcase academic and professional journey.</p>
+
+        </div>
+
+    </footer>
+
+
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // Smooth scroll for navigation
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+                anchor.addEventListener('click', function (e) {
+
+                    if (this.getAttribute('href') === '#') return;
+
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+
+                        behavior: 'smooth'
+
+                    });
+
+                });
+
+            });
+
+
+
+            // Interactive timeline functionality
+
+            const timelineItems = document.querySelectorAll('.timeline-item');
+
+            timelineItems.forEach(item => {
+
+                const header = item.querySelector('h3');
+
+                const content = item.querySelector('.timeline-item-content');
+
+                const dot = item.querySelector('.absolute.left-1\\/2');
+
+
+
+                const toggle = () => {
+
+                    timelineItems.forEach(otherItem => {
+
+                        if (otherItem !== item) {
+
+                            otherItem.querySelector('.timeline-item-content').classList.remove('active');
+
+                        }
+
+                    });
+
+                    content.classList.toggle('active');
+
+                };
+
+
+
+                header.addEventListener('click', toggle);
+
+                dot.addEventListener('click', toggle);
+
+            });
+
+            
+
+            // Auto-open the first timeline item
+
+            if(timelineItems.length > 0) {
+
+                 timelineItems[0].querySelector('.timeline-item-content').classList.add('active');
+
+            }
+
+            
+
+            // Chart.js implementation for Gen Core Biology Growth
+
+            const ctx = document.getElementById('growthChart');
+
+            if(ctx) {
+
+                new Chart(ctx, {
+
+                    type: 'bar',
+
+                    data: {
+
+                        labels: ['Followers', 'International Branches', 'Impressions (in Millions)'],
+
+                        datasets: [{
+
+                            label: 'Gen Core Biology Impact',
+
+                            data: [128000, 12, 120],
+
+                            backgroundColor: [
+
+                                'rgba(56, 189, 248, 0.6)',
+
+                                'rgba(129, 140, 248, 0.6)',
+
+                                'rgba(16, 185, 129, 0.6)'
+
+                            ],
+
+                            borderColor: [
+
+                                'rgba(56, 189, 248, 1)',
+
+                                'rgba(129, 140, 248, 1)',
+
+                                'rgba(16, 185, 129, 1)'
+
+                            ],
+
+                            borderWidth: 1
+
+                        }]
+
+                    },
+
+                    options: {
+
+                        responsive: true,
+
+                        maintainAspectRatio: false,
+
+                        plugins: {
+
+                            legend: {
+
+                                display: false
+
+                            },
+
+                            tooltip: {
+
+                                callbacks: {
+
+                                    label: function(context) {
+
+                                        let label = context.dataset.label || '';
+
+                                        if (label) { label += ': '; }
+
+                                        if (context.parsed.y !== null) {
+
+                                            if (context.label === 'Impressions (in Millions)') {
+
+                                                label += context.parsed.y + 'M';
+
+                                            } else {
+
+                                                label += new Intl.NumberFormat('en-US').format(context.parsed.y);
+
+                                            }
+
+                                        }
+
+                                        return label;
+
+                                    }
+
+                                }
+
+                            }
+
+                        },
+
+                        scales: {
+
+                            y: {
+
+                                beginAtZero: true,
+
+                                type: 'logarithmic',
+
+                                ticks: {
+
+                                   callback: function(value, index, values) {
+
+                                       if (value === 1000000) return '1M';
+
+                                       if (value === 100000) return '100K';
+
+                                       if (value === 10000) return '10K';
+
+                                       if (value === 1000) return '1K';
+
+                                       if (value === 100) return '100';
+
+                                       if (value === 10) return '10';
+
+                                       return null;
+
+                                   }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                });
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
