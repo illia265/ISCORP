@@ -85,8 +85,7 @@ const Header = ({ name, links }) => {
         setIsMenuOpen(false); // Close menu on link click
         const targetElement = document.querySelector(href);
         if (targetElement) {
-             // Offset for sticky header
-            const headerOffset = 80;
+            const headerOffset = 70; // Adjusted for better placement
             const elementPosition = targetElement.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
       
@@ -104,7 +103,6 @@ const Header = ({ name, links }) => {
                     <div className="flex-shrink-0">
                         <a href="#hero" onClick={(e) => handleScroll(e, "#hero")} className="text-xl font-bold text-slate-800">{name}</a>
                     </div>
-                    {/* Desktop Menu */}
                     <div className="hidden md:block">
                         <div className="ml-10 flex items-baseline space-x-4">
                             {links.map((link) => (
@@ -114,16 +112,14 @@ const Header = ({ name, links }) => {
                             ))}
                         </div>
                     </div>
-                    {/* Mobile Menu Button */}
                     <div className="md:hidden">
-                        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 rounded-md text-slate-600 hover:text-sky-600 hover:bg-slate-100">
+                        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 rounded-md text-slate-600 hover:text-sky-600 hover:bg-slate-100" aria-label="Open menu">
                            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
                         </button>
                     </div>
                 </div>
-                 {/* Mobile Menu Panel */}
                 <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} border-t border-slate-200`}>
-                    <div className="pt-2 pb-3 space-y-1">
+                    <div className="pt-2 pb-3 space-y-1 sm:px-3">
                         {links.map((link) => (
                              <a key={link.href} href={link.href} onClick={(e) => handleScroll(e, link.href)} className="text-slate-600 hover:text-sky-600 hover:bg-slate-50 block px-3 py-2 rounded-md text-base font-medium">
                                 {link.text}
@@ -174,28 +170,34 @@ const Journey = ({ items }) => {
                     <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">My Journey</h2>
                     <p className="mt-4 text-base sm:text-lg text-slate-600">An interactive timeline of my key experiences.</p>
                 </div>
-                {/* Timeline Container */}
                 <div className="relative">
-                    {/* The vertical line - responsive positioning */}
-                    <div className="absolute top-0 w-1 h-full bg-slate-200 left-6 md:left-1/2 md:-ml-0.5"></div>
-                    
+                    <div className="absolute top-0 w-1 h-full bg-slate-200 left-5 md:left-1/2 md:-ml-0.5"></div>
                     {items.map((item, index) => (
-                        <div key={index} className="relative mb-8">
-                             {/* The colored dot - responsive positioning */}
-                            <div onClick={() => setActiveIndex(index)} className={`absolute w-8 h-8 ${colorClasses.bg[item.color]} rounded-full border-4 border-white cursor-pointer left-6 -ml-4 md:left-1/2`}></div>
-                            
-                            {/* The content card - responsive positioning */}
-                            <div className="pl-10 md:pl-0 md:ml-[calc(50%+2rem)] md:pb-8">
-                                <h3 onClick={() => setActiveIndex(index)} className="text-base sm:text-lg font-semibold text-slate-800 cursor-pointer flex-col sm:flex-row items-start sm:items-center flex">
-                                    <span className="font-bold mr-2">{item.date}</span>
-                                    <span className={`mt-1 sm:mt-0 text-xs font-medium px-2.5 py-0.5 rounded-full ${colorClasses.tagBg[item.color]} ${colorClasses.tagText[item.color]}`}>{item.type}</span>
-                                </h3>
-                                <div className={`transition-all duration-500 ease-in-out overflow-hidden ${activeIndex === index ? 'max-h-[500px] opacity-100 mt-2' : 'max-h-0 opacity-0'}`}>
-                                    <h4 className="text-md font-bold text-slate-900">
-                                        {item.link ? <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">{item.title}</a> : item.title}
-                                    </h4>
-                                    <p className="text-sm text-slate-500">{item.institution}</p>
-                                    <p className="mt-2 text-slate-600 text-sm sm:text-base">{item.description}</p>
+                        <div key={index} className="relative pl-12 md:pl-0 mb-10 last:mb-0">
+                            <div className="md:flex items-start">
+                                <div className="md:w-1/2 md:pr-8 md:text-right">
+                                    <div className="md:hidden">
+                                        <h3 onClick={() => setActiveIndex(index)} className="text-base sm:text-lg font-semibold text-slate-800 cursor-pointer flex-col sm:flex-row items-start sm:items-center flex">
+                                            <span className="font-bold mr-2">{item.date}</span>
+                                            <span className={`mt-1 sm:mt-0 text-xs font-medium px-2.5 py-0.5 rounded-full ${colorClasses.tagBg[item.color]} ${colorClasses.tagText[item.color]}`}>{item.type}</span>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div className={`absolute w-8 h-8 ${colorClasses.bg[item.color]} rounded-full border-4 border-white cursor-pointer top-0 left-5 -ml-4 md:left-1/2`} onClick={() => setActiveIndex(index)}></div>
+                                <div className="md:w-1/2 md:pl-8">
+                                    <div className="hidden md:block">
+                                        <h3 onClick={() => setActiveIndex(index)} className="text-base sm:text-lg font-semibold text-slate-800 cursor-pointer flex-col sm:flex-row items-start sm:items-center flex">
+                                            <span className="font-bold mr-2">{item.date}</span>
+                                            <span className={`mt-1 sm:mt-0 text-xs font-medium px-2.5 py-0.5 rounded-full ${colorClasses.tagBg[item.color]} ${colorClasses.tagText[item.color]}`}>{item.type}</span>
+                                        </h3>
+                                    </div>
+                                    <div className={`transition-all duration-500 ease-in-out overflow-hidden ${activeIndex === index ? 'max-h-[500px] opacity-100 mt-2' : 'max-h-0 opacity-0'}`}>
+                                        <h4 className="text-md font-bold text-slate-900">
+                                            {item.link ? <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">{item.title}</a> : item.title}
+                                        </h4>
+                                        <p className="text-sm text-slate-500">{item.institution}</p>
+                                        <p className="mt-2 text-slate-600 text-sm sm:text-base">{item.description}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -205,7 +207,6 @@ const Journey = ({ items }) => {
         </section>
     );
 };
-
 
 const CompetencyCard = ({ icon, title, description, link, color }) => {
      const colorClasses = { text: { sky: 'text-sky-500', indigo: 'text-indigo-500', emerald: 'text-emerald-500' } };
@@ -372,3 +373,4 @@ export default function App() {
         </div>
     );
 }
+
