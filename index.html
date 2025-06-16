@@ -251,15 +251,16 @@ const AnimatedStatCard = ({ icon, finalValue, label, duration = 2000 }) => {
     const finalDisplay = formatNumber(finalValue);
 
     useEffect(() => {
-        let start = 0;
-        const end = finalValue;
         let animationFrameId;
-
+        let startTime;
+        
         const animateCount = (timestamp) => {
-            if (!startTime) startTime = timestamp;
+            if (startTime === undefined) {
+                startTime = timestamp;
+            }
             const progress = timestamp - startTime;
             const percentage = Math.min(progress / duration, 1);
-            const currentCount = Math.floor(start + (end - start) * percentage);
+            const currentCount = Math.floor(percentage * finalValue);
             
             setCount(currentCount);
 
@@ -270,11 +271,9 @@ const AnimatedStatCard = ({ icon, finalValue, label, duration = 2000 }) => {
             }
         };
 
-        let startTime;
         const observer = new IntersectionObserver(
             (entries) => {
                 if (entries[0].isIntersecting) {
-                    startTime = performance.now();
                     animationFrameId = requestAnimationFrame(animateCount);
                     observer.disconnect();
                 }
@@ -282,11 +281,16 @@ const AnimatedStatCard = ({ icon, finalValue, label, duration = 2000 }) => {
             { threshold: 0.5 }
         );
 
-        if (cardRef.current) { observer.observe(cardRef.current); }
+        const currentRef = cardRef.current;
+        if (currentRef) { 
+            observer.observe(currentRef); 
+        }
 
         return () => {
             cancelAnimationFrame(animationFrameId);
-            if (cardRef.current) { observer.disconnect(); }
+            if (currentRef) { 
+                observer.unobserve(currentRef); 
+            }
         };
     }, [finalValue, duration]);
 
