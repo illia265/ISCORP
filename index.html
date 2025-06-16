@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Illia Shkliar | Student Researcher & Science Communicator</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -25,19 +25,6 @@
             max-height: 500px;
             opacity: 1;
         }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 350px;
-        }
-        @media (min-width: 768px) {
-            .chart-container {
-                height: 400px;
-            }
-        }
     </style>
 </head>
 <body class="text-slate-700">
@@ -54,7 +41,7 @@
                     <div class="ml-10 flex items-baseline space-x-4">
                         <a href="#journey" class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Journey</a>
                         <a href="#competencies" class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Competencies</a>
-                        <a href="#impact-chart" class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Impact</a>
+                        <a href="#impact" class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Impact</a>
                         <a href="#publications" class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Publications</a>
                         <a href="#skills" class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Skills</a>
                     </div>
@@ -79,7 +66,7 @@
                 <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                     <a href="#journey" class="text-slate-600 hover:text-sky-600 hover:bg-slate-50 block px-3 py-2 rounded-md text-base font-medium">Journey</a>
                     <a href="#competencies" class="text-slate-600 hover:text-sky-600 hover:bg-slate-50 block px-3 py-2 rounded-md text-base font-medium">Competencies</a>
-                    <a href="#impact-chart" class="text-slate-600 hover:text-sky-600 hover:bg-slate-50 block px-3 py-2 rounded-md text-base font-medium">Impact</a>
+                    <a href="#impact" class="text-slate-600 hover:text-sky-600 hover:bg-slate-50 block px-3 py-2 rounded-md text-base font-medium">Impact</a>
                     <a href="#publications" class="text-slate-600 hover:text-sky-600 hover:bg-slate-50 block px-3 py-2 rounded-md text-base font-medium">Publications</a>
                     <a href="#skills" class="text-slate-600 hover:text-sky-600 hover:bg-slate-50 block px-3 py-2 rounded-md text-base font-medium">Skills</a>
                 </div>
@@ -117,101 +104,12 @@
                     <p class="mt-4 text-base sm:text-lg text-slate-600">An interactive timeline of my key experiences.</p>
                 </div>
                 <div class="relative">
-                    <!-- Vertical line for both mobile and desktop -->
+                    <!-- Vertical line -->
                     <div class="absolute top-0 w-1 h-full bg-slate-200 left-4 md:left-1/2 md:-ml-0.5"></div>
                     
                     <!-- Timeline Items -->
                     <div class="space-y-12">
-                        <!-- Timeline Item: Fellowship -->
-                        <div class="relative timeline-item">
-                            <div class="timeline-dot absolute w-8 h-8 bg-sky-500 rounded-full border-4 border-white cursor-pointer top-0 left-4 -ml-4 md:left-1/2"></div>
-                            <div class="pl-12 md:pl-0 md:ml-[calc(50%+2rem)]">
-                                <h3 class="timeline-header text-base sm:text-lg font-semibold text-slate-800 cursor-pointer flex-col sm:flex-row items-start sm:items-center flex">
-                                    <span class="font-bold mr-2">Summer 2025</span>
-                                    <span class="mt-1 sm:mt-0 bg-sky-100 text-sky-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Fellowship</span>
-                                </h3>
-                                <div class="timeline-item-content">
-                                    <div class="mt-2 bg-white p-4 rounded-lg shadow-sm border border-slate-200">
-                                        <h4 class="text-md font-bold text-slate-900">SCI³ Mini-Fellowship</h4>
-                                        <p class="text-sm text-slate-500">Stanford University, School of Medicine</p>
-                                        <p class="mt-2 text-slate-600">Selected for a competitive fellowship focused on advanced scientific research, technology, and inclusion, featuring intensive workshops and direct mentorship from Stanford faculty.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Timeline Item: npj Imaging Publication -->
-                        <div class="relative timeline-item">
-                            <div class="timeline-dot absolute w-8 h-8 bg-emerald-500 rounded-full border-4 border-white cursor-pointer top-0 left-4 -ml-4 md:left-1/2"></div>
-                            <div class="pl-12 md:pl-0 md:ml-[calc(50%+2rem)]">
-                                <h3 class="timeline-header text-base sm:text-lg font-semibold text-slate-800 cursor-pointer flex-col sm:flex-row items-start sm:items-center flex">
-                                    <span class="font-bold mr-2">March 2025</span>
-                                    <span class="mt-1 sm:mt-0 bg-emerald-100 text-emerald-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Publication</span>
-                                </h3>
-                                <div class="timeline-item-content">
-                                     <div class="mt-2 bg-white p-4 rounded-lg shadow-sm border border-slate-200">
-                                        <h4 class="text-md font-bold text-slate-900">Published in npj Imaging</h4>
-                                        <p class="text-sm text-slate-500">Nature Portfolio</p>
-                                        <p class="mt-2 text-slate-600">Co-authored "Translation of Hyperpolarized [13C,15N]2Urea MRI for Novel Human Brain Perfusion Studies," contributing to a first-in-human clinical trial.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Timeline Item: ISMRM -->
-                         <div class="relative timeline-item">
-                            <div class="timeline-dot absolute w-8 h-8 bg-amber-500 rounded-full border-4 border-white cursor-pointer top-0 left-4 -ml-4 md:left-1/2"></div>
-                            <div class="pl-12 md:pl-0 md:ml-[calc(50%+2rem)]">
-                                <h3 class="timeline-header text-base sm:text-lg font-semibold text-slate-800 cursor-pointer flex-col sm:flex-row items-start sm:items-center flex">
-                                    <span class="font-bold mr-2">January 2025</span>
-                                    <span class="mt-1 sm:mt-0 bg-amber-100 text-amber-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Presentation</span>
-                                </h3>
-                                <div class="timeline-item-content">
-                                     <div class="mt-2 bg-white p-4 rounded-lg shadow-sm border border-slate-200">
-                                        <h4 class="text-md font-bold text-slate-900">Co-First Author at ISMRM</h4>
-                                        <p class="text-sm text-slate-500">International Society for Magnetic Resonance in Medicine</p>
-                                        <p class="mt-2 text-slate-600">Abstract "D₂O vs H₂O Dissolutions for Enhancing Human MR Imaging..." selected for a digital poster presentation.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                         <!-- Timeline Item: Gen Core -->
-                         <div class="relative timeline-item">
-                            <div class="timeline-dot absolute w-8 h-8 bg-indigo-500 rounded-full border-4 border-white cursor-pointer top-0 left-4 -ml-4 md:left-1/2"></div>
-                            <div class="pl-12 md:pl-0 md:ml-[calc(50%+2rem)]">
-                                <h3 class="timeline-header text-base sm:text-lg font-semibold text-slate-800 cursor-pointer flex-col sm:flex-row items-start sm:items-center flex">
-                                    <span class="font-bold mr-2">November 2024</span>
-                                    <span class="mt-1 sm:mt-0 bg-indigo-100 text-indigo-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Leadership</span>
-                                </h3>
-                                <div class="timeline-item-content">
-                                     <div class="mt-2 bg-white p-4 rounded-lg shadow-sm border border-slate-200">
-                                        <h4 class="text-md font-bold text-slate-900">President, Gen Core Biology</h4>
-                                        <p class="text-sm text-slate-500">501(c)(3) Non-Profit</p>
-                                        <p class="mt-2 text-slate-600">Lead a global organization to democratize biology education, growing the platform to over 128K followers and 120M views.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                         <!-- Timeline Item: UCSF Research Start -->
-                         <div class="relative timeline-item">
-                            <div class="timeline-dot absolute w-8 h-8 bg-rose-500 rounded-full border-4 border-white cursor-pointer top-0 left-4 -ml-4 md:left-1/2"></div>
-                            <div class="pl-12 md:pl-0 md:ml-[calc(50%+2rem)]">
-                                <h3 class="timeline-header text-base sm:text-lg font-semibold text-slate-800 cursor-pointer flex-col sm:flex-row items-start sm:items-center flex">
-                                    <span class="font-bold mr-2">June 2023</span>
-                                    <span class="mt-1 sm:mt-0 bg-rose-100 text-rose-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Research</span>
-                                </h3>
-                                <div class="timeline-item-content">
-                                     <div class="mt-2 bg-white p-4 rounded-lg shadow-sm border border-slate-200">
-                                        <h4 class="text-md font-bold text-slate-900">Began Research at UCSF</h4>
-                                        <p class="text-sm text-slate-500">Surbek Laboratory for Advanced Imaging</p>
-                                        <p class="mt-2 text-slate-600">Started multi-year tenure as a student researcher, leading quality control for MRI coils and contributing to hyperpolarized MRI studies.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                        <!-- All timeline items are dynamically generated by JS now, but the structure is retained -->
                     </div>
                 </div>
             </div>
@@ -244,15 +142,30 @@
             </div>
         </section>
 
-        <!-- Gen Core Biology Growth Chart -->
-        <section id="impact-chart" class="py-20 sm:py-24">
+        <!-- Global Impact Section -->
+        <section id="impact" class="py-20 sm:py-24">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12 sm:mb-16">
-                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Visualizing Impact</h2>
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Global Impact</h2>
                     <p class="mt-4 text-base sm:text-lg text-slate-600">The growth and global reach of Gen Core Biology.</p>
                 </div>
-                <div class="chart-container">
-                    <canvas id="growthChart"></canvas>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Followers Card -->
+                    <div class="bg-white p-6 sm:p-8 rounded-lg shadow-sm text-center flex flex-col items-center">
+                        <div class="text-sky-500 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a3.002 3.002 0 014.288 0M12 15a3 3 0 110-6 3 3 0 010 6z" /></svg>
+                        </div>
+                        <p id="followers-count" class="text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight">0</p>
+                        <p class="text-base sm:text-lg text-slate-600 mt-2">Followers</p>
+                    </div>
+                     <!-- Views Card -->
+                    <div class="bg-white p-6 sm:p-8 rounded-lg shadow-sm text-center flex flex-col items-center">
+                         <div class="text-indigo-500 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                        </div>
+                        <p id="views-count" class="text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight">0</p>
+                        <p class="text-base sm:text-lg text-slate-600 mt-2">Total Views</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -402,8 +315,41 @@
                     }
                 });
             });
+            
+            // Data for the page
+            const timelineData = [
+                 { date: "Summer 2025", type: "Fellowship", title: "SCI³ Mini-Fellowship", institution: "Stanford University, School of Medicine", description: "Selected for a competitive fellowship...", color: "sky"},
+                 { date: "March 2025", type: "Publication", title: "Published in npj Imaging", institution: "Nature Portfolio", description: "Co-authored \"Translation of Hyperpolarized...\"", color: "emerald"},
+                 { date: "January 2025", type: "Presentation", title: "Co-First Author at ISMRM", institution: "International Society for Magnetic Resonance in Medicine", description: "Abstract \"D₂O vs H₂O Dissolutions...\" selected for a digital poster presentation.", color: "amber"},
+                 { date: "November 2024", type: "Leadership", title: "President, Gen Core Biology", institution: "501(c)(3) Non-Profit", description: "Lead a global organization to democratize biology education...", color: "indigo"},
+                 { date: "June 2023", type: "Research", title: "Began Research at UCSF", institution: "Surbek Laboratory for Advanced Imaging", description: "Started multi-year tenure as a student researcher...", color: "rose"}
+            ];
 
-            // Interactive timeline functionality
+            // Populate and handle timeline
+            const timelineContainer = document.querySelector('#journey .space-y-12');
+            timelineContainer.innerHTML = ''; // Clear existing items to avoid duplication
+            timelineData.forEach(data => {
+                const item = document.createElement('div');
+                item.className = 'relative timeline-item';
+                item.innerHTML = `
+                    <div class="timeline-dot absolute w-8 h-8 bg-${data.color}-500 rounded-full border-4 border-white cursor-pointer top-0 left-4 -ml-4 md:left-1/2"></div>
+                    <div class="pl-12 md:pl-0 md:ml-[calc(50%+2rem)]">
+                        <h3 class="timeline-header text-base sm:text-lg font-semibold text-slate-800 cursor-pointer flex-col sm:flex-row items-start sm:items-center flex">
+                            <span class="font-bold mr-2">${data.date}</span>
+                            <span class="mt-1 sm:mt-0 bg-${data.color}-100 text-${data.color}-700 text-xs font-medium px-2.5 py-0.5 rounded-full">${data.type}</span>
+                        </h3>
+                        <div class="timeline-item-content">
+                            <div class="mt-2 bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                                <h4 class="text-md font-bold text-slate-900">${data.title}</h4>
+                                <p class="text-sm text-slate-500">${data.institution}</p>
+                                <p class="mt-2 text-slate-600">${data.description}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                timelineContainer.appendChild(item);
+            });
+            
             const timelineItems = document.querySelectorAll('.timeline-item');
             timelineItems.forEach((item, index) => {
                 const header = item.querySelector('.timeline-header');
@@ -427,39 +373,54 @@
                 }
             });
             
-            // Chart.js implementation
-            const ctx = document.getElementById('growthChart');
-            if(ctx) {
-                new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Followers', 'Intl. Branches', 'Impressions (M)'],
-                        datasets: [{
-                            data: [128000, 12, 120],
-                            backgroundColor: ['rgba(56, 189, 248, 0.6)', 'rgba(129, 140, 248, 0.6)', 'rgba(16, 185, 129, 0.6)'],
-                            borderColor: ['rgba(56, 189, 248, 1)', 'rgba(129, 140, 248, 1)', 'rgba(16, 185, 129, 1)'],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: { legend: { display: false } },
-                        scales: {
-                            y: {
-                                type: 'logarithmic',
-                                ticks: {
-                                    callback: function(value) {
-                                        if ([10, 100, 1000, 10000, 100000, 1000000].includes(value)) {
-                                            return value >= 1000000 ? (value/1000000) + 'M' : value >= 1000 ? (value/1000) + 'K' : value;
-                                        }
-                                    }
-                                }
-                            }
+            // Animated counters
+            function animateValue(obj, start, end, duration) {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    const currentVal = Math.floor(progress * (end - start) + start);
+                    
+                    if (end >= 1000000) {
+                        obj.innerHTML = (currentVal / 1000000).toFixed(1) + 'M+';
+                    } else if (end >= 1000) {
+                         obj.innerHTML = (currentVal / 1000).toFixed(0) + 'K+';
+                    } else {
+                        obj.innerHTML = currentVal.toLocaleString();
+                    }
+
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    } else {
+                         if (end >= 1000000) {
+                            obj.innerHTML = (end / 1000000).toFixed(1) + 'M+';
+                        } else if (end >= 1000) {
+                             obj.innerHTML = (end / 1000).toFixed(0) + 'K+';
+                        } else {
+                            obj.innerHTML = end.toLocaleString();
                         }
                     }
-                });
+                };
+                window.requestAnimationFrame(step);
             }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const followersCount = document.getElementById('followers-count');
+                        const viewsCount = document.getElementById('views-count');
+                        animateValue(followersCount, 0, 128000, 2000);
+                        animateValue(viewsCount, 0, 120000000, 2000);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            const impactSection = document.getElementById('impact');
+            if (impactSection) {
+                observer.observe(impactSection);
+            }
+
         });
     </script>
 </body>
