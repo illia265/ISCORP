@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS CSS for animations -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     
     <style>
         body {
@@ -120,23 +122,23 @@
         <!-- Core Competencies -->
         <section id="competencies" class="py-20 sm:py-24 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12 sm:mb-16">
+                <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
                     <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Core Competencies</h2>
                     <p class="mt-4 text-base sm:text-lg text-slate-600">My work is centered around three key pillars.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Card 1: Research -->
-                    <div class="bg-slate-50 p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="bg-slate-50 p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-delay="50">
                         <h3 class="text-lg sm:text-xl font-semibold text-slate-900">Metabolic Imaging Research</h3>
                         <p class="mt-2 text-slate-600 text-sm sm:text-base">Extensive hands-on experience in hyperpolarized carbon-13 MRI at UCSF, from data acquisition and quality control to analysis.</p>
                     </div>
                     <!-- Card 2: SciComm -->
-                    <div class="bg-slate-50 p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="bg-slate-50 p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-delay="150">
                         <h3 class="text-lg sm:text-xl font-semibold text-slate-900">Science Communication</h3>
                         <p class="mt-2 text-slate-600 text-sm sm:text-base">Lead <a href="https://gcbiology.org/" target="_blank" class="text-sky-600 hover:underline">Gen Core Biology</a>, a global non-profit that leverages social media to make AP Biology concepts engaging and accessible.</p>
                     </div>
                     <!-- Card 3: Clinical -->
-                    <div class="bg-slate-50 p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="bg-slate-50 p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-delay="250">
                         <h3 class="text-lg sm:text-xl font-semibold text-slate-900">Clinical Case Studies</h3>
                         <p class="mt-2 text-slate-600 text-sm sm:text-base">Co-authored multiple peer-reviewed clinical case reports focusing on post-COVID-19 neurological symptoms.</p>
                     </div>
@@ -147,13 +149,13 @@
         <!-- Global Impact Section -->
         <section id="impact" class="py-20 sm:py-24">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12 sm:mb-16">
+                <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
                     <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Global Impact</h2>
                     <p class="mt-4 text-base sm:text-lg text-slate-600">The growth and global reach of Gen Core Biology.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- Followers Card -->
-                    <div class="bg-white p-6 sm:p-8 rounded-lg shadow-sm text-center flex flex-col items-center">
+                    <div class="bg-white p-6 sm:p-8 rounded-lg shadow-sm text-center flex flex-col items-center" data-aos="fade-up" data-aos-delay="50">
                         <div class="text-sky-500 mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a3.002 3.002 0 014.288 0M12 15a3 3 0 110-6 3 3 0 010 6z" /></svg>
                         </div>
@@ -161,7 +163,7 @@
                         <p class="text-base sm:text-lg text-slate-600 mt-2">Followers</p>
                     </div>
                      <!-- Views Card -->
-                    <div class="bg-white p-6 sm:p-8 rounded-lg shadow-sm text-center flex flex-col items-center">
+                    <div class="bg-white p-6 sm:p-8 rounded-lg shadow-sm text-center flex flex-col items-center" data-aos="fade-up" data-aos-delay="150">
                          <div class="text-indigo-500 mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
                         </div>
@@ -175,13 +177,13 @@
         <!-- Publications -->
         <section id="publications" class="py-20 sm:py-24 bg-white">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12 sm:mb-16">
+                <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
                     <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Publications & Presentations</h2>
                     <p class="mt-4 text-base sm:text-lg text-slate-600">A selection of my contributions to the scientific community.</p>
                 </div>
                 <ul class="space-y-8">
                     <!-- Publication Item 1 -->
-                    <li class="p-6 bg-slate-50 rounded-lg shadow-sm">
+                    <li class="p-6 bg-slate-50 rounded-lg shadow-sm" data-aos="fade-up">
                         <p class="text-sm font-medium text-sky-600">Journal Publication</p>
                         <h3 class="mt-2 text-lg font-semibold text-slate-800">
                             <a href="https://www.nature.com/articles/s44303-025-00073-3" target="_blank" class="hover:text-sky-600 transition-colors">Translation of Hyperpolarized [13C,15N]2Urea MRI for Novel Human Brain Perfusion Studies</a>
@@ -189,13 +191,13 @@
                         <p class="mt-1 text-sm text-slate-500">Kim, Y., Chen, zH.-Y., Nickels, T., <strong>Shkliar, I.</strong>, et al. | <em>npj Imaging, 2025</em></p>
                     </li>
                      <!-- Publication Item 2 -->
-                    <li class="p-6 bg-slate-50 rounded-lg shadow-sm">
+                    <li class="p-6 bg-slate-50 rounded-lg shadow-sm" data-aos="fade-up">
                         <p class="text-sm font-medium text-amber-600">Conference Presentation</p>
                         <h3 class="mt-2 text-lg font-semibold text-slate-800">D₂O vs H₂O Dissolutions for Enhancing Human MR Imaging...</h3>
                         <p class="mt-1 text-sm text-slate-500">Kim, Y.*, <strong>Shkliar, I.</strong>*, et al. | <em>Accepted at ISMRM, 2025</em></p>
                     </li>
                      <!-- Publication Item 3 -->
-                    <li class="p-6 bg-slate-50 rounded-lg shadow-sm">
+                    <li class="p-6 bg-slate-50 rounded-lg shadow-sm" data-aos="fade-up">
                         <p class="text-sm font-medium text-sky-600">Journal Publication</p>
                         <h3 class="mt-2 text-lg font-semibold text-slate-800">
                             <a href="https://www.researchgate.net/publication/381879833_A_CASE_OF_MILD_DEPRESSION_EPISODE_WITH_COGNITIVE_IMPAIRMENT_AND_SUICIDAL_THOUGHTS_IN_UKRAINIAN_WOMAN_AFTER_COVID-19" target="_blank" class="hover:text-sky-600 transition-colors">A Case of Mild Depression Episode with Cognitive Impairment...</a>
@@ -203,7 +205,7 @@
                         <p class="mt-1 text-sm text-slate-500">Orlova, N., <strong>Shkliar, I.</strong> | <em>EJBS, 2024</em></p>
                     </li>
                      <!-- Publication Item 4 -->
-                    <li class="p-6 bg-slate-50 rounded-lg shadow-sm">
+                    <li class="p-6 bg-slate-50 rounded-lg shadow-sm" data-aos="fade-up">
                         <p class="text-sm font-medium text-sky-600">Journal Publication</p>
                         <h3 class="mt-2 text-lg font-semibold text-slate-800">
                              <a href="https://www.researchgate.net/publication/369377874_Dysgeusia_in_Ukrainian_Woman_with_COVID_Case_Report" target="_blank" class="hover:text-sky-600 transition-colors">Dysgeusia in Ukrainian Woman with COVID: Case Report</a>
@@ -217,13 +219,13 @@
         <!-- Skills Section -->
         <section id="skills" class="py-20 sm:py-24">
              <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12 sm:mb-16">
+                <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
                     <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Skills & Proficiencies</h2>
                     <p class="mt-4 text-base sm:text-lg text-slate-600">The tools and languages I use to bring my work to life.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-                    <div>
+                    <div data-aos="fade-up" data-aos-delay="50">
                         <h3 class="text-xl font-semibold text-slate-800 mb-4">Languages</h3>
                         <div class="space-y-4">
                             <div>
@@ -255,7 +257,7 @@
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div data-aos="fade-up" data-aos-delay="150">
                         <h3 class="text-xl font-semibold text-slate-800 mb-4">Technical Skills</h3>
                         <div class="flex flex-wrap gap-2">
                             <span class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">MATLAB</span>
@@ -278,8 +280,16 @@
         </div>
     </footer>
 
+    <!-- AOS JS for animations -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Animate on Scroll
+            AOS.init({
+                duration: 700,
+                once: true, // whether animation should happen only once - while scrolling down
+            });
+
             // Mobile menu toggle
             const menuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -337,6 +347,7 @@
                 timelineData.forEach(data => {
                     const item = document.createElement('div');
                     item.className = 'relative timeline-item';
+                    item.setAttribute('data-aos', 'fade-up');
                     item.innerHTML = `
                         <div class="timeline-dot absolute w-8 h-8 bg-${data.color}-500 rounded-full border-4 border-white cursor-pointer top-0 left-4 -ml-4 md:left-1/2"></div>
                         <div class="pl-12 md:pl-0 md:ml-[calc(50%+2rem)]">
@@ -429,4 +440,3 @@
     </script>
 </body>
 </html>
-
