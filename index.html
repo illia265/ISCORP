@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Illia Shkliar | Student Researcher & Science Communicator</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- AOS CSS for animations -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* slate-50 */
+            background-color: #f8fafc;
+            /* slate-50 */
         }
+
         .timeline-item-content {
             transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, margin-top 0.5s ease-in-out;
             max-height: 0;
@@ -24,6 +27,7 @@
             overflow: hidden;
             margin-top: 0;
         }
+
         .timeline-item-content.active {
             max-height: 500px;
             opacity: 1;
@@ -31,6 +35,7 @@
         }
     </style>
 </head>
+
 <body class="text-slate-700">
 
     <!-- Header & Navigation -->
@@ -43,24 +48,36 @@
                 <!-- Desktop Menu -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#journey" class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Journey</a>
-                        <a href="#competencies" class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Competencies</a>
-                        <a href="#impact" class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Impact</a>
-                        <a href="#publications" class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Publications</a>
-                        <a href="#skills" class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                        <a href="#education"
+                            class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Education</a>
+                        <a href="#journey"
+                            class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Journey</a>
+                        <a href="#competencies"
+                            class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Competencies</a>
+                        <a href="#impact"
+                            class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Impact</a>
+                        <a href="#publications"
+                            class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Publications</a>
+                        <a href="#skills"
+                            class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Skills</a>
                     </div>
                 </div>
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-slate-600 hover:text-sky-600 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-500">
+                    <button id="mobile-menu-button"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-slate-600 hover:text-sky-600 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-500">
                         <span class="sr-only">Open main menu</span>
                         <!-- Icon for menu closed -->
-                        <svg id="menu-closed-icon" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        <svg id="menu-closed-icon" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                         <!-- Icon for menu open -->
-                        <svg id="menu-open-icon" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        <svg id="menu-open-icon" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
                 </div>
@@ -68,11 +85,18 @@
             <!-- Mobile Menu Panel -->
             <div id="mobile-menu" class="md:hidden hidden">
                 <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    <a href="#journey" class="text-slate-600 hover:text-sky-600 hover:bg-slate-50 block px-3 py-2 rounded-md text-base font-medium">Journey</a>
-                    <a href="#competencies" class="text-slate-600 hover:text-sky-600 hover:bg-slate-50 block px-3 py-2 rounded-md text-base font-medium">Competencies</a>
-                    <a href="#impact" class="text-slate-600 hover:text-sky-600 hover:bg-slate-50 block px-3 py-2 rounded-md text-base font-medium">Impact</a>
-                    <a href="#publications" class="text-slate-600 hover:text-sky-600 hover:bg-slate-50 block px-3 py-2 rounded-md text-base font-medium">Publications</a>
-                    <a href="#skills" class="text-slate-600 hover:text-sky-600 hover:bg-slate-50 block px-3 py-2 rounded-md text-base font-medium">Skills</a>
+                    <a href="#education"
+                        class="text-slate-600 hover:text-sky-600 hover:bg-slate-50 block px-3 py-2 rounded-md text-base font-medium">Education</a>
+                    <a href="#journey"
+                        class="text-slate-600 hover:text-sky-600 hover:bg-slate-50 block px-3 py-2 rounded-md text-base font-medium">Journey</a>
+                    <a href="#competencies"
+                        class="text-slate-600 hover:text-sky-600 hover:bg-slate-50 block px-3 py-2 rounded-md text-base font-medium">Competencies</a>
+                    <a href="#impact"
+                        class="text-slate-600 hover:text-sky-600 hover:bg-slate-50 block px-3 py-2 rounded-md text-base font-medium">Impact</a>
+                    <a href="#publications"
+                        class="text-slate-600 hover:text-sky-600 hover:bg-slate-50 block px-3 py-2 rounded-md text-base font-medium">Publications</a>
+                    <a href="#skills"
+                        class="text-slate-600 hover:text-sky-600 hover:bg-slate-50 block px-3 py-2 rounded-md text-base font-medium">Skills</a>
                 </div>
             </div>
         </nav>
@@ -84,16 +108,93 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
                     <div class="flex-shrink-0">
-                        <img class="h-40 w-40 sm:h-48 sm:w-48 rounded-full object-cover shadow-lg border-4 border-white" src="https://media.licdn.com/dms/image/v2/D5603AQFbUHb5vUPXkw/profile-displayphoto-shrink_200_200/B56ZY7zF44GUAY-/0/1744759972996?e=2147483647&v=beta&t=VXakGbRSjfExvijwR_HSoo99ML6uGkOClxLOznt9MZ0" alt="Illia Shkliar" onerror="this.onerror=null;this.src='https://placehold.co/200x200/e2e8f0/64748b?text=IS';">
+                        <img class="h-40 w-40 sm:h-48 sm:w-48 rounded-full object-cover shadow-lg border-4 border-white"
+                            src="https://media.licdn.com/dms/image/v2/D5603AQFbUHb5vUPXkw/profile-displayphoto-shrink_200_200/B56ZY7zF44GUAY-/0/1744759972996?e=2147483647&v=beta&t=VXakGbRSjfExvijwR_HSoo99ML6uGkOClxLOznt9MZ0"
+                            alt="Illia Shkliar"
+                            onerror="this.onerror=null;this.src='https://placehold.co/200x200/e2e8f0/64748b?text=IS';">
                     </div>
                     <div class="text-center md:text-left">
                         <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-slate-900">Illia Shkliar</h1>
-                        <p class="mt-4 text-base sm:text-lg text-slate-600 max-w-2xl">Student researcher specializing in biomedical imaging and a passionate science communicator dedicated to making complex biology accessible to all.</p>
-                        <div class="mt-8 flex items-center justify-center md:justify-start gap-x-6">
-                            <a href="https://www.linkedin.com/in/illia-shkliar/" target="_blank" class="rounded-md bg-sky-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-500 transition-colors">
+                        <p class="mt-4 text-base sm:text-lg text-slate-600 max-w-2xl">Student researcher specializing in
+                            biomedical imaging and a passionate science communicator dedicated to making complex biology
+                            accessible to a global audience of 150,000+.</p>
+                        <div
+                            class="mt-6 flex items-center justify-center md:justify-start gap-4 text-sm text-slate-500">
+                            <span class="flex items-center gap-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                                South San Francisco, CA
+                            </span>
+                            <span class="flex items-center gap-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                                illiashkliar265@gmail.com
+                            </span>
+                        </div>
+                        <div class="mt-6 flex items-center justify-center md:justify-start gap-x-6">
+                            <a href="https://www.linkedin.com/in/illia-shkliar/" target="_blank"
+                                class="rounded-md bg-sky-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-500 transition-colors">
                                 View LinkedIn
                             </a>
-                            <a href="mailto:illiashkliar265@gmail.com" class="text-sm font-semibold leading-6 text-slate-900">Contact Me <span aria-hidden="true">→</span></a>
+                            <a href="mailto:illiashkliar265@gmail.com"
+                                class="text-sm font-semibold leading-6 text-slate-900">Contact Me <span
+                                    aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="py-20 sm:py-24">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Education</h2>
+                </div>
+                <div class="bg-white p-6 sm:p-8 rounded-lg shadow-sm border border-slate-200" data-aos="fade-up">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-slate-900">University of California, Merced</h3>
+                            <p class="mt-1 text-slate-600">Bachelor of Science — Molecular & Cell Biology</p>
+                        </div>
+                        <div class="mt-2 sm:mt-0 text-right">
+                            <span
+                                class="inline-block bg-sky-100 text-sky-700 text-sm font-medium px-3 py-1 rounded-full">Expected
+                                June 2029</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-600">
+                        <span class="flex items-center gap-1.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-500" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                            <strong>3.84 / 4.00 GPA</strong> — Dean's List
+                        </span>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-sm font-medium text-slate-500">Relevant Coursework</p>
+                        <div class="mt-2 flex flex-wrap gap-2">
+                            <span
+                                class="bg-slate-100 text-slate-600 text-xs font-medium px-2.5 py-1 rounded-full">Statistics
+                                for Scientific Data Analysis</span>
+                            <span class="bg-slate-100 text-slate-600 text-xs font-medium px-2.5 py-1 rounded-full">Intro
+                                to Molecular Biology</span>
+                            <span
+                                class="bg-slate-100 text-slate-600 text-xs font-medium px-2.5 py-1 rounded-full">Calculus
+                                2</span>
+                            <span
+                                class="bg-slate-100 text-slate-600 text-xs font-medium px-2.5 py-1 rounded-full">Cornerstone
+                                Engineering</span>
                         </div>
                     </div>
                 </div>
@@ -101,16 +202,17 @@
         </section>
 
         <!-- The Journey Timeline -->
-         <section id="journey" class="py-20 sm:py-24">
+        <section id="journey" class="py-20 sm:py-24 bg-white">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12 sm:mb-16">
                     <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">My Journey</h2>
-                    <p class="mt-4 text-base sm:text-lg text-slate-600">An interactive timeline of my key experiences.</p>
+                    <p class="mt-4 text-base sm:text-lg text-slate-600">An interactive timeline of my key experiences.
+                    </p>
                 </div>
                 <div class="relative">
                     <!-- Vertical line -->
                     <div class="absolute top-0 w-1 h-full bg-slate-200 left-4 md:left-1/2 md:-ml-0.5"></div>
-                    
+
                     <!-- Timeline Items Container -->
                     <div id="timeline-container" class="space-y-12">
                         <!-- Items will be injected here by JavaScript -->
@@ -120,111 +222,204 @@
         </section>
 
         <!-- Core Competencies -->
-        <section id="competencies" class="py-20 sm:py-24 bg-white">
+        <section id="competencies" class="py-20 sm:py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
                     <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Core Competencies</h2>
-                    <p class="mt-4 text-base sm:text-lg text-slate-600">My work is centered around three key pillars.</p>
+                    <p class="mt-4 text-base sm:text-lg text-slate-600">My work is centered around three key pillars.
+                    </p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Card 1: Research -->
-                    <div class="bg-slate-50 p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-delay="50">
+                    <div class="bg-white p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow border border-slate-200"
+                        data-aos="fade-up" data-aos-delay="50">
+                        <div class="text-sky-500 mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                            </svg>
+                        </div>
                         <h3 class="text-lg sm:text-xl font-semibold text-slate-900">Metabolic Imaging Research</h3>
-                        <p class="mt-2 text-slate-600 text-sm sm:text-base">Extensive hands-on experience in hyperpolarized carbon-13 MRI at UCSF, from data acquisition and quality control to analysis.</p>
+                        <p class="mt-2 text-slate-600 text-sm sm:text-base">Extensive hands-on experience in
+                            hyperpolarized ¹³C MRI at UCSF, from data acquisition and hardware engineering to
+                            computational analysis and clinical translation.</p>
                     </div>
                     <!-- Card 2: SciComm -->
-                    <div class="bg-slate-50 p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-delay="150">
+                    <div class="bg-white p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow border border-slate-200"
+                        data-aos="fade-up" data-aos-delay="150">
+                        <div class="text-indigo-500 mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+                            </svg>
+                        </div>
                         <h3 class="text-lg sm:text-xl font-semibold text-slate-900">Science Communication</h3>
-                        <p class="mt-2 text-slate-600 text-sm sm:text-base">Lead <a href="https://gcbiology.org/" target="_blank" class="text-sky-600 hover:underline">Gen Core Biology</a>, a global non-profit that leverages social media to make AP Biology concepts engaging and accessible.</p>
+                        <p class="mt-2 text-slate-600 text-sm sm:text-base">Lead <a href="https://gcbiology.org/"
+                                target="_blank" class="text-sky-600 hover:underline">Gen Core Biology</a>, a global
+                            education platform with 150,000+ followers, coordinating 20 student-led chapters to make
+                            biology accessible.</p>
                     </div>
-                    <!-- Card 3: Clinical -->
-                    <div class="bg-slate-50 p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-delay="250">
-                        <h3 class="text-lg sm:text-xl font-semibold text-slate-900">Clinical Case Studies</h3>
-                        <p class="mt-2 text-slate-600 text-sm sm:text-base">Co-authored multiple peer-reviewed clinical case reports focusing on post-COVID-19 neurological symptoms.</p>
+                    <!-- Card 3: Engineering & Computation -->
+                    <div class="bg-white p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow border border-slate-200"
+                        data-aos="fade-up" data-aos-delay="250">
+                        <div class="text-emerald-500 mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                            </svg>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-semibold text-slate-900">Engineering & Computation</h3>
+                        <p class="mt-2 text-slate-600 text-sm sm:text-base">Migrated data workflows from MATLAB to
+                            Python, engineered and 3D-printed custom NMR hardware using SolidWorks, and built automated
+                            analysis pipelines for spectral data.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Global Impact Section -->
-        <section id="impact" class="py-20 sm:py-24">
+        <section id="impact" class="py-20 sm:py-24 bg-white">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
                     <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Global Impact</h2>
-                    <p class="mt-4 text-base sm:text-lg text-slate-600">The growth and global reach of Gen Core Biology.</p>
+                    <p class="mt-4 text-base sm:text-lg text-slate-600">The growth and global reach of Gen Core Biology.
+                    </p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
                     <!-- Followers Card -->
-                    <div class="bg-white p-6 sm:p-8 rounded-lg shadow-sm text-center flex flex-col items-center" data-aos="fade-up" data-aos-delay="50">
+                    <div class="bg-slate-50 p-6 sm:p-8 rounded-lg shadow-sm text-center flex flex-col items-center"
+                        data-aos="fade-up" data-aos-delay="50">
                         <div class="text-sky-500 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a3.002 3.002 0 014.288 0M12 15a3 3 0 110-6 3 3 0 010 6z" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a3.002 3.002 0 014.288 0M12 15a3 3 0 110-6 3 3 0 010 6z" />
+                            </svg>
                         </div>
-                        <p id="followers-count" class="text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight">0</p>
+                        <p id="followers-count" class="text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight">0
+                        </p>
                         <p class="text-base sm:text-lg text-slate-600 mt-2">Followers</p>
                     </div>
-                     <!-- Views Card -->
-                    <div class="bg-white p-6 sm:p-8 rounded-lg shadow-sm text-center flex flex-col items-center" data-aos="fade-up" data-aos-delay="150">
-                         <div class="text-indigo-500 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                    <!-- Views Card -->
+                    <div class="bg-slate-50 p-6 sm:p-8 rounded-lg shadow-sm text-center flex flex-col items-center"
+                        data-aos="fade-up" data-aos-delay="150">
+                        <div class="text-indigo-500 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
                         </div>
                         <p id="views-count" class="text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight">0</p>
                         <p class="text-base sm:text-lg text-slate-600 mt-2">Total Views</p>
+                    </div>
+                    <!-- Chapters Card -->
+                    <div class="bg-slate-50 p-6 sm:p-8 rounded-lg shadow-sm text-center flex flex-col items-center"
+                        data-aos="fade-up" data-aos-delay="250">
+                        <div class="text-emerald-500 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <p id="chapters-count" class="text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight">0
+                        </p>
+                        <p class="text-base sm:text-lg text-slate-600 mt-2">Student Chapters</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Publications -->
-        <section id="publications" class="py-20 sm:py-24 bg-white">
+        <section id="publications" class="py-20 sm:py-24">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
-                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Publications & Presentations</h2>
-                    <p class="mt-4 text-base sm:text-lg text-slate-600">A selection of my contributions to the scientific community.</p>
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Publications &
+                        Presentations</h2>
+                    <p class="mt-4 text-base sm:text-lg text-slate-600">Peer-reviewed publications and conference
+                        proceedings.</p>
                 </div>
-                <ul class="space-y-8">
-                    <!-- Publication Item 1 -->
-                    <li class="p-6 bg-slate-50 rounded-lg shadow-sm" data-aos="fade-up">
-                        <p class="text-sm font-medium text-sky-600">Journal Publication</p>
-                        <h3 class="mt-2 text-lg font-semibold text-slate-800">
-                            <a href="https://www.nature.com/articles/s44303-025-00073-3" target="_blank" class="hover:text-sky-600 transition-colors">Translation of Hyperpolarized [13C,15N]2Urea MRI for Novel Human Brain Perfusion Studies</a>
-                        </h3>
-                        <p class="mt-1 text-sm text-slate-500">Kim, Y., Chen, zH.-Y., Nickels, T., <strong>Shkliar, I.</strong>, et al. | <em>npj Imaging, 2025</em></p>
+
+                <!-- Peer-Reviewed -->
+                <h3 class="text-lg font-semibold text-slate-800 mb-4" data-aos="fade-up">Peer-Reviewed Publications</h3>
+                <ul class="space-y-6 mb-12">
+                    <li class="p-6 bg-white rounded-lg shadow-sm border border-slate-200" data-aos="fade-up">
+                        <p class="text-sm font-medium text-sky-600">npj Imaging · 2025</p>
+                        <h4 class="mt-2 text-lg font-semibold text-slate-800">
+                            <a href="https://www.nature.com/articles/s44303-025-00073-3" target="_blank"
+                                class="hover:text-sky-600 transition-colors">Translation of hyperpolarized
+                                [¹³C,¹⁵N₂]urea MRI for novel human brain perfusion studies</a>
+                        </h4>
+                        <p class="mt-1 text-sm text-slate-500">Kim Y, Chen HY, Nickles T, <strong>Shkliar I</strong>,
+                            Dang D, Slater J, Wang C, Gordon JW, Tan CT, Suszczynski C, Maddali S, Gaunt A, Chen R,
+                            Villanueva-Meyer J, Xu D, Larson PEZ, Kurhanewicz J, Bok RA, Chang S, Vigneron DB.</p>
+                        <p class="mt-1 text-xs text-slate-400">PMCID: PMC11925798</p>
                     </li>
-                     <!-- Publication Item 2 -->
-                    <li class="p-6 bg-slate-50 rounded-lg shadow-sm" data-aos="fade-up">
-                        <p class="text-sm font-medium text-amber-600">Conference Presentation</p>
-                        <h3 class="mt-2 text-lg font-semibold text-slate-800">D₂O vs H₂O Dissolutions for Enhancing Human MR Imaging...</h3>
-                        <p class="mt-1 text-sm text-slate-500">Kim, Y.*, <strong>Shkliar, I.</strong>*, et al. | <em>Accepted at ISMRM, 2025</em></p>
+                </ul>
+
+                <!-- Conference Proceedings -->
+                <h3 class="text-lg font-semibold text-slate-800 mb-4" data-aos="fade-up">Conference Proceedings</h3>
+                <ul class="space-y-6">
+                    <li class="p-6 bg-white rounded-lg shadow-sm border border-slate-200" data-aos="fade-up">
+                        <p class="text-sm font-medium text-amber-600">ISMRM Annual Meeting · Honolulu, Hawaiʻi · May
+                            2025</p>
+                        <h4 class="mt-2 text-lg font-semibold text-slate-800">
+                            <a href="https://archive.ismrm.org/2025/4475.html" target="_blank"
+                                class="hover:text-sky-600 transition-colors">D₂O vs H₂O Dissolutions for
+                                Enhancing Human MR Imaging of Hyperpolarized [2-¹³C]Pyruvate Conversions to Glutamate
+                                and Lactate</a>
+                        </h4>
+                        <p class="mt-1 text-sm text-slate-500">Kim Y*, <strong>Shkliar I*</strong>, Dang D, Chen HY,
+                            Nickles T, Escobar E, Andosca S, Bok RA, Gordon JW, Vigneron DB. <span
+                                class="text-xs text-slate-400">(P4475)</span></p>
+                        <p class="mt-1 text-xs text-slate-400">* Co-first author</p>
                     </li>
-                     <!-- Publication Item 3 -->
-                    <li class="p-6 bg-slate-50 rounded-lg shadow-sm" data-aos="fade-up">
-                        <p class="text-sm font-medium text-sky-600">Journal Publication</p>
-                        <h3 class="mt-2 text-lg font-semibold text-slate-800">
-                            <a href="https://www.researchgate.net/publication/381879833_A_CASE_OF_MILD_DEPRESSION_EPISODE_WITH_COGNITIVE_IMPAIRMENT_AND_SUICIDAL_THOUGHTS_IN_UKRAINIAN_WOMAN_AFTER_COVID-19" target="_blank" class="hover:text-sky-600 transition-colors">A Case of Mild Depression Episode with Cognitive Impairment...</a>
-                        </h3>
-                        <p class="mt-1 text-sm text-slate-500">Orlova, N., <strong>Shkliar, I.</strong> | <em>EJBS, 2024</em></p>
+                    <li class="p-6 bg-white rounded-lg shadow-sm border border-slate-200" data-aos="fade-up">
+                        <p class="text-sm font-medium text-amber-600">ISMRM Annual Meeting · Honolulu, Hawaiʻi · May
+                            2025</p>
+                        <h4 class="mt-2 text-lg font-semibold text-slate-800">
+                            <a href="https://archive.ismrm.org/2025/3061.html" target="_blank"
+                                class="hover:text-sky-600 transition-colors">Translation of
+                                Hyperpolarized [¹³C,¹⁵N₂]Urea MRI for Novel Human Brain Perfusion Studies</a>
+                        </h4>
+                        <p class="mt-1 text-sm text-slate-500">Kim Y, Chen HY, Nickles T, <strong>Shkliar I</strong>,
+                            Dang D, Slater J, Wang C, Gordon JW, Tan CT, Suszczynski C, Maddali S, Gaunt A, Chen R,
+                            Villanueva-Meyer J, Xu D, Larson PEZ, Kurhanewicz J, Bok RA, Chang S, Vigneron DB. <span
+                                class="text-xs text-slate-400">(P3061)</span></p>
                     </li>
-                     <!-- Publication Item 4 -->
-                    <li class="p-6 bg-slate-50 rounded-lg shadow-sm" data-aos="fade-up">
-                        <p class="text-sm font-medium text-sky-600">Journal Publication</p>
-                        <h3 class="mt-2 text-lg font-semibold text-slate-800">
-                             <a href="https://www.researchgate.net/publication/369377874_Dysgeusia_in_Ukrainian_Woman_with_COVID_Case_Report" target="_blank" class="hover:text-sky-600 transition-colors">Dysgeusia in Ukrainian Woman with COVID: Case Report</a>
-                        </h3>
-                        <p class="mt-1 text-sm text-slate-500">Orlova, N., Shkliar, M., <strong>Shkliar, I.</strong> | <em>Yumed Text, 2023</em></p>
+                    <li class="p-6 bg-white rounded-lg shadow-sm border border-slate-200" data-aos="fade-up">
+                        <p class="text-sm font-medium text-amber-600">ENC-ISMAR Joint Conference · Pacific Grove, CA ·
+                            April 2025</p>
+                        <h4 class="mt-2 text-lg font-semibold text-slate-800">
+                            <a href="https://www.nature.com/articles/s44303-025-00073-3" target="_blank"
+                                class="hover:text-sky-600 transition-colors">Novel Human Brain Vascular Imaging with
+                                Hyperpolarized [¹³C,¹⁵N₂]Urea MRI</a>
+                        </h4>
+                        <p class="mt-1 text-sm text-slate-500">Kim Y, Chen HY, Nickles T, <strong>Shkliar I</strong>,
+                            Dang D, Slater J, Wang C, Gordon JW, Tan CT, Suszczynski C, Maddali S, Gaunt A, Chen R,
+                            Villanueva-Meyer J, Xu D, Larson PEZ, Kurhanewicz J, Bok RA, Chang S, Vigneron DB.</p>
                     </li>
                 </ul>
             </div>
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="py-20 sm:py-24">
-             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="skills" class="py-20 sm:py-24 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
                     <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Skills & Proficiencies</h2>
-                    <p class="mt-4 text-base sm:text-lg text-slate-600">The tools and languages I use to bring my work to life.</p>
+                    <p class="mt-4 text-base sm:text-lg text-slate-600">The tools and capabilities I bring to my work.
+                    </p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                    <!-- Languages -->
                     <div data-aos="fade-up" data-aos-delay="50">
                         <h3 class="text-xl font-semibold text-slate-800 mb-4">Languages</h3>
                         <div class="space-y-4">
@@ -240,7 +435,7 @@
                             <div>
                                 <div class="flex justify-between mb-1">
                                     <span class="text-base font-medium text-slate-700">Russian</span>
-                                    <span class="text-sm font-medium text-slate-500">Native</span>
+                                    <span class="text-sm font-medium text-slate-500">Fluent</span>
                                 </div>
                                 <div class="w-full bg-slate-200 rounded-full h-2.5">
                                     <div class="bg-sky-600 h-2.5 rounded-full" style="width: 100%"></div>
@@ -257,37 +452,87 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Technical Skills -->
                     <div data-aos="fade-up" data-aos-delay="150">
                         <h3 class="text-xl font-semibold text-slate-800 mb-4">Technical Skills</h3>
                         <div class="flex flex-wrap gap-2">
-                            <span class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">MATLAB</span>
-                            <span class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Microsoft Excel</span>
-                            <span class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">MestreNova</span>
-                            <span class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">GraphPad Prism</span>
-                            <span class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Scientific Writing</span>
-                            <span class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Data Analysis</span>
-                            <span class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Canva</span>
+                            <span
+                                class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">MATLAB</span>
+                            <span
+                                class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Python</span>
+                            <span
+                                class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Excel</span>
+                            <span
+                                class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">GraphPad
+                                Prism</span>
+                            <span
+                                class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">MestreNova</span>
+                            <span
+                                class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">SolidWorks</span>
+                            <span
+                                class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Fusion
+                                360</span>
+                            <span
+                                class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">MRI
+                                Perfusion Analysis</span>
+                        </div>
+                    </div>
+
+                    <!-- Laboratory Skills -->
+                    <div data-aos="fade-up" data-aos-delay="250">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-4">Laboratory Skills</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="bg-emerald-100 text-emerald-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">PCR</span>
+                            <span
+                                class="bg-emerald-100 text-emerald-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Micro
+                                Pipetting</span>
+                            <span
+                                class="bg-emerald-100 text-emerald-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">3D
+                                Printing</span>
+                            <span
+                                class="bg-emerald-100 text-emerald-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">NMR
+                                Spectroscopy</span>
+                        </div>
+                    </div>
+
+                    <!-- Professional Skills -->
+                    <div data-aos="fade-up" data-aos-delay="350">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-4">Professional Skills</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="bg-indigo-100 text-indigo-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Scientific
+                                Writing</span>
+                            <span
+                                class="bg-indigo-100 text-indigo-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Team
+                                Leadership</span>
+                            <span
+                                class="bg-indigo-100 text-indigo-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Communication</span>
+                            <span
+                                class="bg-indigo-100 text-indigo-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Public
+                                Speaking</span>
                         </div>
                     </div>
                 </div>
-             </div>
+            </div>
         </section>
     </main>
-    
+
     <footer class="bg-slate-800 text-slate-300">
         <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center">
-            <p>&copy; 2025 Illia Shkliar. All rights reserved.</p>
+            <p>&copy; 2026 Illia Shkliar. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- AOS JS for animations -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Initialize Animate on Scroll
             AOS.init({
                 duration: 700,
-                once: true, // whether animation should happen only once - while scrolling down
+                once: true,
             });
 
             // Mobile menu toggle
@@ -307,15 +552,15 @@
                 anchor.addEventListener('click', function (e) {
                     if (this.getAttribute('href') === '#') return;
                     e.preventDefault();
-                    
+
                     if (!mobileMenu.classList.contains('hidden')) {
-                         mobileMenu.classList.add('hidden');
-                         openIcon.classList.add('hidden');
-                         closedIcon.classList.remove('hidden');
+                        mobileMenu.classList.add('hidden');
+                        openIcon.classList.add('hidden');
+                        closedIcon.classList.remove('hidden');
                     }
-                    
+
                     const targetElement = document.querySelector(this.getAttribute('href'));
-                    if(targetElement){
+                    if (targetElement) {
                         const headerOffset = 70;
                         const elementPosition = targetElement.getBoundingClientRect().top;
                         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
@@ -327,14 +572,15 @@
                     }
                 });
             });
-            
+
             // Data for the timeline
             const timelineData = [
-                 { date: "Summer 2025", type: "Fellowship", title: "SCI³ Mini-Fellowship", institution: "Stanford University, School of Medicine", description: "Selected for a competitive fellowship focused on advanced scientific research, technology, and inclusion, featuring intensive workshops and direct mentorship from Stanford faculty.", color: "sky"},
-                 { date: "March 2025", type: "Publication", title: "Published in npj Imaging", institution: "Nature Portfolio", description: "Co-authored \"Translation of Hyperpolarized [13C,15N]2Urea MRI for Novel Human Brain Perfusion Studies,\" contributing to a first-in-human clinical trial.", color: "emerald"},
-                 { date: "January 2025", type: "Presentation", title: "Co-First Author at ISMRM", institution: "International Society for Magnetic Resonance in Medicine", description: "Abstract \"D₂O vs H₂O Dissolutions for Enhancing Human MR Imaging...\" selected for a digital poster presentation.", color: "amber"},
-                 { date: "November 2024", type: "Leadership", title: "President, Gen Core Biology", institution: "501(c)(3) Non-Profit", description: "Lead a global organization to democratize biology education, growing the platform to over 128K followers and 120M views.", color: "indigo"},
-                 { date: "June 2023", type: "Research", title: "Began Research at UCSF", institution: "Surbek Laboratory for Advanced Imaging", description: "Started multi-year tenure as a student researcher, leading quality control for MRI coils and contributing to hyperpolarized MRI studies.", color: "rose"}
+                { date: "Jan 2026 – Present", type: "Research", title: "Undergraduate Researcher, Spencer Lab", institution: "University of California, Merced (PI: Joel Spencer, PhD)", description: "Selected to investigate in vivo biological systems. Currently completing institutional biosafety and animal handling certifications. Onboarding for intravital imaging and tissue clearing SOPs using the lab's custom-built two-photon microscope.", color: "sky" },
+                { date: "Jun – Aug 2025", type: "Fellowship", title: "Sci3 Mini-Fellow", institution: "Stanford University School of Medicine", description: "Completed specialized training on clinical translation of molecular imaging modalities (Optical, MRI, PET) and AI/Deep Learning applications in diagnosis. Presented a review on clinical imaging to radiology faculty and peers.", color: "violet" },
+                { date: "Summers 2023–2025", type: "Research", title: "Student Researcher, HMTRC", institution: "UCSF Dept. of Radiology & Biomedical Imaging (PI: Daniel B. Vigneron, PhD)", description: "Co-authored npj Imaging publication and co-first authored ISMRM abstract. Migrated data analysis from MATLAB to Python for ~200 ¹³C spectra. Engineered and 3D-printed custom NMR hardware using SolidWorks. Executed hyperpolarization and T1 measurements. Constructed cerebral blood flow maps from ASL datasets.", color: "emerald" },
+                { date: "Nov 2024 – Present", type: "Leadership", title: "President & Co-Founder, Gen Core Biology", institution: "Digital Education Platform", description: "Developed a digital education platform specialized in scientific communication for a global audience of 150,000 followers. Coordinate a team of 20 student-led chapters to create, fact-check, and distribute accessible biology content.", color: "indigo" },
+                { date: "March 2025", type: "Publication", title: "Published in npj Imaging", institution: "Nature Portfolio", description: "Co-authored \"Translation of hyperpolarized [¹³C,¹⁵N₂]urea MRI for novel human brain perfusion studies,\" contributing to a first-in-human clinical trial.", color: "amber" },
+                { date: "May 2025", type: "Presentation", title: "Co-First Author at ISMRM", institution: "International Society for Magnetic Resonance in Medicine", description: "Abstract \"D₂O vs H₂O Dissolutions for Enhancing Human MR Imaging...\" presented at the ISMRM Annual Meeting in Honolulu, Hawaiʻi.", color: "rose" }
             ];
 
             // Function to populate and handle timeline
@@ -342,8 +588,8 @@
                 const timelineContainer = document.getElementById('timeline-container');
                 if (!timelineContainer) return;
 
-                timelineContainer.innerHTML = ''; // Clear existing items
-                
+                timelineContainer.innerHTML = '';
+
                 timelineData.forEach(data => {
                     const item = document.createElement('div');
                     item.className = 'relative timeline-item';
@@ -366,7 +612,7 @@
                     `;
                     timelineContainer.appendChild(item);
                 });
-                
+
                 const timelineItems = document.querySelectorAll('.timeline-item');
                 timelineItems.forEach((item, index) => {
                     const header = item.querySelector('.timeline-header');
@@ -385,12 +631,12 @@
                     header.addEventListener('click', toggle);
                     dot.addEventListener('click', toggle);
 
-                    if(index === 0){
+                    if (index === 0) {
                         content.classList.add('active');
                     }
                 });
             }
-            
+
             // Animated counters function
             function animateValue(obj, start, end, duration) {
                 let startTimestamp = null;
@@ -398,12 +644,12 @@
                     if (!startTimestamp) startTimestamp = timestamp;
                     const progress = Math.min((timestamp - startTimestamp) / duration, 1);
                     const currentVal = Math.floor(progress * (end - start) + start);
-                    
+
                     let displayVal;
                     if (end >= 1000000) {
                         displayVal = (progress === 1 ? end / 1000000 : currentVal / 1000000).toFixed(1) + 'M+';
                     } else if (end >= 1000) {
-                         displayVal = (progress === 1 ? end / 1000 : currentVal / 1000).toFixed(0) + 'K+';
+                        displayVal = (progress === 1 ? end / 1000 : currentVal / 1000).toFixed(0) + 'K+';
                     } else {
                         displayVal = currentVal.toLocaleString();
                     }
@@ -422,8 +668,10 @@
                     if (entry.isIntersecting) {
                         const followersCount = document.getElementById('followers-count');
                         const viewsCount = document.getElementById('views-count');
-                        animateValue(followersCount, 0, 128000, 2000);
+                        const chaptersCount = document.getElementById('chapters-count');
+                        animateValue(followersCount, 0, 150000, 2000);
                         animateValue(viewsCount, 0, 120000000, 2000);
+                        animateValue(chaptersCount, 0, 20, 1500);
                         observer.unobserve(entry.target);
                     }
                 });
@@ -433,10 +681,11 @@
             if (impactSection) {
                 observer.observe(impactSection);
             }
-            
+
             // Initial setup call
             setupTimeline();
         });
     </script>
 </body>
+
 </html>
