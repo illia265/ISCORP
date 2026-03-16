@@ -4,10 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Illia Shkliar | Student Researcher & Science Communicator</title>
+    <title>Illia Shkliar | Student Researcher &amp; Science Communicator</title>
+    <meta name="description" content="Portfolio of Illia Shkliar — student researcher in biomedical imaging at UCSF and UC Merced, and science communicator reaching 150,000+ followers through Gen Core Biology.">
+    <meta property="og:title" content="Illia Shkliar | Student Researcher &amp; Science Communicator">
+    <meta property="og:description" content="Student researcher specializing in biomedical imaging and passionate science communicator reaching 150,000+ followers.">
+    <meta property="og:image" content="https://illia265.github.io/ISCORP/Illia-Shkliar-Headshot.jpg">
+    <meta property="og:url" content="https://illia265.github.io/ISCORP/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Illia Shkliar | Student Researcher &amp; Science Communicator">
+    <meta name="twitter:description" content="Student researcher specializing in biomedical imaging and passionate science communicator.">
+    <meta name="twitter:image" content="https://illia265.github.io/ISCORP/Illia-Shkliar-Headshot.jpg">
+    <link rel="canonical" href="https://illia265.github.io/ISCORP/">
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class' }</script>
     <script>
-        // Prevent flash of wrong theme
         if (localStorage.getItem('darkMode') === 'true' || (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
         }
@@ -15,15 +27,17 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- AOS CSS for animations -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-            transition: background-color 0.3s, color 0.3s;
+            animation: pageLoad 0.6s ease-out;
+        }
+        @keyframes pageLoad {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .timeline-item-content {
@@ -33,110 +47,10 @@
             overflow: hidden;
             margin-top: 0;
         }
-
         .timeline-item-content.active {
             max-height: 500px;
             opacity: 1;
             margin-top: 0.5rem;
-        }
-
-        /* Dark Mode Overrides */
-        html.dark body {
-            background-color: #0f172a;
-            color: #94a3b8;
-        }
-
-        html.dark .bg-white,
-        html.dark .bg-white\/90 {
-            background-color: #1e293b !important;
-        }
-
-        html.dark .bg-slate-50 {
-            background-color: #0f172a !important;
-        }
-
-        html.dark .text-slate-900 {
-            color: #f1f5f9 !important;
-        }
-
-        html.dark .text-slate-800 {
-            color: #e2e8f0 !important;
-        }
-
-        html.dark .text-slate-700 {
-            color: #cbd5e1 !important;
-        }
-
-        html.dark .text-slate-600 {
-            color: #94a3b8 !important;
-        }
-
-        html.dark .text-slate-500 {
-            color: #64748b !important;
-        }
-
-        html.dark .text-slate-400 {
-            color: #475569 !important;
-        }
-
-        html.dark .text-slate-300 {
-            color: #94a3b8 !important;
-        }
-
-        html.dark .border-slate-200 {
-            border-color: #334155 !important;
-        }
-
-        html.dark .bg-slate-200 {
-            background-color: #334155 !important;
-        }
-
-        html.dark .bg-slate-100 {
-            background-color: #1e293b !important;
-        }
-
-        html.dark .bg-slate-800 {
-            background-color: #020617 !important;
-        }
-
-        html.dark .shadow-sm {
-            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.4) !important;
-        }
-
-        html.dark .hover\:shadow-lg:hover {
-            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.4) !important;
-        }
-
-        html.dark .backdrop-blur-sm {
-            background-color: rgba(30, 41, 59, 0.9) !important;
-        }
-
-        html.dark .bg-sky-100 {
-            background-color: rgba(14, 165, 233, 0.15) !important;
-        }
-
-        html.dark .bg-emerald-100 {
-            background-color: rgba(16, 185, 129, 0.15) !important;
-        }
-
-        html.dark .bg-indigo-100 {
-            background-color: rgba(99, 102, 241, 0.15) !important;
-        }
-
-        html.dark .bg-sky-600 {
-            background-color: #0284c7 !important;
-        }
-
-        html.dark .hover\:text-sky-600:hover {
-            color: #38bdf8 !important;
-        }
-
-        html.dark a.text-sky-600 {
-            color: #38bdf8 !important;
-        }
-
-        html.dark .border-white {
-            border-color: #334155 !important;
         }
 
         /* Hero Animated Orbs */
@@ -147,107 +61,72 @@
             opacity: 0.3;
             pointer-events: none;
         }
-
         .hero-orb-1 {
-            width: 400px;
-            height: 400px;
+            width: 400px; height: 400px;
             background: linear-gradient(135deg, #38bdf8, #818cf8);
-            top: -100px;
-            right: -100px;
+            top: -100px; right: -100px;
             animation: float1 8s ease-in-out infinite;
         }
-
         .hero-orb-2 {
-            width: 300px;
-            height: 300px;
+            width: 300px; height: 300px;
             background: linear-gradient(135deg, #a78bfa, #f472b6);
-            bottom: -80px;
-            left: -60px;
+            bottom: -80px; left: -60px;
             animation: float2 10s ease-in-out infinite;
         }
-
         .hero-orb-3 {
-            width: 250px;
-            height: 250px;
+            width: 250px; height: 250px;
             background: linear-gradient(135deg, #34d399, #38bdf8);
-            top: 50%;
-            left: 50%;
+            top: 50%; left: 50%;
             transform: translate(-50%, -50%);
             animation: float3 12s ease-in-out infinite;
         }
-
-        html.dark .hero-orb {
-            opacity: 0.15;
-        }
+        html.dark .hero-orb { opacity: 0.15; }
 
         @keyframes float1 {
-
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1);
-            }
-
-            50% {
-                transform: translate(30px, -30px) scale(1.1);
-            }
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
         }
-
         @keyframes float2 {
-
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1);
-            }
-
-            50% {
-                transform: translate(-20px, 20px) scale(0.9);
-            }
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-20px, 20px) scale(0.9); }
         }
-
         @keyframes float3 {
-
-            0%,
-            100% {
-                transform: translate(-50%, -50%) scale(1.05);
-            }
-
-            50% {
-                transform: translate(calc(-50% + 15px), calc(-50% + 25px)) scale(0.95);
-            }
+            0%, 100% { transform: translate(-50%, -50%) scale(1.05); }
+            50% { transform: translate(calc(-50% + 15px), calc(-50% + 25px)) scale(0.95); }
         }
     </style>
 </head>
 
-<body class="text-slate-700">
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 transition-colors">
 
     <!-- Header & Navigation -->
-    <header id="header" class="bg-white/90 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
+    <header id="header" class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex-shrink-0">
-                    <a href="#hero" class="text-xl font-bold text-slate-800">Illia Shkliar</a>
+                    <a href="#hero" class="text-xl font-bold text-slate-800 dark:text-slate-100">Illia Shkliar</a>
                 </div>
                 <!-- Desktop Menu -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
                         <a href="#education"
-                            class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Education</a>
+                            class="text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 px-3 py-2 rounded-md text-sm font-medium">Education</a>
                         <a href="#journey"
-                            class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Journey</a>
-                        <a href="#competencies"
-                            class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Competencies</a>
-                        <a href="#impact"
-                            class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Impact</a>
-                        <a href="#publications"
-                            class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Publications</a>
+                            class="text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 px-3 py-2 rounded-md text-sm font-medium">Journey</a>
+                        <a href="research.html"
+                            class="text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 px-3 py-2 rounded-md text-sm font-medium">Research</a>
+                        <a href="publications.html"
+                            class="text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 px-3 py-2 rounded-md text-sm font-medium">Publications</a>
                         <a href="#skills"
-                            class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                            class="text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                        <a href="cv.html"
+                            class="text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 px-3 py-2 rounded-md text-sm font-medium">CV</a>
                     </div>
                 </div>
                 <div class="flex items-center gap-2">
                     <!-- Dark Mode Toggle -->
                     <button id="dark-mode-toggle"
-                        class="p-2 rounded-md text-slate-600 hover:text-sky-600 hover:bg-slate-100 transition-colors"
+                        class="p-2 rounded-md text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                         title="Toggle dark mode">
                         <svg id="icon-sun" class="hidden h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
@@ -263,7 +142,7 @@
                     <!-- Mobile Menu Button -->
                     <div class="md:hidden">
                         <button id="mobile-menu-button"
-                            class="inline-flex items-center justify-center p-2 rounded-md text-slate-600 hover:text-sky-600 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-500">
+                            class="inline-flex items-center justify-center p-2 rounded-md text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-500">
                             <span class="sr-only">Open main menu</span>
                             <svg id="menu-closed-icon" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg"
                                 fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -283,17 +162,17 @@
             <div id="mobile-menu" class="md:hidden hidden">
                 <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                     <a href="#education"
-                        class="text-slate-600 hover:text-sky-600 hover:bg-slate-50 block px-3 py-2 rounded-md text-base font-medium">Education</a>
+                        class="text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-slate-50 dark:hover:bg-slate-800 block px-3 py-2 rounded-md text-base font-medium">Education</a>
                     <a href="#journey"
-                        class="text-slate-600 hover:text-sky-600 hover:bg-slate-50 block px-3 py-2 rounded-md text-base font-medium">Journey</a>
-                    <a href="#competencies"
-                        class="text-slate-600 hover:text-sky-600 hover:bg-slate-50 block px-3 py-2 rounded-md text-base font-medium">Competencies</a>
-                    <a href="#impact"
-                        class="text-slate-600 hover:text-sky-600 hover:bg-slate-50 block px-3 py-2 rounded-md text-base font-medium">Impact</a>
-                    <a href="#publications"
-                        class="text-slate-600 hover:text-sky-600 hover:bg-slate-50 block px-3 py-2 rounded-md text-base font-medium">Publications</a>
+                        class="text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-slate-50 dark:hover:bg-slate-800 block px-3 py-2 rounded-md text-base font-medium">Journey</a>
+                    <a href="research.html"
+                        class="text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-slate-50 dark:hover:bg-slate-800 block px-3 py-2 rounded-md text-base font-medium">Research</a>
+                    <a href="publications.html"
+                        class="text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-slate-50 dark:hover:bg-slate-800 block px-3 py-2 rounded-md text-base font-medium">Publications</a>
                     <a href="#skills"
-                        class="text-slate-600 hover:text-sky-600 hover:bg-slate-50 block px-3 py-2 rounded-md text-base font-medium">Skills</a>
+                        class="text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-slate-50 dark:hover:bg-slate-800 block px-3 py-2 rounded-md text-base font-medium">Skills</a>
+                    <a href="cv.html"
+                        class="text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-slate-50 dark:hover:bg-slate-800 block px-3 py-2 rounded-md text-base font-medium">CV</a>
                 </div>
             </div>
         </nav>
@@ -301,7 +180,7 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="hero" class="py-20 sm:py-24 bg-white relative overflow-hidden">
+        <section id="hero" class="py-20 sm:py-24 bg-white dark:bg-slate-900 relative overflow-hidden">
             <!-- Animated gradient orbs -->
             <div class="hero-orb hero-orb-1"></div>
             <div class="hero-orb hero-orb-2"></div>
@@ -309,18 +188,18 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
                     <div class="flex-shrink-0">
-                        <img class="h-40 w-40 sm:h-48 sm:w-48 rounded-full object-cover shadow-lg border-4 border-white"
-                            src="https://media.licdn.com/dms/image/v2/D5603AQFbUHb5vUPXkw/profile-displayphoto-shrink_200_200/B56ZY7zF44GUAY-/0/1744759972996?e=2147483647&v=beta&t=VXakGbRSjfExvijwR_HSoo99ML6uGkOClxLOznt9MZ0"
+                        <img class="h-40 w-40 sm:h-48 sm:w-48 rounded-full object-cover shadow-lg border-4 border-white dark:border-slate-700"
+                            src="Illia-Shkliar-Headshot.jpg"
                             alt="Illia Shkliar"
                             onerror="this.onerror=null;this.src='https://placehold.co/200x200/e2e8f0/64748b?text=IS';">
                     </div>
                     <div class="text-center md:text-left">
-                        <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-slate-900">Illia Shkliar</h1>
-                        <p class="mt-4 text-base sm:text-lg text-slate-600 max-w-2xl">Student researcher specializing in
+                        <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Illia Shkliar</h1>
+                        <p class="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl">Student researcher specializing in
                             biomedical imaging and a passionate science communicator dedicated to making complex biology
                             accessible to a global audience of 150,000+.</p>
                         <div
-                            class="mt-6 flex items-center justify-center md:justify-start gap-4 text-sm text-slate-500">
+                            class="mt-6 flex items-center justify-center md:justify-start gap-4 text-sm text-slate-500 dark:text-slate-400">
                             <span class="flex items-center gap-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor">
@@ -346,7 +225,7 @@
                                 View LinkedIn
                             </a>
                             <a href="mailto:illiashkliar265@gmail.com"
-                                class="text-sm font-semibold leading-6 text-slate-900">Contact Me <span
+                                class="text-sm font-semibold leading-6 text-slate-900 dark:text-slate-100">Contact Me <span
                                     aria-hidden="true">→</span></a>
                         </div>
                     </div>
@@ -358,21 +237,21 @@
         <section id="education" class="py-20 sm:py-24">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
-                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Education</h2>
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Education</h2>
                 </div>
-                <div class="bg-white p-6 sm:p-8 rounded-lg shadow-sm border border-slate-200" data-aos="fade-up">
+                <div class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700" data-aos="fade-up">
                     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
                         <div>
-                            <h3 class="text-xl font-semibold text-slate-900">University of California, Merced</h3>
-                            <p class="mt-1 text-slate-600">Bachelor of Science — Molecular & Cell Biology</p>
+                            <h3 class="text-xl font-semibold text-slate-900 dark:text-slate-100">University of California, Merced</h3>
+                            <p class="mt-1 text-slate-600 dark:text-slate-400">Bachelor of Science — Molecular & Cell Biology</p>
                         </div>
                         <div class="mt-2 sm:mt-0 text-right">
                             <span
-                                class="inline-block bg-sky-100 text-sky-700 text-sm font-medium px-3 py-1 rounded-full">Expected
+                                class="inline-block bg-sky-100 dark:bg-sky-500/15 text-sky-700 dark:text-sky-400 text-sm font-medium px-3 py-1 rounded-full">Expected
                                 June 2029</span>
                         </div>
                     </div>
-                    <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-600">
+                    <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-600 dark:text-slate-400">
                         <span class="flex items-center gap-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-500" fill="currentColor"
                                 viewBox="0 0 20 20">
@@ -383,24 +262,24 @@
                         </span>
                     </div>
                     <div class="mt-4">
-                        <p class="text-sm font-medium text-slate-500">Previous Coursework</p>
+                        <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Previous Coursework</p>
                         <div class="mt-2 flex flex-wrap gap-2">
-                            <span class="bg-slate-100 text-slate-600 text-xs font-medium px-2.5 py-1 rounded-full">Intro to Earth Systems Science</span>
-                            <span class="bg-slate-100 text-slate-600 text-xs font-medium px-2.5 py-1 rounded-full">Statistics for Scientific Data Analysis</span>
-                            <span class="bg-slate-100 text-slate-600 text-xs font-medium px-2.5 py-1 rounded-full">Intro to Psychology</span>
-                            <span class="bg-slate-100 text-slate-600 text-xs font-medium px-2.5 py-1 rounded-full">Intro to Molecular Biology</span>
-                            <span class="bg-slate-100 text-slate-600 text-xs font-medium px-2.5 py-1 rounded-full">General Chemistry I</span>
-                            <span class="bg-slate-100 text-slate-600 text-xs font-medium px-2.5 py-1 rounded-full">Calculus I</span>
-                            <span class="bg-slate-100 text-slate-600 text-xs font-medium px-2.5 py-1 rounded-full">College Reading & Composition</span>
+                            <span class="bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Intro to Earth Systems Science</span>
+                            <span class="bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Statistics for Scientific Data Analysis</span>
+                            <span class="bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Intro to Psychology</span>
+                            <span class="bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Intro to Molecular Biology</span>
+                            <span class="bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">General Chemistry I</span>
+                            <span class="bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">Calculus I</span>
+                            <span class="bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-medium px-2.5 py-1 rounded-full">College Reading & Composition</span>
                         </div>
                     </div>
                     <div class="mt-3">
-                        <p class="text-sm font-medium text-slate-500">Current Coursework</p>
+                        <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Current Coursework</p>
                         <div class="mt-2 flex flex-wrap gap-2">
-                            <span class="bg-sky-100 text-sky-700 text-xs font-medium px-2.5 py-1 rounded-full">General Chemistry II</span>
-                            <span class="bg-sky-100 text-sky-700 text-xs font-medium px-2.5 py-1 rounded-full">Intro to Organismal Biology</span>
-                            <span class="bg-sky-100 text-sky-700 text-xs font-medium px-2.5 py-1 rounded-full">Calculus II</span>
-                            <span class="bg-sky-100 text-sky-700 text-xs font-medium px-2.5 py-1 rounded-full">Cornerstone Engineering</span>
+                            <span class="bg-sky-100 dark:bg-sky-500/15 text-sky-700 dark:text-sky-400 text-xs font-medium px-2.5 py-1 rounded-full">General Chemistry II</span>
+                            <span class="bg-sky-100 dark:bg-sky-500/15 text-sky-700 dark:text-sky-400 text-xs font-medium px-2.5 py-1 rounded-full">Intro to Organismal Biology</span>
+                            <span class="bg-sky-100 dark:bg-sky-500/15 text-sky-700 dark:text-sky-400 text-xs font-medium px-2.5 py-1 rounded-full">Calculus II</span>
+                            <span class="bg-sky-100 dark:bg-sky-500/15 text-sky-700 dark:text-sky-400 text-xs font-medium px-2.5 py-1 rounded-full">Cornerstone Engineering</span>
                         </div>
                     </div>
                 </div>
@@ -408,16 +287,16 @@
         </section>
 
         <!-- The Journey Timeline -->
-        <section id="journey" class="py-20 sm:py-24 bg-white">
+        <section id="journey" class="py-20 sm:py-24 bg-white dark:bg-slate-800">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12 sm:mb-16">
-                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">My Journey</h2>
-                    <p class="mt-4 text-base sm:text-lg text-slate-600">An interactive timeline of my key experiences.
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100">My Journey</h2>
+                    <p class="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-400">An interactive timeline of my key experiences.
                     </p>
                 </div>
                 <div class="relative">
                     <!-- Vertical line -->
-                    <div class="absolute top-0 w-1 h-full bg-slate-200 left-4 md:left-1/2 md:-ml-0.5"></div>
+                    <div class="absolute top-0 w-1 h-full bg-slate-200 dark:bg-slate-700 left-4 md:left-1/2 md:-ml-0.5"></div>
 
                     <!-- Timeline Items Container -->
                     <div id="timeline-container" class="space-y-12">
@@ -431,13 +310,13 @@
         <section id="competencies" class="py-20 sm:py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
-                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Core Competencies</h2>
-                    <p class="mt-4 text-base sm:text-lg text-slate-600">My work is centered around three key pillars.
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Core Competencies</h2>
+                    <p class="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-400">My work is centered around three key pillars.
                     </p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Card 1: Research -->
-                    <div class="bg-white p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow border border-slate-200"
+                    <div class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow border border-slate-200 dark:border-slate-700"
                         data-aos="fade-up" data-aos-delay="50">
                         <div class="text-sky-500 mb-3">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
@@ -446,13 +325,13 @@
                                     d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                             </svg>
                         </div>
-                        <h3 class="text-lg sm:text-xl font-semibold text-slate-900">Metabolic Imaging Research</h3>
-                        <p class="mt-2 text-slate-600 text-sm sm:text-base">Extensive hands-on experience in
+                        <h3 class="text-lg sm:text-xl font-semibold text-slate-900 dark:text-slate-100">Metabolic Imaging Research</h3>
+                        <p class="mt-2 text-slate-600 dark:text-slate-400 text-sm sm:text-base">Extensive hands-on experience in
                             hyperpolarized ¹³C MRI at UCSF, from data acquisition and hardware engineering to
                             computational analysis and clinical translation.</p>
                     </div>
                     <!-- Card 2: SciComm -->
-                    <div class="bg-white p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow border border-slate-200"
+                    <div class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow border border-slate-200 dark:border-slate-700"
                         data-aos="fade-up" data-aos-delay="150">
                         <div class="text-indigo-500 mb-3">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
@@ -461,14 +340,14 @@
                                     d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
                             </svg>
                         </div>
-                        <h3 class="text-lg sm:text-xl font-semibold text-slate-900">Science Communication</h3>
-                        <p class="mt-2 text-slate-600 text-sm sm:text-base">Lead <a href="https://gcbiology.org/"
-                                target="_blank" class="text-sky-600 hover:underline">Gen Core Biology</a>, a global
+                        <h3 class="text-lg sm:text-xl font-semibold text-slate-900 dark:text-slate-100">Science Communication</h3>
+                        <p class="mt-2 text-slate-600 dark:text-slate-400 text-sm sm:text-base">Lead <a href="https://gcbiology.org/"
+                                target="_blank" class="text-sky-600 dark:text-sky-400 hover:underline">Gen Core Biology</a>, a global
                             education platform with 150,000+ followers, coordinating 20 student-led chapters to make
                             biology accessible.</p>
                     </div>
                     <!-- Card 3: Engineering & Computation -->
-                    <div class="bg-white p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow border border-slate-200"
+                    <div class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow border border-slate-200 dark:border-slate-700"
                         data-aos="fade-up" data-aos-delay="250">
                         <div class="text-emerald-500 mb-3">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
@@ -477,8 +356,8 @@
                                     d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                             </svg>
                         </div>
-                        <h3 class="text-lg sm:text-xl font-semibold text-slate-900">Engineering & Computation</h3>
-                        <p class="mt-2 text-slate-600 text-sm sm:text-base">Migrated data workflows from MATLAB to
+                        <h3 class="text-lg sm:text-xl font-semibold text-slate-900 dark:text-slate-100">Engineering & Computation</h3>
+                        <p class="mt-2 text-slate-600 dark:text-slate-400 text-sm sm:text-base">Migrated data workflows from MATLAB to
                             Python, engineered and 3D-printed custom NMR hardware using SolidWorks, and built automated
                             analysis pipelines for spectral data.</p>
                     </div>
@@ -487,16 +366,16 @@
         </section>
 
         <!-- Global Impact Section -->
-        <section id="impact" class="py-20 sm:py-24 bg-white">
+        <section id="impact" class="py-20 sm:py-24 bg-white dark:bg-slate-900">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
-                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Global Impact</h2>
-                    <p class="mt-4 text-base sm:text-lg text-slate-600">The growth and global reach of Gen Core Biology.
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Global Impact</h2>
+                    <p class="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-400">The growth and global reach of Gen Core Biology.
                     </p>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
                     <!-- Followers Card -->
-                    <div class="bg-slate-50 p-6 sm:p-8 rounded-lg shadow-sm text-center flex flex-col items-center"
+                    <div class="bg-slate-50 dark:bg-slate-800 p-6 sm:p-8 rounded-lg shadow-sm text-center flex flex-col items-center"
                         data-aos="fade-up" data-aos-delay="50">
                         <div class="text-sky-500 mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
@@ -505,12 +384,12 @@
                                     d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a3.002 3.002 0 014.288 0M12 15a3 3 0 110-6 3 3 0 010 6z" />
                             </svg>
                         </div>
-                        <p id="followers-count" class="text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight">0
+                        <p id="followers-count" class="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-slate-100 tracking-tight">0
                         </p>
-                        <p class="text-base sm:text-lg text-slate-600 mt-2">Followers</p>
+                        <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 mt-2">Followers</p>
                     </div>
                     <!-- Views Card -->
-                    <div class="bg-slate-50 p-6 sm:p-8 rounded-lg shadow-sm text-center flex flex-col items-center"
+                    <div class="bg-slate-50 dark:bg-slate-800 p-6 sm:p-8 rounded-lg shadow-sm text-center flex flex-col items-center"
                         data-aos="fade-up" data-aos-delay="150">
                         <div class="text-indigo-500 mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
@@ -521,11 +400,11 @@
                                     d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                             </svg>
                         </div>
-                        <p id="views-count" class="text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight">0</p>
-                        <p class="text-base sm:text-lg text-slate-600 mt-2">Total Views</p>
+                        <p id="views-count" class="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-slate-100 tracking-tight">0</p>
+                        <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 mt-2">Total Views</p>
                     </div>
                     <!-- Chapters Card -->
-                    <div class="bg-slate-50 p-6 sm:p-8 rounded-lg shadow-sm text-center flex flex-col items-center"
+                    <div class="bg-slate-50 dark:bg-slate-800 p-6 sm:p-8 rounded-lg shadow-sm text-center flex flex-col items-center"
                         data-aos="fade-up" data-aos-delay="250">
                         <div class="text-emerald-500 mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
@@ -534,9 +413,9 @@
                                     d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </div>
-                        <p id="chapters-count" class="text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight">0
+                        <p id="chapters-count" class="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-slate-100 tracking-tight">0
                         </p>
-                        <p class="text-base sm:text-lg text-slate-600 mt-2">Student Chapters</p>
+                        <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 mt-2">Student Chapters</p>
                     </div>
                 </div>
             </div>
@@ -546,23 +425,23 @@
         <section id="publications" class="py-20 sm:py-24">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
-                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Publications &
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Publications &
                         Presentations</h2>
-                    <p class="mt-4 text-base sm:text-lg text-slate-600">Peer-reviewed publications and conference
+                    <p class="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-400">Peer-reviewed publications and conference
                         proceedings.</p>
                 </div>
 
                 <!-- Peer-Reviewed -->
-                <h3 class="text-lg font-semibold text-slate-800 mb-4" data-aos="fade-up">Peer-Reviewed Publications</h3>
+                <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-200 mb-4" data-aos="fade-up">Peer-Reviewed Publications</h3>
                 <ul class="space-y-6 mb-12">
-                    <li class="p-6 bg-white rounded-lg shadow-sm border border-slate-200" data-aos="fade-up">
+                    <li class="p-6 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700" data-aos="fade-up">
                         <p class="text-sm font-medium text-sky-600">npj Imaging · 2025</p>
-                        <h4 class="mt-2 text-lg font-semibold text-slate-800">
+                        <h4 class="mt-2 text-lg font-semibold text-slate-800 dark:text-slate-200">
                             <a href="https://www.nature.com/articles/s44303-025-00073-3" target="_blank"
                                 class="hover:text-sky-600 transition-colors">Translation of hyperpolarized
                                 [¹³C,¹⁵N₂]urea MRI for novel human brain perfusion studies</a>
                         </h4>
-                        <p class="mt-1 text-sm text-slate-500">Kim Y, Chen HY, Nickles T, <strong>Shkliar I</strong>,
+                        <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Kim Y, Chen HY, Nickles T, <strong>Shkliar I</strong>,
                             Dang D, Slater J, Wang C, Gordon JW, Tan CT, Suszczynski C, Maddali S, Gaunt A, Chen R,
                             Villanueva-Meyer J, Xu D, Larson PEZ, Kurhanewicz J, Bok RA, Chang S, Vigneron DB.</p>
                         <p class="mt-1 text-xs text-slate-400">PMCID: PMC11925798</p>
@@ -570,39 +449,39 @@
                 </ul>
 
                 <!-- Conference Proceedings -->
-                <h3 class="text-lg font-semibold text-slate-800 mb-4" data-aos="fade-up">Conference Proceedings</h3>
+                <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-200 mb-4" data-aos="fade-up">Conference Proceedings</h3>
                 <ul class="space-y-6">
-                    <li class="p-6 bg-white rounded-lg shadow-sm border border-slate-200" data-aos="fade-up">
+                    <li class="p-6 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700" data-aos="fade-up">
                         <p class="text-sm font-medium text-amber-600">ISMRM Annual Meeting · Honolulu, Hawaiʻi · May
                             2025</p>
-                        <h4 class="mt-2 text-lg font-semibold text-slate-800">
+                        <h4 class="mt-2 text-lg font-semibold text-slate-800 dark:text-slate-200">
                             <a href="https://archive.ismrm.org/2025/4475.html" target="_blank"
                                 class="hover:text-sky-600 transition-colors">D₂O vs H₂O Dissolutions for
                                 Enhancing Human MR Imaging of Hyperpolarized [2-¹³C]Pyruvate Conversions to Glutamate
                                 and Lactate</a>
                         </h4>
-                        <p class="mt-1 text-sm text-slate-500">Kim Y*, <strong>Shkliar I*</strong>, Dang D, Chen HY,
+                        <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Kim Y*, <strong>Shkliar I*</strong>, Dang D, Chen HY,
                             Nickles T, Escobar E, Andosca S, Bok RA, Gordon JW, Vigneron DB. <span
-                                class="text-xs text-slate-400">(P4475)</span></p>
+                                class="text-xs text-slate-400 dark:text-slate-500">(P4475)</span></p>
                         <p class="mt-1 text-xs text-slate-400">* Co-first author</p>
                     </li>
-                    <li class="p-6 bg-white rounded-lg shadow-sm border border-slate-200" data-aos="fade-up">
+                    <li class="p-6 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700" data-aos="fade-up">
                         <p class="text-sm font-medium text-amber-600">ISMRM Annual Meeting · Honolulu, Hawaiʻi · May
                             2025</p>
-                        <h4 class="mt-2 text-lg font-semibold text-slate-800">
+                        <h4 class="mt-2 text-lg font-semibold text-slate-800 dark:text-slate-200">
                             <a href="https://archive.ismrm.org/2025/3061.html" target="_blank"
                                 class="hover:text-sky-600 transition-colors">Translation of
                                 Hyperpolarized [¹³C,¹⁵N₂]Urea MRI for Novel Human Brain Perfusion Studies</a>
                         </h4>
-                        <p class="mt-1 text-sm text-slate-500">Kim Y, Chen HY, Nickles T, <strong>Shkliar I</strong>,
+                        <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Kim Y, Chen HY, Nickles T, <strong>Shkliar I</strong>,
                             Dang D, Slater J, Wang C, Gordon JW, Tan CT, Suszczynski C, Maddali S, Gaunt A, Chen R,
                             Villanueva-Meyer J, Xu D, Larson PEZ, Kurhanewicz J, Bok RA, Chang S, Vigneron DB. <span
-                                class="text-xs text-slate-400">(P3061)</span></p>
+                                class="text-xs text-slate-400 dark:text-slate-500">(P3061)</span></p>
                     </li>
-                    <li class="p-6 bg-white rounded-lg shadow-sm border border-slate-200" data-aos="fade-up">
+                    <li class="p-6 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700" data-aos="fade-up">
                         <p class="text-sm font-medium text-amber-600">ENC-ISMAR Joint Conference · Pacific Grove, CA ·
                             April 2025</p>
-                        <h4 class="mt-2 text-lg font-semibold text-slate-800">
+                        <h4 class="mt-2 text-lg font-semibold text-slate-800 dark:text-slate-200">
                             <a href="https://www.nature.com/articles/s44303-025-00073-3" target="_blank"
                                 class="hover:text-sky-600 transition-colors">Novel Human Brain Vascular Imaging with
                                 Hyperpolarized [¹³C,¹⁵N₂]Urea MRI</a>
@@ -616,43 +495,43 @@
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="py-20 sm:py-24 bg-white">
+        <section id="skills" class="py-20 sm:py-24 bg-white dark:bg-slate-800">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
-                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Skills & Proficiencies</h2>
-                    <p class="mt-4 text-base sm:text-lg text-slate-600">The tools and capabilities I bring to my work.
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Skills & Proficiencies</h2>
+                    <p class="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-400">The tools and capabilities I bring to my work.
                     </p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                     <!-- Languages -->
                     <div data-aos="fade-up" data-aos-delay="50">
-                        <h3 class="text-xl font-semibold text-slate-800 mb-4">Languages</h3>
+                        <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-200 mb-4">Languages</h3>
                         <div class="space-y-4">
                             <div>
                                 <div class="flex justify-between mb-1">
-                                    <span class="text-base font-medium text-slate-700">English</span>
-                                    <span class="text-sm font-medium text-slate-500">Fluent</span>
+                                    <span class="text-base font-medium text-slate-700 dark:text-slate-300">English</span>
+                                    <span class="text-sm font-medium text-slate-500 dark:text-slate-400">Fluent</span>
                                 </div>
-                                <div class="w-full bg-slate-200 rounded-full h-2.5">
+                                <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2.5">
                                     <div class="bg-sky-600 h-2.5 rounded-full" style="width: 100%"></div>
                                 </div>
                             </div>
                             <div>
                                 <div class="flex justify-between mb-1">
-                                    <span class="text-base font-medium text-slate-700">Russian</span>
-                                    <span class="text-sm font-medium text-slate-500">Fluent</span>
+                                    <span class="text-base font-medium text-slate-700 dark:text-slate-300">Russian</span>
+                                    <span class="text-sm font-medium text-slate-500 dark:text-slate-400">Fluent</span>
                                 </div>
-                                <div class="w-full bg-slate-200 rounded-full h-2.5">
+                                <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2.5">
                                     <div class="bg-sky-600 h-2.5 rounded-full" style="width: 100%"></div>
                                 </div>
                             </div>
                             <div>
                                 <div class="flex justify-between mb-1">
-                                    <span class="text-base font-medium text-slate-700">Spanish</span>
-                                    <span class="text-sm font-medium text-slate-500">Conversational</span>
+                                    <span class="text-base font-medium text-slate-700 dark:text-slate-300">Spanish</span>
+                                    <span class="text-sm font-medium text-slate-500 dark:text-slate-400">Conversational</span>
                                 </div>
-                                <div class="w-full bg-slate-200 rounded-full h-2.5">
+                                <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2.5">
                                     <div class="bg-sky-600 h-2.5 rounded-full" style="width: 60%"></div>
                                 </div>
                             </div>
@@ -661,62 +540,62 @@
 
                     <!-- Technical Skills -->
                     <div data-aos="fade-up" data-aos-delay="150">
-                        <h3 class="text-xl font-semibold text-slate-800 mb-4">Technical Skills</h3>
+                        <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-200 mb-4">Technical Skills</h3>
                         <div class="flex flex-wrap gap-2">
                             <span
-                                class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">MATLAB</span>
+                                class="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium me-2 px-2.5 py-1 rounded-full">MATLAB</span>
                             <span
-                                class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Python</span>
+                                class="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Python</span>
                             <span
-                                class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Excel</span>
+                                class="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Excel</span>
                             <span
-                                class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">GraphPad
+                                class="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium me-2 px-2.5 py-1 rounded-full">GraphPad
                                 Prism</span>
                             <span
-                                class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">MestreNova</span>
+                                class="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium me-2 px-2.5 py-1 rounded-full">MestreNova</span>
                             <span
-                                class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">SolidWorks</span>
+                                class="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium me-2 px-2.5 py-1 rounded-full">SolidWorks</span>
                             <span
-                                class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Fusion
+                                class="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Fusion
                                 360</span>
                             <span
-                                class="bg-slate-200 text-slate-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">MRI
+                                class="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium me-2 px-2.5 py-1 rounded-full">MRI
                                 Perfusion Analysis</span>
                         </div>
                     </div>
 
                     <!-- Laboratory Skills -->
                     <div data-aos="fade-up" data-aos-delay="250">
-                        <h3 class="text-xl font-semibold text-slate-800 mb-4">Laboratory Skills</h3>
+                        <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-200 mb-4">Laboratory Skills</h3>
                         <div class="flex flex-wrap gap-2">
                             <span
-                                class="bg-emerald-100 text-emerald-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">PCR</span>
+                                class="bg-emerald-100 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 text-sm font-medium me-2 px-2.5 py-1 rounded-full">PCR</span>
                             <span
-                                class="bg-emerald-100 text-emerald-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Micro
+                                class="bg-emerald-100 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Micro
                                 Pipetting</span>
                             <span
-                                class="bg-emerald-100 text-emerald-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">3D
+                                class="bg-emerald-100 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 text-sm font-medium me-2 px-2.5 py-1 rounded-full">3D
                                 Printing</span>
                             <span
-                                class="bg-emerald-100 text-emerald-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">NMR
+                                class="bg-emerald-100 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 text-sm font-medium me-2 px-2.5 py-1 rounded-full">NMR
                                 Spectroscopy</span>
                         </div>
                     </div>
 
                     <!-- Professional Skills -->
                     <div data-aos="fade-up" data-aos-delay="350">
-                        <h3 class="text-xl font-semibold text-slate-800 mb-4">Professional Skills</h3>
+                        <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-200 mb-4">Professional Skills</h3>
                         <div class="flex flex-wrap gap-2">
                             <span
-                                class="bg-indigo-100 text-indigo-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Scientific
+                                class="bg-indigo-100 dark:bg-indigo-500/15 text-indigo-700 dark:text-indigo-400 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Scientific
                                 Writing</span>
                             <span
-                                class="bg-indigo-100 text-indigo-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Team
+                                class="bg-indigo-100 dark:bg-indigo-500/15 text-indigo-700 dark:text-indigo-400 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Team
                                 Leadership</span>
                             <span
-                                class="bg-indigo-100 text-indigo-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Communication</span>
+                                class="bg-indigo-100 dark:bg-indigo-500/15 text-indigo-700 dark:text-indigo-400 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Communication</span>
                             <span
-                                class="bg-indigo-100 text-indigo-700 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Public
+                                class="bg-indigo-100 dark:bg-indigo-500/15 text-indigo-700 dark:text-indigo-400 text-sm font-medium me-2 px-2.5 py-1 rounded-full">Public
                                 Speaking</span>
                         </div>
                     </div>
@@ -725,7 +604,7 @@
         </section>
     </main>
 
-    <footer class="bg-slate-800 text-slate-300">
+    <footer class="bg-slate-800 dark:bg-slate-950 text-slate-300">
         <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center">
             <p>&copy; 2026 Illia Shkliar. All rights reserved.</p>
         </div>
@@ -801,17 +680,17 @@
                     item.className = 'relative timeline-item';
                     item.setAttribute('data-aos', 'fade-up');
                     item.innerHTML = `
-                        <div class="timeline-dot absolute w-8 h-8 bg-${data.color}-500 rounded-full border-4 border-white cursor-pointer top-0 left-4 -ml-4 md:left-1/2"></div>
+                        <div class="timeline-dot absolute w-8 h-8 bg-${data.color}-500 rounded-full border-4 border-white dark:border-slate-800 cursor-pointer top-0 left-4 -ml-4 md:left-1/2"></div>
                         <div class="pl-12 md:pl-0 md:ml-[calc(50%+2rem)]">
-                            <h3 class="timeline-header text-base sm:text-lg font-semibold text-slate-800 cursor-pointer flex-col sm:flex-row items-start sm:items-center flex">
+                            <h3 class="timeline-header text-base sm:text-lg font-semibold text-slate-800 dark:text-slate-200 cursor-pointer flex-col sm:flex-row items-start sm:items-center flex">
                                 <span class="font-bold mr-2">${data.date}</span>
-                                <span class="mt-1 sm:mt-0 bg-${data.color}-100 text-${data.color}-700 text-xs font-medium px-2.5 py-0.5 rounded-full">${data.type}</span>
+                                <span class="mt-1 sm:mt-0 bg-${data.color}-100 dark:bg-${data.color}-500/15 text-${data.color}-700 dark:text-${data.color}-400 text-xs font-medium px-2.5 py-0.5 rounded-full">${data.type}</span>
                             </h3>
                             <div class="timeline-item-content">
-                                <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
-                                    <h4 class="text-md font-bold text-slate-900">${data.title}</h4>
-                                    <p class="text-sm text-slate-500">${data.institution}</p>
-                                    <p class="mt-2 text-slate-600">${data.description}</p>
+                                <div class="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700">
+                                    <h4 class="text-md font-bold text-slate-900 dark:text-slate-100">${data.title}</h4>
+                                    <p class="text-sm text-slate-500 dark:text-slate-400">${data.institution}</p>
+                                    <p class="mt-2 text-slate-600 dark:text-slate-400">${data.description}</p>
                                 </div>
                             </div>
                         </div>
