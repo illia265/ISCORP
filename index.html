@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Illia Shkliar | Student Researcher & Science Communicator</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Prevent flash of wrong theme
+        if (localStorage.getItem('darkMode') === 'true' || (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +23,7 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f8fafc;
-            /* slate-50 */
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .timeline-item-content {
@@ -32,6 +38,182 @@
             max-height: 500px;
             opacity: 1;
             margin-top: 0.5rem;
+        }
+
+        /* Dark Mode Overrides */
+        html.dark body {
+            background-color: #0f172a;
+            color: #94a3b8;
+        }
+
+        html.dark .bg-white,
+        html.dark .bg-white\/90 {
+            background-color: #1e293b !important;
+        }
+
+        html.dark .bg-slate-50 {
+            background-color: #0f172a !important;
+        }
+
+        html.dark .text-slate-900 {
+            color: #f1f5f9 !important;
+        }
+
+        html.dark .text-slate-800 {
+            color: #e2e8f0 !important;
+        }
+
+        html.dark .text-slate-700 {
+            color: #cbd5e1 !important;
+        }
+
+        html.dark .text-slate-600 {
+            color: #94a3b8 !important;
+        }
+
+        html.dark .text-slate-500 {
+            color: #64748b !important;
+        }
+
+        html.dark .text-slate-400 {
+            color: #475569 !important;
+        }
+
+        html.dark .text-slate-300 {
+            color: #94a3b8 !important;
+        }
+
+        html.dark .border-slate-200 {
+            border-color: #334155 !important;
+        }
+
+        html.dark .bg-slate-200 {
+            background-color: #334155 !important;
+        }
+
+        html.dark .bg-slate-100 {
+            background-color: #1e293b !important;
+        }
+
+        html.dark .bg-slate-800 {
+            background-color: #020617 !important;
+        }
+
+        html.dark .shadow-sm {
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.4) !important;
+        }
+
+        html.dark .hover\:shadow-lg:hover {
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.4) !important;
+        }
+
+        html.dark .backdrop-blur-sm {
+            background-color: rgba(30, 41, 59, 0.9) !important;
+        }
+
+        html.dark .bg-sky-100 {
+            background-color: rgba(14, 165, 233, 0.15) !important;
+        }
+
+        html.dark .bg-emerald-100 {
+            background-color: rgba(16, 185, 129, 0.15) !important;
+        }
+
+        html.dark .bg-indigo-100 {
+            background-color: rgba(99, 102, 241, 0.15) !important;
+        }
+
+        html.dark .bg-sky-600 {
+            background-color: #0284c7 !important;
+        }
+
+        html.dark .hover\:text-sky-600:hover {
+            color: #38bdf8 !important;
+        }
+
+        html.dark a.text-sky-600 {
+            color: #38bdf8 !important;
+        }
+
+        html.dark .border-white {
+            border-color: #334155 !important;
+        }
+
+        /* Hero Animated Orbs */
+        .hero-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .hero-orb-1 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            top: -100px;
+            right: -100px;
+            animation: float1 8s ease-in-out infinite;
+        }
+
+        .hero-orb-2 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #a78bfa, #f472b6);
+            bottom: -80px;
+            left: -60px;
+            animation: float2 10s ease-in-out infinite;
+        }
+
+        .hero-orb-3 {
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(135deg, #34d399, #38bdf8);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: float3 12s ease-in-out infinite;
+        }
+
+        html.dark .hero-orb {
+            opacity: 0.15;
+        }
+
+        @keyframes float1 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(30px, -30px) scale(1.1);
+            }
+        }
+
+        @keyframes float2 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+        }
+
+        @keyframes float3 {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) scale(1.05);
+            }
+
+            50% {
+                transform: translate(calc(-50% + 15px), calc(-50% + 25px)) scale(0.95);
+            }
         }
     </style>
 </head>
@@ -62,24 +244,39 @@
                             class="text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Skills</a>
                     </div>
                 </div>
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-button"
-                        class="inline-flex items-center justify-center p-2 rounded-md text-slate-600 hover:text-sky-600 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-500">
-                        <span class="sr-only">Open main menu</span>
-                        <!-- Icon for menu closed -->
-                        <svg id="menu-closed-icon" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <div class="flex items-center gap-2">
+                    <!-- Dark Mode Toggle -->
+                    <button id="dark-mode-toggle"
+                        class="p-2 rounded-md text-slate-600 hover:text-sky-600 hover:bg-slate-100 transition-colors"
+                        title="Toggle dark mode">
+                        <svg id="icon-sun" class="hidden h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16" />
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                         </svg>
-                        <!-- Icon for menu open -->
-                        <svg id="menu-open-icon" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <svg id="icon-moon" class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M6 18L18 6M6 6l12 12" />
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                         </svg>
                     </button>
+                    <!-- Mobile Menu Button -->
+                    <div class="md:hidden">
+                        <button id="mobile-menu-button"
+                            class="inline-flex items-center justify-center p-2 rounded-md text-slate-600 hover:text-sky-600 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-500">
+                            <span class="sr-only">Open main menu</span>
+                            <svg id="menu-closed-icon" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                            <svg id="menu-open-icon" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
             <!-- Mobile Menu Panel -->
@@ -104,8 +301,12 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="hero" class="py-20 sm:py-24 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="hero" class="py-20 sm:py-24 bg-white relative overflow-hidden">
+            <!-- Animated gradient orbs -->
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
+            <div class="hero-orb hero-orb-3"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
                     <div class="flex-shrink-0">
                         <img class="h-40 w-40 sm:h-48 sm:w-48 rounded-full object-cover shadow-lg border-4 border-white"
@@ -182,19 +383,24 @@
                         </span>
                     </div>
                     <div class="mt-4">
-                        <p class="text-sm font-medium text-slate-500">Relevant Coursework</p>
+                        <p class="text-sm font-medium text-slate-500">Previous Coursework</p>
                         <div class="mt-2 flex flex-wrap gap-2">
-                            <span
-                                class="bg-slate-100 text-slate-600 text-xs font-medium px-2.5 py-1 rounded-full">Statistics
-                                for Scientific Data Analysis</span>
-                            <span class="bg-slate-100 text-slate-600 text-xs font-medium px-2.5 py-1 rounded-full">Intro
-                                to Molecular Biology</span>
-                            <span
-                                class="bg-slate-100 text-slate-600 text-xs font-medium px-2.5 py-1 rounded-full">Calculus
-                                2</span>
-                            <span
-                                class="bg-slate-100 text-slate-600 text-xs font-medium px-2.5 py-1 rounded-full">Cornerstone
-                                Engineering</span>
+                            <span class="bg-slate-100 text-slate-600 text-xs font-medium px-2.5 py-1 rounded-full">Intro to Earth Systems Science</span>
+                            <span class="bg-slate-100 text-slate-600 text-xs font-medium px-2.5 py-1 rounded-full">Statistics for Scientific Data Analysis</span>
+                            <span class="bg-slate-100 text-slate-600 text-xs font-medium px-2.5 py-1 rounded-full">Intro to Psychology</span>
+                            <span class="bg-slate-100 text-slate-600 text-xs font-medium px-2.5 py-1 rounded-full">Intro to Molecular Biology</span>
+                            <span class="bg-slate-100 text-slate-600 text-xs font-medium px-2.5 py-1 rounded-full">General Chemistry I</span>
+                            <span class="bg-slate-100 text-slate-600 text-xs font-medium px-2.5 py-1 rounded-full">Calculus I</span>
+                            <span class="bg-slate-100 text-slate-600 text-xs font-medium px-2.5 py-1 rounded-full">College Reading & Composition</span>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <p class="text-sm font-medium text-slate-500">Current Coursework</p>
+                        <div class="mt-2 flex flex-wrap gap-2">
+                            <span class="bg-sky-100 text-sky-700 text-xs font-medium px-2.5 py-1 rounded-full">General Chemistry II</span>
+                            <span class="bg-sky-100 text-sky-700 text-xs font-medium px-2.5 py-1 rounded-full">Intro to Organismal Biology</span>
+                            <span class="bg-sky-100 text-sky-700 text-xs font-medium px-2.5 py-1 rounded-full">Calculus II</span>
+                            <span class="bg-sky-100 text-sky-700 text-xs font-medium px-2.5 py-1 rounded-full">Cornerstone Engineering</span>
                         </div>
                     </div>
                 </div>
@@ -681,6 +887,24 @@
             if (impactSection) {
                 observer.observe(impactSection);
             }
+
+            // Dark mode toggle
+            const darkToggle = document.getElementById('dark-mode-toggle');
+            const iconSun = document.getElementById('icon-sun');
+            const iconMoon = document.getElementById('icon-moon');
+            function setDarkMode(isDark) {
+                document.documentElement.classList.toggle('dark', isDark);
+                iconSun.classList.toggle('hidden', !isDark);
+                iconMoon.classList.toggle('hidden', isDark);
+                localStorage.setItem('darkMode', isDark ? 'true' : 'false');
+            }
+            const savedPref = localStorage.getItem('darkMode');
+            if (savedPref === 'true' || (!savedPref && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                setDarkMode(true);
+            }
+            darkToggle.addEventListener('click', () => {
+                setDarkMode(!document.documentElement.classList.contains('dark'));
+            });
 
             // Initial setup call
             setupTimeline();
