@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV | Illia Shkliar</title>
-    <meta name="description" content="Curriculum Vitae of Illia Shkliar — student researcher in biomedical imaging, science communicator, and undergraduate at UC Merced.">
+    <meta name="description"
+        content="Curriculum Vitae of Illia Shkliar — student researcher in biomedical imaging, science communicator, and undergraduate at UC Merced.">
     <meta property="og:title" content="CV | Illia Shkliar">
-    <meta property="og:description" content="Curriculum Vitae — biomedical imaging researcher, science communicator, UC Merced undergraduate.">
+    <meta property="og:description"
+        content="Curriculum Vitae — biomedical imaging researcher, science communicator, UC Merced undergraduate.">
     <meta property="og:image" content="https://illia265.github.io/ISCORP/Illia-Shkliar-Headshot.jpg">
     <meta property="og:url" content="https://illia265.github.io/ISCORP/cv.html">
     <meta property="og:type" content="website">
     <link rel="canonical" href="https://illia265.github.io/ISCORP/cv.html">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config = { darkMode: 'class' }</script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { extend: { colors: { 'navy': '#0A0F1C' } } }
+        }
+    </script>
     <script>
         if (localStorage.getItem('darkMode') === 'true' || (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
@@ -21,44 +29,58 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; animation: pageLoad 0.6s ease-out; }
-        @keyframes pageLoad { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        body { font-family: 'Inter', sans-serif; animation: pageLoad 0.5s ease-out; }
+        h1, h2, h3 { font-family: 'Exo', sans-serif; }
+        @keyframes pageLoad { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+        @media (prefers-reduced-motion: reduce) { body { animation: none; } * { transition-duration: 0ms !important; } }
         @media print {
-            header, footer, #dark-mode-toggle { display: none !important; }
-            body { background: white !important; color: black !important; animation: none !important; }
-            .print-break { page-break-before: always; }
-            section { padding: 1rem 0 !important; }
+            #nav-wrapper, footer { display: none !important; }
+            body { background: white !important; color: black !important; animation: none !important; padding-top: 0 !important; }
+            main { padding-top: 1rem !important; }
+            section { padding: 0.5rem 0 !important; }
         }
     </style>
 </head>
-<body class="bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 transition-colors">
 
-    <header class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <a href="index.html" class="text-xl font-bold text-slate-800 dark:text-slate-100">Illia Shkliar</a>
-                <div class="hidden md:flex items-baseline space-x-4">
-                    <a href="index.html#education" class="text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 px-3 py-2 rounded-md text-sm font-medium">Education</a>
-                    <a href="index.html#journey" class="text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 px-3 py-2 rounded-md text-sm font-medium">Journey</a>
-                    <a href="research.html" class="text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 px-3 py-2 rounded-md text-sm font-medium">Research</a>
-                    <a href="publications.html" class="text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 px-3 py-2 rounded-md text-sm font-medium">Publications</a>
-                    <a href="index.html#skills" class="text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 px-3 py-2 rounded-md text-sm font-medium">Skills</a>
-                    <a href="cv.html" class="text-sky-600 dark:text-sky-400 px-3 py-2 rounded-md text-sm font-bold">CV</a>
+<body class="bg-slate-50 dark:bg-[#0A0F1C] text-slate-700 dark:text-slate-300">
+
+    <!-- Floating Nav -->
+    <div id="nav-wrapper" class="fixed top-4 left-4 right-4 z-50 flex justify-center pointer-events-none">
+        <header class="w-full max-w-5xl pointer-events-auto">
+            <nav class="bg-white/85 dark:bg-slate-900/85 backdrop-blur-xl rounded-2xl shadow-lg border border-slate-200/70 dark:border-slate-700/50 px-4">
+                <div class="flex items-center justify-between h-14">
+                    <a href="/" class="text-lg font-bold text-slate-900 dark:text-slate-100" style="font-family:'Exo',sans-serif">Illia Shkliar</a>
+                    <div class="hidden md:flex items-baseline space-x-1">
+                        <a href="/#education" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200">Education</a>
+                        <a href="/#journey" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200">Journey</a>
+                        <a href="/research" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200">Research</a>
+                        <a href="/publications" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200">Publications</a>
+                        <a href="/#skills" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200">Skills</a>
+                        <a href="/cv" class="ml-2 bg-blue-600 text-white px-4 py-1.5 rounded-full text-sm font-semibold cursor-pointer">CV</a>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button id="dark-mode-toggle"
+                            class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 cursor-pointer"
+                            aria-label="Toggle dark mode">
+                            <svg id="icon-sun" class="hidden h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                            <svg id="icon-moon" class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+                        </button>
+                        <button onclick="window.print()" class="hidden md:inline-flex items-center gap-1.5 p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 cursor-pointer text-sm font-medium" aria-label="Print CV">
+                            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" /></svg>
+                            Print
+                        </button>
+                    </div>
                 </div>
-                <button id="dark-mode-toggle" class="p-2 rounded-md text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="Toggle dark mode">
-                    <svg id="icon-sun" class="hidden h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-                    <svg id="icon-moon" class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
-                </button>
-            </div>
-        </nav>
-    </header>
+            </nav>
+        </header>
+    </div>
 
-    <main class="py-16 sm:py-20">
+    <main class="pt-24 pb-20">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- CV Header -->
-            <div class="text-center mb-12">
+            <div class="text-center mb-12 pt-8">
                 <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Curriculum Vitae</h1>
                 <p class="mt-2 text-slate-500 dark:text-slate-400">illiashkliar265@gmail.com · South San Francisco, CA</p>
             </div>
@@ -66,41 +88,41 @@
             <div class="space-y-10">
                 <!-- Education -->
                 <section>
-                    <h2 class="text-xl font-bold text-slate-900 dark:text-slate-100 border-b-2 border-sky-500 pb-2 mb-4">Education</h2>
-                    <div class="flex flex-col sm:flex-row sm:justify-between">
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-slate-100 border-b-2 border-blue-500 pb-2 mb-5">Education</h2>
+                    <div class="flex flex-col sm:flex-row sm:justify-between gap-1">
                         <div>
                             <h3 class="font-semibold text-slate-800 dark:text-slate-200">University of California, Merced</h3>
-                            <p class="text-slate-600 dark:text-slate-400">B.S. Molecular & Cell Biology</p>
+                            <p class="text-slate-600 dark:text-slate-400">B.S. Molecular &amp; Cell Biology</p>
                         </div>
                         <p class="text-slate-500 dark:text-slate-400 text-sm">Expected June 2029</p>
                     </div>
-                    <p class="mt-1 text-sm text-slate-600 dark:text-slate-400"><strong>GPA:</strong> 3.84/4.00 · Dean's Honor List</p>
-                    <p class="mt-1 text-sm text-slate-600 dark:text-slate-400"><strong>Coursework:</strong> Intro to Earth Systems Science, Statistics for Scientific Data Analysis, Intro to Psychology, Intro to Molecular Biology, General Chemistry I & II, Calculus I & II, College Reading & Composition, Intro to Organismal Biology, Cornerstone Engineering</p>
+                    <p class="mt-2 text-sm text-slate-600 dark:text-slate-400"><strong>GPA:</strong> 3.84/4.00 · Dean's Honor List</p>
+                    <p class="mt-1 text-sm text-slate-600 dark:text-slate-400"><strong>Coursework:</strong> Intro to Earth Systems Science, Statistics for Scientific Data Analysis, Intro to Psychology, Intro to Molecular Biology, General Chemistry I &amp; II, Calculus I &amp; II, College Reading &amp; Composition, Intro to Organismal Biology, Cornerstone Engineering</p>
                 </section>
 
                 <!-- Research Experience -->
                 <section>
-                    <h2 class="text-xl font-bold text-slate-900 dark:text-slate-100 border-b-2 border-sky-500 pb-2 mb-4">Research Experience</h2>
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-slate-100 border-b-2 border-blue-500 pb-2 mb-5">Research Experience</h2>
                     <div class="space-y-6">
                         <div>
-                            <div class="flex flex-col sm:flex-row sm:justify-between">
+                            <div class="flex flex-col sm:flex-row sm:justify-between gap-1">
                                 <h3 class="font-semibold text-slate-800 dark:text-slate-200">Undergraduate Researcher — Spencer Lab</h3>
                                 <p class="text-slate-500 dark:text-slate-400 text-sm">Jan 2026 – Present</p>
                             </div>
                             <p class="text-sm text-slate-500 dark:text-slate-400">University of California, Merced · PI: Joel Spencer, PhD</p>
-                            <ul class="mt-1 list-disc list-inside text-sm text-slate-600 dark:text-slate-400 space-y-0.5">
+                            <ul class="mt-2 list-disc list-inside text-sm text-slate-600 dark:text-slate-400 space-y-0.5">
                                 <li>Investigating in vivo biological systems using custom two-photon microscopy</li>
-                                <li>Completing biosafety & animal handling certifications</li>
+                                <li>Completing biosafety &amp; animal handling certifications</li>
                                 <li>Onboarding for intravital imaging and tissue clearing protocols</li>
                             </ul>
                         </div>
                         <div>
-                            <div class="flex flex-col sm:flex-row sm:justify-between">
+                            <div class="flex flex-col sm:flex-row sm:justify-between gap-1">
                                 <h3 class="font-semibold text-slate-800 dark:text-slate-200">Student Researcher — HMTRC</h3>
                                 <p class="text-slate-500 dark:text-slate-400 text-sm">Summers 2023–2025</p>
                             </div>
-                            <p class="text-sm text-slate-500 dark:text-slate-400">UCSF Dept. of Radiology & Biomedical Imaging · PI: Daniel B. Vigneron, PhD</p>
-                            <ul class="mt-1 list-disc list-inside text-sm text-slate-600 dark:text-slate-400 space-y-0.5">
+                            <p class="text-sm text-slate-500 dark:text-slate-400">UCSF Dept. of Radiology &amp; Biomedical Imaging · PI: Daniel B. Vigneron, PhD</p>
+                            <ul class="mt-2 list-disc list-inside text-sm text-slate-600 dark:text-slate-400 space-y-0.5">
                                 <li>Co-authored publication in npj Imaging and co-first authored ISMRM abstract</li>
                                 <li>Migrated MATLAB data analysis to Python for ~200 ¹³C spectra</li>
                                 <li>Engineered and 3D-printed custom NMR hardware using SolidWorks</li>
@@ -109,12 +131,12 @@
                             </ul>
                         </div>
                         <div>
-                            <div class="flex flex-col sm:flex-row sm:justify-between">
+                            <div class="flex flex-col sm:flex-row sm:justify-between gap-1">
                                 <h3 class="font-semibold text-slate-800 dark:text-slate-200">Sci3 Mini-Fellow</h3>
                                 <p class="text-slate-500 dark:text-slate-400 text-sm">Jun – Aug 2025</p>
                             </div>
                             <p class="text-sm text-slate-500 dark:text-slate-400">Stanford University School of Medicine</p>
-                            <ul class="mt-1 list-disc list-inside text-sm text-slate-600 dark:text-slate-400 space-y-0.5">
+                            <ul class="mt-2 list-disc list-inside text-sm text-slate-600 dark:text-slate-400 space-y-0.5">
                                 <li>Training in clinical translation of molecular imaging (Optical, MRI, PET)</li>
                                 <li>AI/Deep Learning applications in medical diagnosis</li>
                                 <li>Presented review on clinical imaging to radiology faculty</li>
@@ -125,7 +147,7 @@
 
                 <!-- Publications -->
                 <section>
-                    <h2 class="text-xl font-bold text-slate-900 dark:text-slate-100 border-b-2 border-sky-500 pb-2 mb-4">Publications</h2>
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-slate-100 border-b-2 border-blue-500 pb-2 mb-5">Publications</h2>
                     <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400">
                         <li>Kim Y, Chen HY, Nickles T, <strong class="text-slate-800 dark:text-slate-200">Shkliar I</strong>, et al. "Translation of hyperpolarized [¹³C,¹⁵N₂]urea MRI for novel human brain perfusion studies." <em>npj Imaging</em>, 2025. PMCID: PMC11925798.</li>
                         <li>Kim Y*, <strong class="text-slate-800 dark:text-slate-200">Shkliar I*</strong>, et al. "D₂O vs H₂O Dissolutions for Enhancing Human MR Imaging of Hyperpolarized [2-¹³C]Pyruvate Conversions." ISMRM 2025. (*Co-first author)</li>
@@ -136,12 +158,12 @@
 
                 <!-- Leadership -->
                 <section>
-                    <h2 class="text-xl font-bold text-slate-900 dark:text-slate-100 border-b-2 border-sky-500 pb-2 mb-4">Leadership & Service</h2>
-                    <div class="flex flex-col sm:flex-row sm:justify-between">
-                        <h3 class="font-semibold text-slate-800 dark:text-slate-200">President & Co-Founder, Gen Core Biology</h3>
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-slate-100 border-b-2 border-blue-500 pb-2 mb-5">Leadership &amp; Service</h2>
+                    <div class="flex flex-col sm:flex-row sm:justify-between gap-1">
+                        <h3 class="font-semibold text-slate-800 dark:text-slate-200">President &amp; Co-Founder, Gen Core Biology</h3>
                         <p class="text-slate-500 dark:text-slate-400 text-sm">Nov 2024 – Present</p>
                     </div>
-                    <ul class="mt-1 list-disc list-inside text-sm text-slate-600 dark:text-slate-400 space-y-0.5">
+                    <ul class="mt-2 list-disc list-inside text-sm text-slate-600 dark:text-slate-400 space-y-0.5">
                         <li>Built a digital education platform with 150,000+ followers globally</li>
                         <li>Coordinate 20 student-led chapters for biology content creation and distribution</li>
                         <li>120M+ total content views across platforms</li>
@@ -150,7 +172,7 @@
 
                 <!-- Skills -->
                 <section>
-                    <h2 class="text-xl font-bold text-slate-900 dark:text-slate-100 border-b-2 border-sky-500 pb-2 mb-4">Skills</h2>
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-slate-100 border-b-2 border-blue-500 pb-2 mb-5">Skills</h2>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-slate-600 dark:text-slate-400">
                         <div>
                             <h3 class="font-semibold text-slate-800 dark:text-slate-200 mb-1">Technical</h3>
@@ -174,17 +196,9 @@
         </div>
     </main>
 
-    <footer class="bg-slate-800 dark:bg-slate-950 text-slate-300">
-        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center">
-            <div class="flex justify-center gap-6 mb-4">
-                <a href="https://www.linkedin.com/in/illia-shkliar/" target="_blank" class="text-slate-400 hover:text-sky-400 transition-colors" aria-label="LinkedIn">
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                </a>
-                <a href="https://github.com/illia265" target="_blank" class="text-slate-400 hover:text-sky-400 transition-colors" aria-label="GitHub">
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-                </a>
-            </div>
-            <p>&copy; 2026 Illia Shkliar. All rights reserved.</p>
+    <footer class="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 text-slate-300">
+        <div class="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-slate-500 text-sm">&copy; 2026 Illia Shkliar. All rights reserved.</p>
         </div>
     </footer>
 
@@ -203,4 +217,5 @@
         darkToggle.addEventListener('click', () => { setDarkMode(!document.documentElement.classList.contains('dark')); });
     </script>
 </body>
+
 </html>
