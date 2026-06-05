@@ -4,16 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publications | IlliaS</title>
+    <title>Experience &amp; Education | IlliaS</title>
     <meta name="description"
-        content="Peer-reviewed publications and conference presentations by Illia Shkliar in hyperpolarized MRI and biomedical imaging.">
-    <meta property="og:title" content="Publications | IlliaS">
+        content="Portfolio of Illia Shkliar — student researcher in biomedical imaging at UCSF and UC Merced, and science communicator reaching 150,000+ followers through Gen Core Biology.">
+    <meta property="og:title" content="IlliaS | Student Researcher &amp; Science Communicator">
     <meta property="og:description"
-        content="Peer-reviewed publications and conference presentations in hyperpolarized MRI and biomedical imaging.">
+        content="Student researcher specializing in biomedical imaging and passionate science communicator reaching 150,000+ followers.">
     <meta property="og:image" content="https://illia265.github.io/ISCORP/Illia-Shkliar-Headshot.jpg">
-    <meta property="og:url" content="https://illia265.github.io/ISCORP/publications.html">
+    <meta property="og:url" content="https://illia265.github.io/ISCORP/">
     <meta property="og:type" content="website">
-    <link rel="canonical" href="https://illia265.github.io/ISCORP/publications.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://illia265.github.io/ISCORP/">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -91,10 +92,7 @@
             transition: color 0.15s;
         }
         .nav-links a:hover { color: var(--ink); }
-        .nav-links a.active {
-            color: var(--primary);
-            background: var(--surface);
-        }
+        .nav-links a.active { color: var(--ink); }
         .theme-toggle {
             background: none; border: none; cursor: pointer;
             color: var(--muted); padding: 0.375rem;
@@ -132,77 +130,105 @@
         /* Page container */
         .page { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
 
-        /* Header */
-        .page-header {
+        /* Hero */
+        .hero {
             padding-top: 7rem;
-            padding-bottom: 3rem;
+            padding-bottom: 4rem;
+            display: flex; align-items: center; gap: 3rem;
         }
-        .page-header h1 {
-            font-size: clamp(2rem, 5vw, 3rem);
+        .hero-photo {
+            width: 140px; height: 140px; flex-shrink: 0;
+            border-radius: 50%; object-fit: cover;
+            border: 2px solid var(--border);
+        }
+        .hero-text h1 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
             font-weight: 700; letter-spacing: -0.02em;
         }
-        .page-header p {
-            margin-top: 1rem; font-size: 1.1rem;
-            color: var(--muted); max-width: 55ch; line-height: 1.6;
+        .hero-text .tagline {
+            margin-top: 0.75rem;
+            font-size: 1rem; color: var(--muted);
+            max-width: 50ch; line-height: 1.65;
+        }
+        .hero-meta {
+            margin-top: 1rem;
+            display: flex; flex-wrap: wrap; gap: 1rem;
+            font-size: 0.85rem; color: var(--muted);
+        }
+        .hero-meta a { transition: color 0.15s; }
+        .hero-meta a:hover { color: var(--primary); }
+        .hero-links {
+            margin-top: 1.25rem;
+            display: flex; align-items: center; gap: 0.75rem;
+        }
+        .btn-primary {
+            display: inline-block;
+            background: var(--primary); color: oklch(0.08 0 0);
+            font-size: 0.85rem; font-weight: 600;
+            padding: 0.5rem 1.25rem; border-radius: 6px;
+            transition: opacity 0.15s;
+        }
+        .btn-primary:hover { opacity: 0.85; }
+        .social-icon {
+            color: var(--muted); transition: color 0.15s;
+            display: flex; align-items: center;
+        }
+        .social-icon:hover { color: var(--ink); }
+        .social-icon svg { width: 20px; height: 20px; }
+
+        @media (max-width: 640px) {
+            .hero { flex-direction: column; text-align: center; gap: 1.5rem; padding-top: 6rem; }
+            .hero-photo { width: 120px; height: 120px; }
+            .hero-meta { justify-content: center; }
+            .hero-links { justify-content: center; }
         }
 
-        /* Lists */
-        .pub-section-title {
-            font-size: 0.75rem; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 0.08em;
-            color: var(--muted); margin-bottom: 1rem;
-            padding-top: 1.5rem;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 0.5rem;
+        /* Sections */
+        .section { padding: 3rem 0; border-top: 1px solid var(--border); }
+        .section-title {
+            font-size: 1.35rem; font-weight: 600;
+            margin-bottom: 1.5rem; letter-spacing: -0.01em;
         }
-        
-        .pub-item {
-            padding: 1.5rem 0;
-            border-bottom: 1px solid var(--border);
+
+        /* Education */
+        .edu-card {
+            padding: 1.5rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
         }
-        .pub-item:last-child { border-bottom: none; }
-        
-        .pub-meta-top {
-            display: inline-flex; align-items: center;
-            font-size: 0.75rem; font-weight: 600;
-            color: var(--muted); background: var(--surface);
-            padding: 0.25rem 0.6rem; border-radius: 4px;
+        .edu-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; }
+        .edu-school { font-family: 'Source Serif 4', serif; font-size: 1.1rem; font-weight: 600; }
+        .edu-degree { color: var(--muted); font-size: 0.9rem; margin-top: 0.2rem; }
+        .edu-date { font-size: 0.8rem; color: var(--muted); white-space: nowrap; }
+        .edu-detail { font-size: 0.875rem; color: var(--muted); margin-top: 0.75rem; }
+        .edu-courses { font-size: 0.85rem; color: var(--muted); margin-top: 0.75rem; line-height: 1.7; }
+        .edu-courses strong { color: var(--ink); font-weight: 600; }
+
+        /* Journey */
+        .journey-item {
+            padding: 1.25rem 1.5rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
             margin-bottom: 0.75rem;
         }
-        
-        .pub-title {
-            font-family: 'Source Serif 4', serif;
-            font-size: 1.1rem; font-weight: 600;
-            margin-bottom: 0.5rem; line-height: 1.4;
+        .journey-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; flex-wrap: wrap; }
+        .journey-title { font-family: 'Source Serif 4', serif; font-size: 1rem; font-weight: 600; }
+        .journey-institution { font-size: 0.85rem; color: var(--muted); margin-top: 0.15rem; }
+        .journey-meta { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+        .journey-type {
+            font-size: 0.7rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.06em;
+            color: var(--primary);
         }
-        .pub-title a {
-            transition: color 0.15s;
-            display: inline-flex; align-items: baseline; gap: 0.25rem;
-        }
-        .pub-title a:hover { color: var(--primary); }
-        .pub-title svg {
-            width: 12px; height: 12px; opacity: 0.5;
-            position: relative; top: 0.1em;
-            transition: opacity 0.15s, transform 0.15s;
-        }
-        .pub-title a:hover svg {
-            opacity: 1; transform: translate(1px, -1px);
-        }
-        
-        .pub-authors {
-            font-size: 0.9rem; color: var(--muted);
-            line-height: 1.6; margin-bottom: 0.5rem;
-        }
-        .pub-authors strong { color: var(--ink); font-weight: 600; }
-        
-        .pub-meta-bottom {
-            font-size: 0.8rem; color: var(--muted);
-        }
+        .journey-date { font-size: 0.8rem; color: var(--muted); white-space: nowrap; }
+        .journey-desc { font-size: 0.875rem; color: var(--muted); margin-top: 0.5rem; line-height: 1.65; }
 
         /* Footer */
         .site-footer {
             border-top: 1px solid var(--border);
-            padding: 2.5rem 0; margin-top: 4rem;
+            padding: 2.5rem 0;
         }
         .footer-inner {
             max-width: 720px; margin: 0 auto; padding: 0 1.5rem;
@@ -230,11 +256,11 @@
 
     <nav class="nav-bar">
         <div class="nav-inner">
-            <a href="/" class="nav-brand">Illia Shkliar</a>
+            <a href="#" class="nav-brand">Illia Shkliar</a>
             <div class="nav-links">
                 <a href="/">About</a>
-                <a href="/experience.html">Experience</a>
-                <a href="/publications.html" class="active">Publications</a>
+                <a href="/experience.html" class="active">Experience</a>
+                <a href="/publications.html">Publications</a>
             </div>
             <div style="display:flex;align-items:center;gap:0.25rem;">
                 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
@@ -250,69 +276,34 @@
 
     <div class="mobile-menu" id="mobile-menu">
         <a href="/">About</a>
-        <a href="/experience.html">Experience</a>
-        <a href="/publications.html" class="active">Publications</a>
+        <a href="/experience.html" class="active">Experience</a>
+        <a href="/publications.html">Publications</a>
     </div>
 
     <main class="page">
-        <header class="page-header">
-            <h1>Publications &amp; Presentations</h1>
-            <p>Peer-reviewed publications and conference proceedings.</p>
+        <header class="page-header" style="padding-top: 7rem; padding-bottom: 3rem;">
+            <h1 style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; letter-spacing: -0.02em;">Experience &amp; Education</h1>
+            <p style="margin-top: 1rem; font-size: 1.1rem; color: var(--muted); max-width: 55ch; line-height: 1.6;">My academic background and research journey.</p>
         </header>
 
-        <!-- Peer-Reviewed -->
-        <h2 class="pub-section-title">Peer-Reviewed Publications</h2>
-        <div>
-            <article class="pub-item">
-                <span class="pub-meta-top">npj Imaging · 2025</span>
-                <h3 class="pub-title">
-                    <a href="https://www.nature.com/articles/s44303-025-00073-3" target="_blank">
-                        Translation of hyperpolarized [¹³C,¹⁵N₂]urea MRI for novel human brain perfusion studies
-                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                    </a>
-                </h3>
-                <p class="pub-authors">Kim Y, Chen HY, Nickles T, <strong>Shkliar I</strong>, Dang D, Slater J, Wang C, Gordon JW, Tan CT, Suszczynski C, Maddali S, Gaunt A, Chen R, Villanueva-Meyer J, Xu D, Larson PEZ, Kurhanewicz J, Bok RA, Chang S, Vigneron DB.</p>
-                <p class="pub-meta-bottom">PMCID: PMC11925798</p>
-            </article>
-        </div>
+        <section class="section" id="education" style="border-top: none; padding-top: 0;">
+            <h2 class="section-title">Education</h2>
+            <div class="edu-card">
+                <div class="edu-header">
+                    <div>
+                        <div class="edu-school">University of California, Merced</div>
+                        <div class="edu-degree">Bachelor of Science, Molecular &amp; Cell Biology</div>
+                    </div>
+                    <div class="edu-date">Expected June 2029</div>
+                </div>
+                <div class="edu-detail">Chancellor's List</div>
+            </div>
+        </section>
 
-        <!-- Conference Proceedings -->
-        <h2 class="pub-section-title" style="margin-top: 2rem;">Conference Proceedings</h2>
-        <div>
-            <article class="pub-item">
-                <span class="pub-meta-top">ISMRM 2025 · Honolulu, Hawaiʻi</span>
-                <h3 class="pub-title">
-                    <a href="https://archive.ismrm.org/2025/4475.html" target="_blank">
-                        D₂O vs H₂O Dissolutions for Enhancing Human MR Imaging of Hyperpolarized [2-¹³C]Pyruvate Conversions to Glutamate and Lactate
-                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                    </a>
-                </h3>
-                <p class="pub-authors">Kim Y*, <strong>Shkliar I*</strong>, Dang D, Chen HY, Nickles T, Escobar E, Andosca S, Bok RA, Gordon JW, Vigneron DB. (P4475)</p>
-                <p class="pub-meta-bottom">* Co-first author</p>
-            </article>
-            
-            <article class="pub-item">
-                <span class="pub-meta-top">ISMRM 2025 · Honolulu, Hawaiʻi</span>
-                <h3 class="pub-title">
-                    <a href="https://archive.ismrm.org/2025/3061.html" target="_blank">
-                        Translation of Hyperpolarized [¹³C,¹⁵N₂]Urea MRI for Novel Human Brain Perfusion Studies
-                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                    </a>
-                </h3>
-                <p class="pub-authors">Kim Y, Chen HY, Nickles T, <strong>Shkliar I</strong>, Dang D, Slater J, Wang C, Gordon JW, Tan CT, Suszczynski C, Maddali S, Gaunt A, Chen R, Villanueva-Meyer J, Xu D, Larson PEZ, Kurhanewicz J, Bok RA, Chang S, Vigneron DB. (P3061)</p>
-            </article>
-
-            <article class="pub-item">
-                <span class="pub-meta-top">ENC-ISMAR 2025 · Pacific Grove, CA</span>
-                <h3 class="pub-title">
-                    <a href="https://www.nature.com/articles/s44303-025-00073-3" target="_blank">
-                        Novel Human Brain Vascular Imaging with Hyperpolarized [¹³C,¹⁵N₂]Urea MRI
-                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                    </a>
-                </h3>
-                <p class="pub-authors">Kim Y, Chen HY, Nickles T, <strong>Shkliar I</strong>, Dang D, Slater J, Wang C, Gordon JW, Tan CT, Suszczynski C, Maddali S, Gaunt A, Chen R, Villanueva-Meyer J, Xu D, Larson PEZ, Kurhanewicz J, Bok RA, Chang S, Vigneron DB.</p>
-            </article>
-        </div>
+        <section class="section" id="experience">
+            <h2 class="section-title">Experience</h2>
+            <div id="experience-list"></div>
+        </section>
     </main>
 
     <footer class="site-footer">
@@ -362,6 +353,51 @@
         // Close mobile menu on link click
         mobileMenu.querySelectorAll('a').forEach(a => {
             a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') === '#') return;
+                e.preventDefault();
+                mobileMenu.classList.remove('open');
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 72;
+                    const pos = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top: pos, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Experience
+        const experienceData = [
+            { date: "Jan 2026 – Present", type: "Research", title: "Undergraduate Researcher, Spencer Lab", institution: "University of California, Merced · PI: Joel Spencer, PhD", description: "Investigating in vivo biological systems using advanced optical microscopy. Completing institutional biosafety and animal handling certifications. Onboarding for intravital imaging and tissue clearing SOPs using a custom-built two-photon microscope." },
+            { date: "Nov 2024 – Present", type: "Leadership", title: "President & Co-Founder, Gen Core Biology", institution: "Digital Education Platform", description: "Built a science communication platform reaching 150,000 followers globally. Coordinate 20 student-led chapters creating, fact-checking, and distributing accessible biology content." },
+            { date: "Jun – Aug 2025", type: "Fellowship", title: "Sci3 Mini-Fellow", institution: "Stanford University School of Medicine", description: "Completed training on clinical translation of molecular imaging modalities (Optical, MRI, PET) and AI/Deep Learning applications in diagnosis. Presented a review on clinical imaging to radiology faculty and peers." },
+            { date: "May 2025", type: "Presentation", title: "Co-First Author at ISMRM", institution: "International Society for Magnetic Resonance in Medicine", description: "Abstract \"D₂O vs H₂O Dissolutions for Enhancing Human MR Imaging...\" presented at the ISMRM Annual Meeting in Honolulu, Hawaiʻi." },
+            { date: "March 2025", type: "Publication", title: "Published in npj Imaging", institution: "Nature Portfolio", description: "Co-authored \"Translation of hyperpolarized [¹³C,¹⁵N₂]urea MRI for novel human brain perfusion studies,\" contributing to a first-in-human clinical trial." },
+            { date: "Summers 2023–2026", type: "Research", title: "Student Researcher, HMTRC", institution: "UCSF Dept. of Radiology & Biomedical Imaging · PI: Daniel B. Vigneron, PhD", description: "Co-authored npj Imaging publication and co-first authored ISMRM abstract. Migrated data analysis from MATLAB to Python for ~200 ¹³C spectra. Engineered and 3D-printed custom NMR hardware. Executed hyperpolarization and T1 measurements. Constructed cerebral blood flow maps from ASL datasets." }
+        ];
+
+        const list = document.getElementById('experience-list');
+        experienceData.forEach(item => {
+            const el = document.createElement('div');
+            el.className = 'journey-item';
+            el.innerHTML = `
+                <div class="journey-header">
+                    <div style="flex: 1; min-width: 0; padding-right: 1rem;">
+                        <div class="journey-title">${item.title}</div>
+                        <div class="journey-institution">${item.institution}</div>
+                    </div>
+                    <div class="journey-meta">
+                        <span class="journey-type">${item.type}</span>
+                        <span class="journey-date">${item.date}</span>
+                    </div>
+                </div>
+                <p class="journey-desc">${item.description}</p>
+            `;
+            list.appendChild(el);
         });
     </script>
 </body>
