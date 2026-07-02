@@ -4,16 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publications | IlliaS</title>
+    <title>Publications | Illia Shkliar</title>
     <meta name="description"
         content="Peer-reviewed publications and conference presentations by Illia Shkliar in hyperpolarized MRI and biomedical imaging.">
-    <meta property="og:title" content="Publications | IlliaS">
+    <meta property="og:title" content="Publications | Illia Shkliar">
     <meta property="og:description"
         content="Peer-reviewed publications and conference presentations in hyperpolarized MRI and biomedical imaging.">
-    <meta property="og:image" content="https://illia265.github.io/ISCORP/Illia-Shkliar-Headshot.jpg">
-    <meta property="og:url" content="https://illia265.github.io/ISCORP/publications.html">
+    <meta property="og:image" content="https://iscorp.vercel.app/Illia-Shkliar-Headshot.png">
+    <meta property="og:image:alt" content="Portrait of Illia Shkliar">
+    <meta property="og:url" content="https://iscorp.vercel.app/publications">
     <meta property="og:type" content="website">
-    <link rel="canonical" href="https://illia265.github.io/ISCORP/publications.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Publications | Illia Shkliar">
+    <meta name="twitter:description" content="Peer-reviewed publications and conference presentations by Illia Shkliar.">
+    <meta name="twitter:image" content="https://iscorp.vercel.app/Illia-Shkliar-Headshot.png">
+    <link rel="canonical" href="https://iscorp.vercel.app/publications">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,6 +33,7 @@
             --primary: oklch(0.70 0.12 113);
             --accent: oklch(0.55 0.10 250);
             --border: oklch(0.20 0.000 0);
+            --focus: oklch(0.72 0.14 113);
         }
 
         html.light {
@@ -38,6 +44,7 @@
             --primary: oklch(0.45 0.12 113);
             --accent: oklch(0.45 0.10 250);
             --border: oklch(0.88 0.000 0);
+            --focus: oklch(0.46 0.14 113);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -48,6 +55,7 @@
             color: var(--ink);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
         }
 
         h1, h2, h3 {
@@ -57,6 +65,8 @@
         }
 
         a { color: inherit; text-decoration: none; }
+        a:focus-visible, button:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+        .hidden { display: none !important; }
         img { display: block; max-width: 100%; }
 
         @media (prefers-reduced-motion: reduce) {
@@ -72,7 +82,7 @@
             border-bottom: 1px solid var(--border);
         }
         .nav-inner {
-            max-width: 720px; margin: 0 auto;
+            max-width: 780px; margin: 0 auto;
             padding: 0 1.5rem;
             display: flex; align-items: center; justify-content: space-between;
             height: 56px;
@@ -88,20 +98,21 @@
             font-size: 0.875rem; font-weight: 500;
             color: var(--muted);
             padding: 0.375rem 0.75rem; border-radius: 6px;
-            transition: color 0.15s;
+            transition: background 0.15s, color 0.15s;
         }
-        .nav-links a:hover { color: var(--ink); }
+        .nav-links a:hover,
         .nav-links a.active {
-            color: var(--primary);
+            color: var(--ink);
             background: var(--surface);
         }
         .theme-toggle {
             background: none; border: none; cursor: pointer;
-            color: var(--muted); padding: 0.375rem;
+            color: var(--muted); min-width: 2.5rem; min-height: 2.5rem; padding: 0.5rem;
             border-radius: 6px; display: flex; align-items: center;
-            transition: color 0.15s;
+            justify-content: center;
+            transition: background 0.15s, color 0.15s;
         }
-        .theme-toggle:hover { color: var(--ink); }
+        .theme-toggle:hover { color: var(--ink); background: var(--surface); }
 
         /* Mobile nav */
         .nav-mobile-btn { display: none; }
@@ -111,12 +122,14 @@
             .nav-links { display: none; }
             .nav-mobile-btn {
                 display: flex; background: none; border: none; cursor: pointer;
-                color: var(--muted); padding: 0.375rem;
+                color: var(--muted); min-width: 2.5rem; min-height: 2.5rem; padding: 0.5rem;
+                align-items: center; justify-content: center; border-radius: 6px;
             }
             .mobile-menu {
                 position: fixed; top: 56px; left: 0; right: 0;
                 background: var(--bg); border-bottom: 1px solid var(--border);
                 padding: 0.5rem 1.5rem 1rem; z-index: 49;
+                box-shadow: 0 8px 12px oklch(0 0 0 / 0.12);
             }
             .mobile-menu.open { display: block; }
             .mobile-menu a {
@@ -148,24 +161,30 @@
 
         /* Lists */
         .pub-section-title {
-            font-size: 0.75rem; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 0.08em;
-            color: var(--muted); margin-bottom: 1rem;
+            font-size: 1.15rem; font-weight: 600;
+            color: var(--ink); margin-bottom: 1rem;
             padding-top: 1.5rem;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 0.5rem;
+            letter-spacing: -0.01em;
         }
         
         .pub-item {
-            padding: 1.5rem 0;
-            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 1.4rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--surface);
+            margin-bottom: 0.85rem;
+            transition: border-color 0.15s, transform 0.15s;
         }
-        .pub-item:last-child { border-bottom: none; }
+        .pub-item:hover {
+            border-color: oklch(from var(--primary) l c h / 0.55);
+            transform: translateY(-1px);
+        }
+        .pub-item:last-child { margin-bottom: 0; }
         
         .pub-meta-top {
             display: inline-flex; align-items: center;
             font-size: 0.75rem; font-weight: 600;
-            color: var(--muted); background: var(--surface);
+            color: var(--muted); background: var(--bg);
             padding: 0.25rem 0.6rem; border-radius: 4px;
             margin-bottom: 0.75rem;
         }
@@ -177,12 +196,14 @@
         }
         .pub-title a {
             transition: color 0.15s;
-            display: inline-flex; align-items: baseline; gap: 0.25rem;
+            display: inline;
         }
         .pub-title a:hover { color: var(--primary); }
         .pub-title svg {
             width: 12px; height: 12px; opacity: 0.5;
-            position: relative; top: 0.1em;
+            display: inline-block;
+            margin-left: 0.25rem;
+            vertical-align: -0.1em;
             transition: opacity 0.15s, transform 0.15s;
         }
         .pub-title a:hover svg {
@@ -210,8 +231,8 @@
         }
         .footer-copy { font-size: 0.8rem; color: var(--muted); }
         .footer-social { display: flex; gap: 1rem; }
-        .footer-social a { color: var(--muted); transition: color 0.15s; display: flex; }
-        .footer-social a:hover { color: var(--ink); }
+        .footer-social a { color: var(--muted); transition: background 0.15s, color 0.15s; display: flex; width: 2.5rem; height: 2.5rem; align-items: center; justify-content: center; border-radius: 6px; }
+        .footer-social a:hover { color: var(--ink); background: var(--surface); }
         .footer-social svg { width: 18px; height: 18px; }
 
         @media (max-width: 640px) {
@@ -233,15 +254,15 @@
             <a href="/" class="nav-brand">Illia Shkliar</a>
             <div class="nav-links">
                 <a href="/">About</a>
-                <a href="/experience.html">Experience</a>
-                <a href="/publications.html" class="active">Publications</a>
+                <a href="/experience">Experience</a>
+                <a href="/publications" class="active">Publications</a>
             </div>
             <div style="display:flex;align-items:center;gap:0.25rem;">
                 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
                     <svg id="icon-sun" class="hidden" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
                     <svg id="icon-moon" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
                 </button>
-                <button class="nav-mobile-btn" id="mobile-btn" aria-label="Menu">
+                <button class="nav-mobile-btn" id="mobile-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
                     <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
                 </button>
             </div>
@@ -250,8 +271,8 @@
 
     <div class="mobile-menu" id="mobile-menu">
         <a href="/">About</a>
-        <a href="/experience.html">Experience</a>
-        <a href="/publications.html" class="active">Publications</a>
+        <a href="/experience">Experience</a>
+        <a href="/publications" class="active">Publications</a>
     </div>
 
     <main class="page">
@@ -266,7 +287,7 @@
             <article class="pub-item">
                 <span class="pub-meta-top">npj Imaging · 2025</span>
                 <h3 class="pub-title">
-                    <a href="https://www.nature.com/articles/s44303-025-00073-3" target="_blank">
+                    <a href="https://www.nature.com/articles/s44303-025-00073-3" target="_blank" rel="noopener noreferrer">
                         Translation of hyperpolarized [¹³C,¹⁵N₂]urea MRI for novel human brain perfusion studies
                         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                     </a>
@@ -282,7 +303,7 @@
             <article class="pub-item">
                 <span class="pub-meta-top">ISMRM 2025 · Honolulu, Hawaiʻi</span>
                 <h3 class="pub-title">
-                    <a href="https://archive.ismrm.org/2025/4475.html" target="_blank">
+                    <a href="https://archive.ismrm.org/2025/4475.html" target="_blank" rel="noopener noreferrer">
                         D₂O vs H₂O Dissolutions for Enhancing Human MR Imaging of Hyperpolarized [2-¹³C]Pyruvate Conversions to Glutamate and Lactate
                         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                     </a>
@@ -294,7 +315,7 @@
             <article class="pub-item">
                 <span class="pub-meta-top">ISMRM 2025 · Honolulu, Hawaiʻi</span>
                 <h3 class="pub-title">
-                    <a href="https://archive.ismrm.org/2025/3061.html" target="_blank">
+                    <a href="https://archive.ismrm.org/2025/3061.html" target="_blank" rel="noopener noreferrer">
                         Translation of Hyperpolarized [¹³C,¹⁵N₂]Urea MRI for Novel Human Brain Perfusion Studies
                         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                     </a>
@@ -305,7 +326,7 @@
             <article class="pub-item">
                 <span class="pub-meta-top">ENC-ISMAR 2025 · Pacific Grove, CA</span>
                 <h3 class="pub-title">
-                    <a href="https://www.nature.com/articles/s44303-025-00073-3" target="_blank">
+                    <a href="https://www.nature.com/articles/s44303-025-00073-3" target="_blank" rel="noopener noreferrer">
                         Novel Human Brain Vascular Imaging with Hyperpolarized [¹³C,¹⁵N₂]Urea MRI
                         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                     </a>
@@ -319,13 +340,13 @@
         <div class="footer-inner">
             <span class="footer-copy">&copy; 2026 Illia Shkliar</span>
             <div class="footer-social">
-                <a href="https://www.linkedin.com/in/illia-shkliar/" target="_blank" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/illia-shkliar/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                     <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                 </a>
-                <a href="https://github.com/illia265" target="_blank" aria-label="GitHub">
+                <a href="https://github.com/illia265" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                     <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
                 </a>
-                <a href="https://orcid.org/" target="_blank" aria-label="ORCID">
+                <a href="https://orcid.org/0009-0009-7599-2562" target="_blank" rel="noopener noreferrer" aria-label="ORCID">
                     <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378a.875.875 0 110 1.75.875.875 0 010-1.75zm-.869 3.372h1.738v11.5H6.5V7.75zm3.869 0h4.695c3.878 0 5.936 2.676 5.936 5.75s-2.058 5.75-5.936 5.75H10.37V7.75zm1.737 1.5v8.5h2.958c2.935 0 4.199-2.058 4.199-4.25s-1.264-4.25-4.199-4.25h-2.958z"/></svg>
                 </a>
             </div>
@@ -356,12 +377,16 @@
         const mobileMenu = document.getElementById('mobile-menu');
 
         mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('open');
+            const isOpen = mobileMenu.classList.toggle('open');
+            mobileBtn.setAttribute('aria-expanded', String(isOpen));
         });
 
         // Close mobile menu on link click
         mobileMenu.querySelectorAll('a').forEach(a => {
-            a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+            a.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                mobileBtn.setAttribute('aria-expanded', 'false');
+            });
         });
     </script>
 </body>
