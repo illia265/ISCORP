@@ -29,7 +29,7 @@
             --bg: oklch(0.08 0.000 0);
             --surface: oklch(0.13 0.000 0);
             --ink: oklch(0.93 0.005 110);
-            --muted: oklch(0.62 0.005 110);
+            --muted: oklch(0.72 0.006 110);
             --primary: oklch(0.70 0.12 113);
             --accent: oklch(0.55 0.10 250);
             --border: oklch(0.20 0.000 0);
@@ -40,7 +40,7 @@
             --bg: oklch(1.000 0.000 0);
             --surface: oklch(0.96 0.000 0);
             --ink: oklch(0.18 0.005 110);
-            --muted: oklch(0.45 0.005 110);
+            --muted: oklch(0.36 0.006 110);
             --primary: oklch(0.45 0.12 113);
             --accent: oklch(0.45 0.10 250);
             --border: oklch(0.88 0.000 0);
@@ -88,6 +88,9 @@
             height: 56px;
         }
         .nav-brand {
+            display: inline-flex;
+            align-items: center;
+            min-height: 2.75rem;
             font-family: 'Karla', sans-serif;
             font-weight: 600; font-size: 1.05rem;
             letter-spacing: -0.01em;
@@ -107,7 +110,7 @@
         }
         .theme-toggle {
             background: none; border: none; cursor: pointer;
-            color: var(--muted); min-width: 2.5rem; min-height: 2.5rem; padding: 0.5rem;
+            color: var(--muted); min-width: 2.75rem; min-height: 2.75rem; padding: 0.5rem;
             border-radius: 6px; display: flex; align-items: center;
             justify-content: center;
             transition: background 0.15s, color 0.15s;
@@ -122,7 +125,7 @@
             .nav-links { display: none; }
             .nav-mobile-btn {
                 display: flex; background: none; border: none; cursor: pointer;
-                color: var(--muted); min-width: 2.5rem; min-height: 2.5rem; padding: 0.5rem;
+                color: var(--muted); min-width: 2.75rem; min-height: 2.75rem; padding: 0.5rem;
                 align-items: center; justify-content: center; border-radius: 6px;
             }
             .mobile-menu {
@@ -180,6 +183,83 @@
             transform: translateY(-1px);
         }
         .pub-item:last-child { margin-bottom: 0; }
+
+        .pub-entry {
+            display: grid;
+            grid-template-columns: 5.25rem minmax(0, 1fr);
+            gap: 1.05rem;
+            align-items: flex-start;
+        }
+
+        .pub-thumb {
+            width: 4.9rem;
+            height: 4.9rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pub-thumb img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .pub-thumb-cover {
+            height: 6.1rem;
+        }
+
+        .pub-thumb-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pub-thumb-logo {
+            padding: 0.58rem;
+            background: oklch(from var(--surface) l c h / 0.9);
+        }
+
+        .pub-thumb-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .pub-thumb-ismrm {
+            border-color: oklch(from var(--accent) l c h / 0.35);
+            background: oklch(from var(--accent) 0.12 c h / 0.14);
+        }
+
+        .pub-thumb-enc {
+            border-color: oklch(from var(--ink) l c h / 0.24);
+            background: oklch(0.98 0.01 105);
+            padding: 0.38rem;
+        }
+
+        .pub-thumb-enc img {
+            width: 92%;
+            height: 92%;
+        }
+
+        .pub-thumb-npj-logo {
+            position: absolute;
+            left: 0.45rem;
+            right: 0.45rem;
+            bottom: 0.45rem;
+            padding: 0.28rem 0.35rem;
+            border-radius: 4px;
+            background: oklch(1 0 0 / 0.92);
+        }
+
+        .pub-thumb-npj-logo img {
+            width: 100%;
+            height: auto;
+        }
         
         .pub-meta-top {
             display: inline-flex; align-items: center;
@@ -215,9 +295,45 @@
             line-height: 1.6; margin-bottom: 0.5rem;
         }
         .pub-authors strong { color: var(--ink); font-weight: 600; }
+
+        .pub-impact {
+            font-size: 0.875rem;
+            color: var(--ink);
+            line-height: 1.65;
+            margin-bottom: 0.75rem;
+            text-wrap: pretty;
+        }
         
         .pub-meta-bottom {
             font-size: 0.8rem; color: var(--muted);
+        }
+
+        .pub-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.85rem;
+        }
+
+        .pub-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 2.75rem;
+            padding: 0.35rem 0.7rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--bg);
+            color: var(--ink);
+            font-size: 0.78rem;
+            font-weight: 600;
+            transition: border-color 0.15s, color 0.15s, transform 0.15s;
+        }
+
+        .pub-action:hover {
+            border-color: oklch(from var(--primary) l c h / 0.65);
+            color: var(--primary);
+            transform: translateY(-1px);
         }
 
         /* Footer */
@@ -231,11 +347,26 @@
         }
         .footer-copy { font-size: 0.8rem; color: var(--muted); }
         .footer-social { display: flex; gap: 1rem; }
-        .footer-social a { color: var(--muted); transition: background 0.15s, color 0.15s; display: flex; width: 2.5rem; height: 2.5rem; align-items: center; justify-content: center; border-radius: 6px; }
+        .footer-social a { color: var(--muted); transition: background 0.15s, color 0.15s; display: flex; width: 2.75rem; height: 2.75rem; align-items: center; justify-content: center; border-radius: 6px; }
         .footer-social a:hover { color: var(--ink); background: var(--surface); }
         .footer-social svg { width: 18px; height: 18px; }
 
         @media (max-width: 640px) {
+            .pub-entry {
+                grid-template-columns: 1fr;
+                gap: 0.85rem;
+            }
+
+            .pub-thumb {
+                width: 4.65rem;
+                height: 4.65rem;
+            }
+
+            .pub-thumb-cover {
+                width: 5.2rem;
+                height: 6.35rem;
+            }
+
             .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
         }
     </style>
@@ -285,15 +416,30 @@
         <h2 class="pub-section-title">Peer-Reviewed Publications</h2>
         <div>
             <article class="pub-item">
-                <span class="pub-meta-top">npj Imaging · 2025</span>
-                <h3 class="pub-title">
-                    <a href="https://www.nature.com/articles/s44303-025-00073-3" target="_blank" rel="noopener noreferrer">
-                        Translation of hyperpolarized [¹³C,¹⁵N₂]urea MRI for novel human brain perfusion studies
-                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                    </a>
-                </h3>
-                <p class="pub-authors">Kim Y, Chen HY, Nickles T, <strong>Shkliar I</strong>, Dang D, Slater J, Wang C, Gordon JW, Tan CT, Suszczynski C, Maddali S, Gaunt A, Chen R, Villanueva-Meyer J, Xu D, Larson PEZ, Kurhanewicz J, Bok RA, Chang S, Vigneron DB.</p>
-                <p class="pub-meta-bottom">PMCID: PMC11925798</p>
+                <div class="pub-entry">
+                    <div class="pub-thumb pub-thumb-cover">
+                        <img src="assets/publications/npj-urea-figure.png" alt="Figure from the npj Imaging hyperpolarized urea MRI paper">
+                        <span class="pub-thumb-npj-logo" aria-hidden="true">
+                            <img src="assets/publications/npj-imaging-logo.svg" alt="">
+                        </span>
+                    </div>
+                    <div>
+                        <span class="pub-meta-top">npj Imaging · 2025</span>
+                        <h3 class="pub-title">
+                            <a href="https://www.nature.com/articles/s44303-025-00073-3" target="_blank" rel="noopener noreferrer">
+                                Translation of hyperpolarized [¹³C,¹⁵N₂]urea MRI for novel human brain perfusion studies
+                                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                            </a>
+                        </h3>
+                        <p class="pub-authors">Kim Y, Chen HY, Nickles T, <strong>Shkliar I</strong>, Dang D, Slater J, Wang C, Gordon JW, Tan CT, Suszczynski C, Maddali S, Gaunt A, Chen R, Villanueva-Meyer J, Xu D, Larson PEZ, Kurhanewicz J, Bok RA, Chang S, Vigneron DB.</p>
+                        <p class="pub-impact">Contributed to a first-in-human hyperpolarized urea MRI study for novel human brain perfusion imaging.</p>
+                        <p class="pub-meta-bottom">PMCID: PMC11925798</p>
+                        <!-- TODO: Add a PMCID URL if a separate PMCID button should be shown. -->
+                        <div class="pub-actions">
+                            <a class="pub-action" href="https://www.nature.com/articles/s44303-025-00073-3" target="_blank" rel="noopener noreferrer">View paper</a>
+                        </div>
+                    </div>
+                </div>
             </article>
         </div>
 
@@ -301,37 +447,65 @@
         <h2 class="pub-section-title" style="margin-top: 2rem;">Conference Proceedings</h2>
         <div>
             <article class="pub-item">
-                <span class="pub-meta-top">ISMRM 2025 · Honolulu, Hawaiʻi</span>
-                <h3 class="pub-title">
-                    <a href="https://archive.ismrm.org/2025/4475.html" target="_blank" rel="noopener noreferrer">
-                        D₂O vs H₂O Dissolutions for Enhancing Human MR Imaging of Hyperpolarized [2-¹³C]Pyruvate Conversions to Glutamate and Lactate
-                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                    </a>
-                </h3>
-                <p class="pub-authors">Kim Y*, <strong>Shkliar I*</strong>, Dang D, Chen HY, Nickles T, Escobar E, Andosca S, Bok RA, Gordon JW, Vigneron DB. (P4475)</p>
-                <p class="pub-meta-bottom">* Co-first author</p>
+                <div class="pub-entry">
+                    <div class="pub-thumb pub-thumb-logo pub-thumb-ismrm">
+                        <img src="assets/publications/ismrm-logo.png" alt="ISMRM logo">
+                    </div>
+                    <div>
+                        <span class="pub-meta-top">ISMRM 2025 · Honolulu, Hawaiʻi</span>
+                        <h3 class="pub-title">
+                            <a href="https://archive.ismrm.org/2025/4475.html" target="_blank" rel="noopener noreferrer">
+                                D₂O vs H₂O Dissolutions for Enhancing Human MR Imaging of Hyperpolarized [2-¹³C]Pyruvate Conversions to Glutamate and Lactate
+                                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                            </a>
+                        </h3>
+                        <p class="pub-authors">Kim Y*, <strong>Shkliar I*</strong>, Dang D, Chen HY, Nickles T, Escobar E, Andosca S, Bok RA, Gordon JW, Vigneron DB. (P4475)</p>
+                        <p class="pub-impact">Co-first author on a study evaluating D₂O dissolution to improve hyperpolarized [2-¹³C]pyruvate imaging of glutamate and lactate conversion.</p>
+                        <p class="pub-meta-bottom">* Co-first author</p>
+                        <div class="pub-actions">
+                            <a class="pub-action" href="https://archive.ismrm.org/2025/4475.html" target="_blank" rel="noopener noreferrer">ISMRM abstract</a>
+                        </div>
+                    </div>
+                </div>
             </article>
             
             <article class="pub-item">
-                <span class="pub-meta-top">ISMRM 2025 · Honolulu, Hawaiʻi</span>
-                <h3 class="pub-title">
-                    <a href="https://archive.ismrm.org/2025/3061.html" target="_blank" rel="noopener noreferrer">
-                        Translation of Hyperpolarized [¹³C,¹⁵N₂]Urea MRI for Novel Human Brain Perfusion Studies
-                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                    </a>
-                </h3>
-                <p class="pub-authors">Kim Y, Chen HY, Nickles T, <strong>Shkliar I</strong>, Dang D, Slater J, Wang C, Gordon JW, Tan CT, Suszczynski C, Maddali S, Gaunt A, Chen R, Villanueva-Meyer J, Xu D, Larson PEZ, Kurhanewicz J, Bok RA, Chang S, Vigneron DB. (P3061)</p>
+                <div class="pub-entry">
+                    <div class="pub-thumb pub-thumb-logo pub-thumb-ismrm">
+                        <img src="assets/publications/ismrm-logo.png" alt="ISMRM logo">
+                    </div>
+                    <div>
+                        <span class="pub-meta-top">ISMRM 2025 · Honolulu, Hawaiʻi</span>
+                        <h3 class="pub-title">
+                            <a href="https://archive.ismrm.org/2025/3061.html" target="_blank" rel="noopener noreferrer">
+                                Translation of Hyperpolarized [¹³C,¹⁵N₂]Urea MRI for Novel Human Brain Perfusion Studies
+                                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                            </a>
+                        </h3>
+                        <p class="pub-authors">Kim Y, Chen HY, Nickles T, <strong>Shkliar I</strong>, Dang D, Slater J, Wang C, Gordon JW, Tan CT, Suszczynski C, Maddali S, Gaunt A, Chen R, Villanueva-Meyer J, Xu D, Larson PEZ, Kurhanewicz J, Bok RA, Chang S, Vigneron DB. (P3061)</p>
+                        <p class="pub-impact">Conference presentation of the hyperpolarized urea MRI brain perfusion study.</p>
+                        <div class="pub-actions">
+                            <a class="pub-action" href="https://archive.ismrm.org/2025/3061.html" target="_blank" rel="noopener noreferrer">ISMRM abstract</a>
+                        </div>
+                    </div>
+                </div>
             </article>
 
             <article class="pub-item">
-                <span class="pub-meta-top">ENC-ISMAR 2025 · Pacific Grove, CA</span>
-                <h3 class="pub-title">
-                    <a href="https://www.nature.com/articles/s44303-025-00073-3" target="_blank" rel="noopener noreferrer">
-                        Novel Human Brain Vascular Imaging with Hyperpolarized [¹³C,¹⁵N₂]Urea MRI
-                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                    </a>
-                </h3>
-                <p class="pub-authors">Kim Y, Chen HY, Nickles T, <strong>Shkliar I</strong>, Dang D, Slater J, Wang C, Gordon JW, Tan CT, Suszczynski C, Maddali S, Gaunt A, Chen R, Villanueva-Meyer J, Xu D, Larson PEZ, Kurhanewicz J, Bok RA, Chang S, Vigneron DB.</p>
+                <div class="pub-entry">
+                    <div class="pub-thumb pub-thumb-logo pub-thumb-enc">
+                        <img src="assets/publications/enc-logo.png" alt="ENC conference logo">
+                    </div>
+                    <div>
+                        <span class="pub-meta-top">ENC-ISMAR 2025 · Pacific Grove, CA</span>
+                        <h3 class="pub-title">
+                            Novel Human Brain Vascular Imaging with Hyperpolarized [¹³C,¹⁵N₂]Urea MRI
+                        </h3>
+                        <p class="pub-authors">Kim Y, Chen HY, Nickles T, <strong>Shkliar I</strong>, Dang D, Slater J, Wang C, Gordon JW, Tan CT, Suszczynski C, Maddali S, Gaunt A, Chen R, Villanueva-Meyer J, Xu D, Larson PEZ, Kurhanewicz J, Bok RA, Chang S, Vigneron DB.</p>
+                        <p class="pub-impact">Presented work on hyperpolarized [¹³C,¹⁵N₂]urea MRI for human brain vascular imaging.</p>
+                        <!-- TODO: Add ENC-ISMAR proceeding or poster URL when available. -->
+                    </div>
+                </div>
             </article>
         </div>
     </main>

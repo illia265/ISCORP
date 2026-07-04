@@ -4,19 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experience &amp; Education | Illia Shkliar</title>
+    <title>Experience | Illia Shkliar</title>
     <meta name="description"
-        content="Academic background, research experience, and leadership by Illia Shkliar, a student researcher in biomedical imaging.">
-    <meta property="og:title" content="Experience &amp; Education | Illia Shkliar">
+        content="Research, education, and scientific work by Illia Shkliar across imaging, biology, and communication.">
+    <meta property="og:title" content="Experience | Illia Shkliar">
     <meta property="og:description"
-        content="Research, education, and science communication experience for Illia Shkliar.">
+        content="Research, education, and scientific work across imaging, biology, and communication.">
     <meta property="og:image" content="https://iscorp.vercel.app/Illia-Shkliar-Headshot.png">
     <meta property="og:image:alt" content="Portrait of Illia Shkliar">
     <meta property="og:url" content="https://iscorp.vercel.app/experience">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Experience &amp; Education | Illia Shkliar">
-    <meta name="twitter:description" content="Research, education, and leadership experience for Illia Shkliar.">
+    <meta name="twitter:title" content="Experience | Illia Shkliar">
+    <meta name="twitter:description" content="Research, education, and scientific work across imaging, biology, and communication.">
     <meta name="twitter:image" content="https://iscorp.vercel.app/Illia-Shkliar-Headshot.png">
     <link rel="canonical" href="https://iscorp.vercel.app/experience">
 
@@ -29,7 +29,7 @@
             --bg: oklch(0.08 0.000 0);
             --surface: oklch(0.13 0.000 0);
             --ink: oklch(0.93 0.005 110);
-            --muted: oklch(0.62 0.005 110);
+            --muted: oklch(0.72 0.006 110);
             --primary: oklch(0.70 0.12 113);
             --accent: oklch(0.55 0.10 250);
             --border: oklch(0.20 0.000 0);
@@ -40,11 +40,15 @@
             --bg: oklch(1.000 0.000 0);
             --surface: oklch(0.96 0.000 0);
             --ink: oklch(0.18 0.005 110);
-            --muted: oklch(0.45 0.005 110);
+            --muted: oklch(0.36 0.006 110);
             --primary: oklch(0.45 0.12 113);
             --accent: oklch(0.45 0.10 250);
             --border: oklch(0.88 0.000 0);
             --focus: oklch(0.46 0.14 113);
+        }
+
+        html.light .btn-primary {
+            color: oklch(1 0 0);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -88,6 +92,9 @@
             height: 56px;
         }
         .nav-brand {
+            display: inline-flex;
+            align-items: center;
+            min-height: 2.75rem;
             font-family: 'Karla', sans-serif;
             font-weight: 600; font-size: 1.05rem;
             letter-spacing: -0.01em;
@@ -104,7 +111,7 @@
         .nav-links a.active { color: var(--ink); background: var(--surface); }
         .theme-toggle {
             background: none; border: none; cursor: pointer;
-            color: var(--muted); min-width: 2.5rem; min-height: 2.5rem; padding: 0.5rem;
+            color: var(--muted); min-width: 2.75rem; min-height: 2.75rem; padding: 0.5rem;
             border-radius: 6px; display: flex; align-items: center;
             justify-content: center;
             transition: background 0.15s, color 0.15s;
@@ -119,7 +126,7 @@
             .nav-links { display: none; }
             .nav-mobile-btn {
                 display: flex; background: none; border: none; cursor: pointer;
-                color: var(--muted); min-width: 2.5rem; min-height: 2.5rem; padding: 0.5rem;
+                color: var(--muted); min-width: 2.75rem; min-height: 2.75rem; padding: 0.5rem;
                 align-items: center; justify-content: center; border-radius: 6px;
             }
             .mobile-menu {
@@ -177,14 +184,14 @@
             display: inline-flex; align-items: center; justify-content: center;
             background: var(--primary); color: oklch(0.08 0 0);
             font-size: 0.85rem; font-weight: 600;
-            min-height: 2.5rem; padding: 0.55rem 1.2rem; border-radius: 6px;
+            min-height: 2.75rem; padding: 0.55rem 1.2rem; border-radius: 6px;
             transition: background 0.15s, color 0.15s, transform 0.15s;
         }
         .btn-primary:hover { transform: translateY(-1px); }
         .social-icon {
             color: var(--muted); transition: color 0.15s;
             display: flex; align-items: center; justify-content: center;
-            width: 2.5rem; height: 2.5rem; border-radius: 6px;
+            width: 2.75rem; height: 2.75rem; border-radius: 6px;
         }
         .social-icon:hover { color: var(--ink); background: var(--surface); }
         .social-icon svg { width: 20px; height: 20px; }
@@ -243,6 +250,45 @@
         .journey-date { font-size: 0.8rem; color: var(--muted); white-space: nowrap; }
         .journey-desc { font-size: 0.875rem; color: var(--muted); margin-top: 0.5rem; line-height: 1.65; }
 
+        .milestone-list {
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .milestone-item {
+            padding: 1rem 0;
+            border-top: 1px solid var(--border);
+        }
+        .milestone-item:first-child { border-top: none; }
+        .milestone-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .milestone-title {
+            font-family: 'Source Serif 4', serif;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .milestone-institution {
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-top: 0.15rem;
+        }
+        .milestone-date {
+            color: var(--muted);
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+        .milestone-desc {
+            color: var(--muted);
+            font-size: 0.875rem;
+            line-height: 1.65;
+            margin-top: 0.5rem;
+            text-wrap: pretty;
+        }
+
         /* Footer */
         .site-footer {
             border-top: 1px solid var(--border);
@@ -254,7 +300,7 @@
         }
         .footer-copy { font-size: 0.8rem; color: var(--muted); }
         .footer-social { display: flex; gap: 1rem; }
-        .footer-social a { color: var(--muted); transition: background 0.15s, color 0.15s; display: flex; width: 2.5rem; height: 2.5rem; align-items: center; justify-content: center; border-radius: 6px; }
+        .footer-social a { color: var(--muted); transition: background 0.15s, color 0.15s; display: flex; width: 2.75rem; height: 2.75rem; align-items: center; justify-content: center; border-radius: 6px; }
         .footer-social a:hover { color: var(--ink); background: var(--surface); }
         .footer-social svg { width: 18px; height: 18px; }
 
@@ -301,10 +347,20 @@
     <main class="page">
         <header class="page-header" style="padding-top: 7rem; padding-bottom: 3rem;">
             <h1 style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; letter-spacing: -0.02em;">Experience &amp; Education</h1>
-            <p style="margin-top: 1rem; font-size: 1.1rem; color: var(--muted); max-width: 55ch; line-height: 1.6;">My academic background and research journey.</p>
+            <p style="margin-top: 1rem; font-size: 1.1rem; color: var(--muted); max-width: 55ch; line-height: 1.6;">Research, education, and scientific work across imaging, biology, and communication.</p>
         </header>
 
-        <section class="section" id="education" style="border-top: none; padding-top: 0;">
+        <section class="section" id="experience" style="border-top: none; padding-top: 0;">
+            <h2 class="section-title">Experience</h2>
+            <div id="experience-list"></div>
+        </section>
+
+        <section class="section" id="milestones">
+            <h2 class="section-title">Selected Research Milestones</h2>
+            <div class="milestone-list" id="milestone-list"></div>
+        </section>
+
+        <section class="section" id="education">
             <h2 class="section-title">Education</h2>
             <div class="edu-card">
                 <div class="edu-header">
@@ -316,11 +372,6 @@
                 </div>
                 <div class="edu-detail">Chancellor's List</div>
             </div>
-        </section>
-
-        <section class="section" id="experience">
-            <h2 class="section-title">Experience</h2>
-            <div id="experience-list"></div>
         </section>
     </main>
 
@@ -395,12 +446,15 @@
 
         // Experience
         const experienceData = [
-            { date: "Jan 2026 – Present", type: "Research", title: "Undergraduate Researcher, Spencer Lab", institution: "University of California, Merced · PI: Joel Spencer, PhD", description: "Investigating in vivo biological systems using advanced optical microscopy. Completing institutional biosafety and animal handling certifications. Onboarding for intravital imaging and tissue clearing SOPs using a custom-built two-photon microscope." },
-            { date: "Nov 2024 – Present", type: "Leadership", title: "President & Co-Founder, Gen Core Biology", institution: "Digital Education Platform", description: "Built a science communication platform reaching 150,000 followers globally through accessible biology content." },
-            { date: "Jun – Aug 2025", type: "Fellowship", title: "Sci3 Mini-Fellow", institution: "Stanford University School of Medicine", description: "Completed training on clinical translation of molecular imaging modalities (Optical, MRI, PET) and AI/Deep Learning applications in diagnosis. Presented a review on clinical imaging to radiology faculty and peers." },
-            { date: "May 2025", type: "Presentation", title: "Co-First Author at ISMRM", institution: "International Society for Magnetic Resonance in Medicine", description: "Abstract \"D₂O vs H₂O Dissolutions for Enhancing Human MR Imaging...\" presented at the ISMRM Annual Meeting in Honolulu, Hawaiʻi." },
-            { date: "March 2025", type: "Publication", title: "Published in npj Imaging", institution: "Nature Portfolio", description: "Co-authored \"Translation of hyperpolarized [¹³C,¹⁵N₂]urea MRI for novel human brain perfusion studies,\" contributing to a first-in-human clinical trial." },
-            { date: "Summers 2023–2026", type: "Research", title: "Student Researcher, HMTRC", institution: "UCSF Dept. of Radiology & Biomedical Imaging · PI: Daniel B. Vigneron, PhD", description: "Co-authored npj Imaging publication and co-first authored ISMRM abstract. Migrated data analysis from MATLAB to Python for ~200 ¹³C spectra. Engineered and 3D-printed custom NMR hardware. Executed hyperpolarization and T1 measurements. Constructed cerebral blood flow maps from ASL datasets." }
+            { date: "Summers 2023–2026", type: "Research", title: "Student Researcher, HMTRC", institution: "UCSF Dept. of Radiology & Biomedical Imaging · Daniel B. Vigneron Lab", description: "Work on translational hyperpolarized MRI and MR spectroscopy projects in the Hyperpolarized MRI Technology Resource Center. Contributed to studies involving hyperpolarized ¹³C imaging, multinuclear spectroscopy, data analysis, and clinical translation workflows. Migrated MATLAB-based analysis workflows to Python for ~200 ¹³C spectra, engineered and 3D-printed custom NMR hardware, executed hyperpolarization and T₁ measurements, and constructed cerebral blood flow maps from ASL datasets. Co-authored an npj Imaging publication and co-first authored an ISMRM abstract." },
+            { date: "Jan 2026 – Present", type: "Research", title: "Undergraduate Researcher, Spencer Lab", institution: "University of California, Merced · PI: Joel Spencer, PhD", description: "Investigating biological recovery and tissue dynamics using advanced optical imaging approaches. Work involves intravital two-photon microscopy, optical tissue clearing, biosafety and animal-handling training, and onboarding for imaging workflows using a custom-built two-photon microscope." },
+            { date: "Nov 2024 – Present", type: "Leadership", title: "President & Co-Founder, GenCore Biology", institution: "Digital Education Platform", description: "Co-founded and lead a science education platform reaching 150K+ followers and 120M+ global views through accessible biology content. Coordinate student contributors and develop educational media focused on making biology more visual, accurate, and approachable." },
+            { date: "Jun – Aug 2025", type: "Fellowship", title: "SCi³ Mini-Fellow", institution: "Stanford University School of Medicine", description: "Completed training on the clinical translation of molecular imaging modalities, including optical imaging, MRI, PET, and AI/deep learning applications in diagnosis. Presented a review on clinical imaging to radiology faculty and peers." }
+        ];
+
+        const milestoneData = [
+            { date: "March 2025", title: "Published in npj Imaging", institution: "Nature Portfolio", description: "Co-authored “Translation of hyperpolarized [¹³C,¹⁵N₂]urea MRI for novel human brain perfusion studies,” contributing to a first-in-human hyperpolarized urea MRI study for novel human brain perfusion imaging." },
+            { date: "May 2025", title: "Co-First Author at ISMRM", institution: "International Society for Magnetic Resonance in Medicine", description: "Co-first author on a study evaluating D₂O dissolution to improve hyperpolarized [2-¹³C]pyruvate imaging of glutamate and lactate conversion." }
         ];
 
         const list = document.getElementById('experience-list');
@@ -421,6 +475,23 @@
                 <p class="journey-desc">${item.description}</p>
             `;
             list.appendChild(el);
+        });
+
+        const milestoneList = document.getElementById('milestone-list');
+        milestoneData.forEach(item => {
+            const el = document.createElement('div');
+            el.className = 'milestone-item';
+            el.innerHTML = `
+                <div class="milestone-header">
+                    <div>
+                        <div class="milestone-title">${item.title}</div>
+                        <div class="milestone-institution">${item.institution}</div>
+                    </div>
+                    <span class="milestone-date">${item.date}</span>
+                </div>
+                <p class="milestone-desc">${item.description}</p>
+            `;
+            milestoneList.appendChild(el);
         });
     </script>
 </body>

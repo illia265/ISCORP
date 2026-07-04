@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Illia Shkliar | Student Researcher &amp; Science Communicator</title>
+    <title>Illia Shkliar</title>
     <meta name="description"
-        content="Portfolio of Illia Shkliar, a student researcher in biomedical imaging at UCSF and UC Merced and science communicator behind Gen Core Biology.">
-    <meta property="og:title" content="Illia Shkliar | Student Researcher &amp; Science Communicator">
-    <meta property="og:description" content="Researching cancer imaging at UCSF, making biology accessible at Gen Core Biology, and figuring it all out one step at a time.">
+        content="Personal platform for Illia Shkliar, focused on translational imaging, cancer metabolism, molecular biology, and science education.">
+    <meta property="og:title" content="Illia Shkliar">
+    <meta property="og:description" content="Translational imaging, cancer metabolism, molecular biology, and science education by Illia Shkliar.">
     <meta property="og:image" content="https://iscorp.vercel.app/Illia-Shkliar-Headshot.png">
     <meta property="og:image:alt" content="Portrait of Illia Shkliar">
     <meta property="og:url" content="https://iscorp.vercel.app/">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Illia Shkliar | Student Researcher &amp; Science Communicator">
-    <meta name="twitter:description" content="Biomedical imaging research, publications, and science communication by Illia Shkliar.">
+    <meta name="twitter:title" content="Illia Shkliar">
+    <meta name="twitter:description" content="Biomedical imaging research, publications, and science education by Illia Shkliar.">
     <meta name="twitter:image" content="https://iscorp.vercel.app/Illia-Shkliar-Headshot.png">
     <link rel="canonical" href="https://iscorp.vercel.app/">
 
@@ -30,7 +30,7 @@
             --bg: oklch(0.08 0.000 0);
             --surface: oklch(0.13 0.000 0);
             --ink: oklch(0.93 0.005 110);
-            --muted: oklch(0.62 0.005 110);
+            --muted: oklch(0.72 0.006 110);
             --primary: oklch(0.70 0.12 113);
             --accent: oklch(0.55 0.10 250);
             --border: oklch(0.20 0.000 0);
@@ -41,11 +41,15 @@
             --bg: oklch(1.000 0.000 0);
             --surface: oklch(0.96 0.000 0);
             --ink: oklch(0.18 0.005 110);
-            --muted: oklch(0.45 0.005 110);
+            --muted: oklch(0.36 0.006 110);
             --primary: oklch(0.45 0.12 113);
             --accent: oklch(0.45 0.10 250);
             --border: oklch(0.88 0.000 0);
             --focus: oklch(0.46 0.14 113);
+        }
+
+        html.light .btn-primary {
+            color: oklch(1 0 0);
         }
 
         * {
@@ -122,6 +126,9 @@
         }
 
         .nav-brand {
+            display: inline-flex;
+            align-items: center;
+            min-height: 2.75rem;
             font-family: 'Karla', sans-serif;
             font-weight: 600;
             font-size: 1.05rem;
@@ -155,8 +162,8 @@
             border: none;
             cursor: pointer;
             color: var(--muted);
-            min-width: 2.5rem;
-            min-height: 2.5rem;
+            min-width: 2.75rem;
+            min-height: 2.75rem;
             padding: 0.5rem;
             border-radius: 6px;
             display: flex;
@@ -190,8 +197,8 @@
                 border: none;
                 cursor: pointer;
                 color: var(--muted);
-                min-width: 2.5rem;
-                min-height: 2.5rem;
+                min-width: 2.75rem;
+                min-height: 2.75rem;
                 padding: 0.5rem;
                 align-items: center;
                 justify-content: center;
@@ -244,7 +251,7 @@
             padding-top: 7rem;
             padding-bottom: 4rem;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 3rem;
         }
 
@@ -255,6 +262,7 @@
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--border);
+            margin-top: 0.65rem;
         }
 
         .hero-text h1 {
@@ -263,12 +271,33 @@
             letter-spacing: -0.02em;
         }
 
+        .hero-subtitle {
+            margin-top: 0.45rem;
+            color: var(--primary);
+            font-size: 0.92rem;
+            line-height: 1.5;
+            letter-spacing: 0.01em;
+        }
+
         .hero-text .tagline {
             margin-top: 0.75rem;
             font-size: 1rem;
             color: var(--muted);
             max-width: 50ch;
             line-height: 1.65;
+        }
+
+        .intro-copy {
+            margin-top: 1.35rem;
+            font-size: 0.95rem;
+            color: var(--muted);
+            max-width: 60ch;
+            line-height: 1.75;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: left;
+            text-wrap: pretty;
         }
 
         .hero-meta {
@@ -281,6 +310,9 @@
         }
 
         .hero-meta a {
+            display: inline-flex;
+            align-items: center;
+            min-height: 2.75rem;
             transition: color 0.15s;
         }
 
@@ -304,7 +336,7 @@
             color: oklch(0.08 0 0);
             font-size: 0.85rem;
             font-weight: 600;
-            min-height: 2.5rem;
+            min-height: 2.75rem;
             padding: 0.55rem 1.2rem;
             border-radius: 6px;
             transition: background 0.15s, color 0.15s, transform 0.15s;
@@ -320,8 +352,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 2.5rem;
-            height: 2.5rem;
+            width: 2.75rem;
+            height: 2.75rem;
             border-radius: 6px;
         }
 
@@ -346,6 +378,7 @@
             .hero-photo {
                 width: 120px;
                 height: 120px;
+                margin-top: 0;
             }
 
             .hero-meta {
@@ -354,6 +387,11 @@
 
             .hero-links {
                 justify-content: center;
+            }
+
+            .hero-subtitle {
+                max-width: 28ch;
+                margin-inline: auto;
             }
         }
 
@@ -368,6 +406,45 @@
             font-weight: 600;
             margin-bottom: 1.5rem;
             letter-spacing: -0.01em;
+        }
+
+        .focus-list {
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .focus-item {
+            display: grid;
+            grid-template-columns: minmax(11rem, 0.85fr) 1fr;
+            gap: 1.25rem;
+            padding: 1rem 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .focus-item:first-child {
+            border-top: none;
+        }
+
+        .focus-title {
+            font-family: 'Source Serif 4', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1.35;
+        }
+
+        .focus-desc {
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.65;
+            text-wrap: pretty;
+        }
+
+        @media (max-width: 640px) {
+            .focus-item {
+                grid-template-columns: 1fr;
+                gap: 0.35rem;
+            }
         }
 
         /* Education */
@@ -514,8 +591,8 @@
             color: var(--muted);
             transition: background 0.15s, color 0.15s;
             display: flex;
-            width: 2.5rem;
-            height: 2.5rem;
+            width: 2.75rem;
+            height: 2.75rem;
             align-items: center;
             justify-content: center;
             border-radius: 6px;
@@ -591,20 +668,12 @@
                 onerror="this.onerror=null;this.src='https://placehold.co/200x200/1a1a1a/888?text=IS';">
             <div class="hero-text">
                 <h1>Illia Shkliar</h1>
-                <div
-                    style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--muted); max-width: 60ch; line-height: 1.7; display: flex; flex-direction: column; gap: 1rem;">
-                    <p>Hey, I'm Illia, an undergraduate student at UC Merced studying Molecular and Cellular Biology!
-                    </p>
-                    <p>I've always been fascinated by how diseases work and how we can get better at treating them. It's
-                        what pulled me into research and what's pushing me toward an MD-PhD. These days most of my time
-                        is spent in Prof. Dan Vigneron's lab at UCSF working on cancer metabolism imaging using
-                        hyperpolarized MRI and multinuclear MR spectroscopy, and in the Spencer Lab at UC Merced on
-                        intravital two-photon microscopy and optical tissue clearing. It's a lot of fun and I feel
-                        really lucky to be doing it.</p>
-                    <p>Outside of that, Gen Core Biology is something really close to my heart. It's a platform where we
-                        make biology accessible through short-form content and it's grown to 150K+ followers and 120M+
-                        global views. It started because it's genuinely how I learn best, and I just wanted that for
-                        other people too.</p>
+                <p class="hero-subtitle">Translational Imaging · Cancer Metabolism · Molecular Biology · Science Education</p>
+                <div class="intro-copy">
+                    <p>I’m Illia Shkliar, a Molecular and Cell Biology student in the University Honors Program at UC Merced working across translational imaging, cancer metabolism, and science education.</p>
+                    <p>My research centers on how imaging and spectroscopy can help us understand disease biology and move discoveries closer to clinical use. At UCSF, I work in Prof. Daniel Vigneron’s lab on cancer metabolism imaging using hyperpolarized MRI and multinuclear MR spectroscopy. At UC Merced, I work in the Spencer Lab on intravital two-photon microscopy, optical tissue clearing, and immune regeneration.</p>
+                    <p>I’m especially interested in the space between biology, imaging technology, and patient-facing translation: how we can better visualize disease, understand metabolism, and develop diagnostics or therapeutics that matter clinically.</p>
+                    <p>Outside of research, I lead GenCore Biology, a science education platform reaching 150K+ followers and 120M+ global views. The goal is to make biology feel more accessible, visual, and exciting for students learning it for the first time.</p>
                 </div>
                 <div class="hero-meta">
                     <span>South San Francisco, CA</span>
@@ -626,6 +695,28 @@
                                 d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378a.875.875 0 110 1.75.875.875 0 010-1.75zm-.869 3.372h1.738v11.5H6.5V7.75zm3.869 0h4.695c3.878 0 5.936 2.676 5.936 5.75s-2.058 5.75-5.936 5.75H10.37V7.75zm1.737 1.5v8.5h2.958c2.935 0 4.199-2.058 4.199-4.25s-1.264-4.25-4.199-4.25h-2.958z" />
                         </svg>
                     </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="focus-title">
+            <h2 class="section-title" id="focus-title">Focus Areas</h2>
+            <div class="focus-list">
+                <div class="focus-item">
+                    <h3 class="focus-title">Hyperpolarized MRI &amp; MR Spectroscopy</h3>
+                    <p class="focus-desc">Using metabolic imaging to study disease biology and clinical translation.</p>
+                </div>
+                <div class="focus-item">
+                    <h3 class="focus-title">Cancer Metabolism &amp; Molecular Imaging</h3>
+                    <p class="focus-desc">Understanding how altered metabolism can inform diagnostics and therapy.</p>
+                </div>
+                <div class="focus-item">
+                    <h3 class="focus-title">Immune Regeneration &amp; Tissue Imaging</h3>
+                    <p class="focus-desc">Studying biological recovery through microscopy and tissue-clearing workflows.</p>
+                </div>
+                <div class="focus-item">
+                    <h3 class="focus-title">Science Education &amp; Communication</h3>
+                    <p class="focus-desc">Building accessible biology content for a global student audience.</p>
                 </div>
             </div>
         </section>
